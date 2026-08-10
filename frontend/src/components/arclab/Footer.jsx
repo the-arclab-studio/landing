@@ -1,8 +1,11 @@
 import { Instagram } from "lucide-react";
 import Arc from "./Arc";
 import { Reveal } from "./Reveal";
+import { useLang } from "./LangContext";
 
-const Footer = () => (
+const Footer = () => {
+    const { t } = useLang();
+    return (
     <footer
         data-testid="site-footer"
         className="border-t border-line px-6 pb-16 pt-20"
@@ -44,7 +47,7 @@ const Footer = () => (
                         data-testid="footer-tiktok-placeholder"
                         className="font-grotesk text-xs uppercase tracking-[0.2em] text-ink2"
                     >
-                        TikTok — próximamente
+                        {t.footer.tiktok}
                     </span>
                 </nav>
             </div>
@@ -58,6 +61,7 @@ const Footer = () => (
             </div>
         </div>
     </footer>
-);
+    );
+};
 
 export default Footer;

@@ -2,9 +2,12 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Arc from "./Arc";
 import { MaskLine } from "./Reveal";
-import { waES } from "./data";
+import { useLang } from "./LangContext";
+import { waES, waPT } from "./data";
 
 const Hero = () => {
+    const { lang, t } = useLang();
+    const wa = lang === "pt" ? waPT : waES;
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -42,15 +45,15 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="eyebrow"
                 >
-                    — Durante la temporada
+                    {t.hero.eyebrow}
                 </motion.p>
 
                 <h1 className="mt-8 font-grotesk text-[13.5vw] font-bold lowercase leading-[0.98] tracking-tight text-ink sm:text-7xl lg:text-8xl">
-                    <MaskLine delay={0.35}>el partido se gana</MaskLine>
+                    <MaskLine delay={0.35}>{t.hero.line1}</MaskLine>
                     <MaskLine delay={0.5}>
-                        entre{" "}
+                        {t.hero.line2pre}{" "}
                         <em className="font-playfair italic text-arcblue">
-                            partidos.
+                            {t.hero.line2em}
                         </em>
                     </MaskLine>
                 </h1>
@@ -61,8 +64,7 @@ const Hero = () => {
                     transition={{ duration: 0.9, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
                     className="mt-10 max-w-md text-base text-ink2 sm:text-lg"
                 >
-                    Mantener el nivel, gestionar la fatiga y llegar entero a cada
-                    semana.
+                    {t.hero.sub}
                 </motion.p>
 
                 <motion.div
@@ -72,20 +74,20 @@ const Hero = () => {
                     className="mt-10 flex flex-wrap items-center gap-6"
                 >
                     <a
-                        href={waES}
+                        href={wa}
                         target="_blank"
                         rel="noopener noreferrer"
                         data-testid="hero-whatsapp-btn"
                         className="btn-blue"
                     >
-                        Hablar por WhatsApp
+                        {t.hero.cta}
                     </a>
                     <a
                         href="#planes"
                         data-testid="hero-plans-link"
                         className="font-grotesk text-sm font-medium uppercase tracking-[0.2em] text-ink underline decoration-arcblue decoration-2 underline-offset-8 transition-colors duration-300 hover:text-arcblue"
                     >
-                        Ver los planes
+                        {t.hero.plans}
                     </a>
                 </motion.div>
             </div>

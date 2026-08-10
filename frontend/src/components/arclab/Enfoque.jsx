@@ -1,26 +1,12 @@
 import { Reveal } from "./Reveal";
 import SectionFoot from "./SectionFoot";
 import Arc from "./Arc";
+import { useLang } from "./LangContext";
 
-const CARDS = [
-    {
-        n: "01",
-        title: "Rendimiento",
-        text: "Mantener tu nivel físico durante toda la temporada, sin altibajos.",
-    },
-    {
-        n: "02",
-        title: "Fatiga",
-        text: "Gestionar carga, viajes y minutos con registro diario y ajuste continuo.",
-    },
-    {
-        n: "03",
-        title: "Día de partido",
-        text: "Activación antes y recuperación después, para competir al máximo.",
-    },
-];
-
-const Enfoque = () => (
+const Enfoque = () => {
+    const { t } = useLang();
+    const e = t.enfoque;
+    return (
     <section
         id="enfoque"
         data-testid="enfoque-section"
@@ -28,25 +14,24 @@ const Enfoque = () => (
     >
         <div className="mx-auto max-w-6xl">
             <Reveal>
-                <p className="eyebrow">— El enfoque · In-Season</p>
+                <p className="eyebrow">{e.eyebrow}</p>
                 <h2 className="mt-6 max-w-3xl font-grotesk text-4xl font-bold lowercase leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-                    en temporada no se carga.{" "}
+                    {e.title1}{" "}
                     <em className="font-playfair italic text-arcblue">
-                        se mantiene.
+                        {e.titleEm}
                     </em>
                 </h2>
                 <p className="mt-8 max-w-xl text-base leading-relaxed text-ink2 sm:text-lg">
-                    Ya compites cada semana. El trabajo no es acumular, es{" "}
+                    {e.paraPre}{" "}
                     <strong className="font-semibold text-ink">
-                        llegar entero y rendir el día del partido
+                        {e.paraStrong}
                     </strong>{" "}
-                    — ajustando la carga a tu semana real: minutos, viajes,
-                    dobles jornadas y molestias.
+                    {e.paraPost}
                 </p>
             </Reveal>
 
             <div className="mt-16 grid gap-5 md:grid-cols-3">
-                {CARDS.map((c, i) => (
+                {e.cards.map((c, i) => (
                     <Reveal key={c.n} delay={i * 0.12}>
                         <article
                             data-testid={`enfoque-card-${c.n}`}
@@ -69,23 +54,24 @@ const Enfoque = () => (
             <Reveal className="mt-20">
                 <Arc className="mx-auto h-16 w-full max-w-md" />
                 <h3 className="mt-10 font-grotesk text-3xl font-bold lowercase tracking-tight text-ink sm:text-4xl">
-                    tu semana,{" "}
+                    {e.closeTitle}{" "}
                     <em className="font-playfair italic text-arcblue">
-                        tu carga.
+                        {e.closeEm}
                     </em>
                 </h3>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-ink2">
-                    No hay dos semanas iguales.{" "}
+                    {e.closePre}{" "}
                     <strong className="font-semibold text-ink">
-                        Ajustamos tu plan según cómo llegas
+                        {e.closeStrong}
                     </strong>{" "}
-                    — según tu feedback, no según un calendario fijo.
+                    {e.closePost}
                 </p>
             </Reveal>
 
             <SectionFoot num="01" />
         </div>
     </section>
-);
+    );
+};
 
 export default Enfoque;

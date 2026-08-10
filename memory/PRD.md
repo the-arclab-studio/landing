@@ -35,6 +35,12 @@
 - SEO básico em espanhol (title, meta description, Open Graph)
 - data-testids em todos os elementos interativos
 
+## Implementado (2026-08-10)
+- Toggle de idioma ES/PT no header: toda a copy traduzida (PT-PT), CTA WhatsApp muda para o número PT com mensagem em português quando em modo PT
+- Secção de foto (entre Enfoque e Planos): foto real da equipa a treinar (enviada pelo cliente), a preto e branco, marcas de parêntesis retos azuis nos cantos, parallax subtil
+- WhatsApp PT passou a usar mensagem em português ("Olá, quero info sobre o acompanhamento in-season da ARCLAB")
+- Nota: copy centralizada em src/components/arclab/copy.js (objeto COPY com es/pt)
+
 ## Backlog
 - P0: Substituir wordmark por logo_arclab.png real; fechar texto legal definitivo
 - P1: Link TikTok real (quando existir); imagem og:image real

@@ -1,9 +1,10 @@
 import { Check } from "lucide-react";
 import { Reveal } from "./Reveal";
 import SectionFoot from "./SectionFoot";
-import { PLANS, waES } from "./data";
+import { useLang } from "./LangContext";
+import { waES, waPT } from "./data";
 
-const PlanCard = ({ plan, delay }) => (
+const PlanCard = ({ plan, delay, featuredLabel, cta, wa }) => (
     <Reveal delay={delay} className="h-full">
         <article
             data-testid={`plan-card-${plan.id}`}
@@ -16,7 +17,7 @@ const PlanCard = ({ plan, delay }) => (
                     data-testid="plan-featured-badge"
                     className="absolute -top-3 left-8 rounded-full bg-arcblue px-4 py-1 font-grotesk text-[10px] font-medium uppercase tracking-[0.25em] text-white"
                 >
-                    El más vendido
+                    {featuredLabel}
                 </span>
             )}
             <p className="eyebrow !tracking-[0.25em]">{plan.tag}</p>
@@ -44,19 +45,22 @@ const PlanCard = ({ plan, delay }) => (
                 ))}
             </ul>
             <a
-                href={waES}
+                href={wa}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid={`plan-whatsapp-${plan.id}`}
                 className="mt-8 font-grotesk text-xs font-medium uppercase tracking-[0.2em] text-ink underline decoration-arcblue decoration-2 underline-offset-8 transition-colors duration-300 hover:text-arcblue"
             >
-                Hablar por WhatsApp
+                {cta}
             </a>
         </article>
     </Reveal>
 );
 
-const Planes = () => (
+const Planes = () => {
+    const { lang, t } = useLang();
+    const wa = lang === "pt" ? waPT : waES;
+    return (
     <section
         id="planes"
         data-testid="planes-section"
@@ -64,22 +68,30 @@ const Planes = () => (
     >
         <div className="mx-auto max-w-7xl">
             <Reveal>
-                <p className="eyebrow">— Los planes · Mensualidad</p>
+                <p className="eyebrow">{t.planes.eyebrow}</p>
                 <h2 className="mt-6 font-grotesk text-4xl font-bold lowercase leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-                    elige tu nivel de{" "}
+                    {t.planes.titlePre}{" "}
                     <em className="font-playfair italic text-arcblue">
-                        acompañamiento.
+                        {t.planes.titleEm}
                     </em>
                 </h2>
             </Reveal>
             <div className="mt-16 grid items-start gap-5 sm:grid-cols-2 xl:grid-cols-4">
-                {PLANS.map((p, i) => (
-                    <PlanCard key={p.id} plan={p} delay={i * 0.1} />
+                {t.planes.list.map((p, i) => (
+                    <PlanCard
+                        key={p.id}
+                        plan={p}
+                        delay={i * 0.1}
+                        featuredLabel={t.planes.featured}
+                        cta={t.planes.cta}
+                        wa={wa}
+                    />
                 ))}
             </div>
             <SectionFoot num="02" />
         </div>
     </section>
-);
+    );
+};
 
 export default Planes;

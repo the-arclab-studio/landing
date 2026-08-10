@@ -1,22 +1,10 @@
 import { Reveal } from "./Reveal";
 import SectionFoot from "./SectionFoot";
+import { useLang } from "./LangContext";
 
-const BLOCKS = [
-    {
-        id: "nutricion",
-        tag: "Extra · Nutrición",
-        title: "Súmale la nutrición",
-        text: "Acompañamiento nutricional como añadido (+35€/mes) en Basic y Normal. Hábitos y educación — no sustituye a un nutricionista.",
-    },
-    {
-        id: "pack",
-        tag: "Pack Temporada",
-        title: "Toda la temporada",
-        text: "Paga la temporada completa por adelantado y ahorra. Continuidad desde el verano, sin cuota de valoración.",
-    },
-];
-
-const Extras = () => (
+const Extras = () => {
+    const { t } = useLang();
+    return (
     <section
         id="extras"
         data-testid="extras-section"
@@ -24,10 +12,10 @@ const Extras = () => (
     >
         <div className="mx-auto max-w-6xl">
             <Reveal>
-                <p className="eyebrow">— Extras & Continuidad</p>
+                <p className="eyebrow">{t.extras.eyebrow}</p>
             </Reveal>
             <div className="mt-12 grid gap-5 md:grid-cols-2">
-                {BLOCKS.map((b, i) => (
+                {t.extras.blocks.map((b, i) => (
                     <Reveal key={b.id} delay={i * 0.12}>
                         <article
                             data-testid={`extra-card-${b.id}`}
@@ -47,6 +35,7 @@ const Extras = () => (
             <SectionFoot num="03" />
         </div>
     </section>
-);
+    );
+};
 
 export default Extras;

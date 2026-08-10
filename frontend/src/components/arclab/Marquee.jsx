@@ -1,17 +1,11 @@
-const ITEMS = [
-    "in-season",
-    "mantener",
-    "gestionar",
-    "rendir",
-    "arc.lab · performance",
-];
+import { useLang } from "./LangContext";
 
-const Row = () => (
+const Row = ({ items }) => (
     <div className="flex shrink-0 items-center">
-        {ITEMS.map((t, i) => (
+        {items.map((txt, i) => (
             <span key={i} className="flex items-center">
                 <span className="mx-8 font-grotesk text-sm font-medium uppercase tracking-[0.4em] text-ink sm:mx-12">
-                    {t}
+                    {txt}
                 </span>
                 <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
             </span>
@@ -19,19 +13,22 @@ const Row = () => (
     </div>
 );
 
-const Marquee = () => (
-    <div
-        data-testid="editorial-marquee"
-        className="overflow-hidden border-y border-line py-5"
-        aria-hidden="true"
-    >
-        <div className="marquee-track flex w-max">
-            <Row />
-            <Row />
-            <Row />
-            <Row />
+const Marquee = () => {
+    const { t } = useLang();
+    return (
+        <div
+            data-testid="editorial-marquee"
+            className="overflow-hidden border-y border-line py-5"
+            aria-hidden="true"
+        >
+            <div className="marquee-track flex w-max">
+                <Row items={t.marquee} />
+                <Row items={t.marquee} />
+                <Row items={t.marquee} />
+                <Row items={t.marquee} />
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default Marquee;

@@ -1,13 +1,14 @@
 import { Instagram, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
 import SectionFoot from "./SectionFoot";
+import { useLang } from "./LangContext";
 import { waES, waPT } from "./data";
 
 const COUNTRIES = [
     {
         id: "espana",
         flag: "🇪🇸",
-        name: "España",
+        name: { es: "España", pt: "Espanha" },
         wa: waES,
         phone: "+34 698 136 937",
         ig: "@uxisureda",
@@ -15,14 +16,16 @@ const COUNTRIES = [
     {
         id: "portugal",
         flag: "🇵🇹",
-        name: "Portugal",
+        name: { es: "Portugal", pt: "Portugal" },
         wa: waPT,
         phone: "+351 969 291 245",
         ig: "@gmorais.24",
     },
 ];
 
-const Contacto = () => (
+const Contacto = () => {
+    const { lang, t } = useLang();
+    return (
     <section
         id="contacto"
         data-testid="contacto-section"
@@ -31,14 +34,13 @@ const Contacto = () => (
         <div className="mx-auto max-w-6xl">
             <Reveal>
                 <h2 className="font-grotesk text-4xl font-bold lowercase leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-                    ¿empezamos?{" "}
+                    {t.contacto.titlePre}{" "}
                     <em className="font-playfair italic text-arcblue">
-                        escríbenos y lo hablamos.
+                        {t.contacto.titleEm}
                     </em>
                 </h2>
                 <p className="mt-6 max-w-lg text-base text-ink2 sm:text-lg">
-                    Cuéntanos tu momento y tu calendario. Te decimos qué plan
-                    encaja contigo.
+                    {t.contacto.sub}
                 </p>
             </Reveal>
 
@@ -50,7 +52,7 @@ const Contacto = () => (
                             className="card-soft p-10"
                         >
                             <p className="font-grotesk text-sm font-bold uppercase tracking-[0.3em] text-ink">
-                                {c.flag} {c.name}
+                                {c.flag} {c.name[lang]}
                             </p>
                             <div className="mt-7 space-y-4">
                                 <a
@@ -84,16 +86,14 @@ const Contacto = () => (
                     data-testid="legal-text"
                     className="max-w-2xl text-xs leading-relaxed text-ink2"
                 >
-                    La valoración inicial no tiene coste. El acompañamiento de
-                    ARC.LAB complementa —nunca sustituye— el seguimiento médico
-                    ni el trabajo del preparador físico de tu club. [Texto legal
-                    definitivo pendiente de confirmar.]
+                    {t.contacto.legal}
                 </p>
             </Reveal>
 
             <SectionFoot num="04" />
         </div>
     </section>
-);
+    );
+};
 
 export default Contacto;
