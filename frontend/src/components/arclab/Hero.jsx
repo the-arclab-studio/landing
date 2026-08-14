@@ -4,7 +4,10 @@ import Arc from "./Arc";
 import { MaskLine } from "./Reveal";
 import { Eyebrow } from "./Bits";
 import { useLang } from "./LangContext";
+import { introSeen } from "./Intro";
 import { waLink } from "./data";
+
+const B = introSeen() ? 0 : 3.8;
 
 const Corner = ({ className }) => (
     <span
@@ -34,7 +37,7 @@ const Hero = () => {
                 style={{ y: arcY }}
                 className="pointer-events-none absolute inset-x-0 top-12 z-10 mx-auto max-w-5xl sm:top-20"
             >
-                <Arc inView={false} delay={1} className="h-24 w-full sm:h-48" />
+                <Arc inView={false} delay={B + 1} className="h-24 w-full sm:h-48" />
             </motion.div>
 
             <div className="relative mx-auto max-w-6xl lg:grid lg:grid-cols-12 lg:items-end">
@@ -42,14 +45,14 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        transition={{ duration: 0.8, delay: B + 0.2 }}
                     >
                         <Eyebrow>{t.hero.eyebrow}</Eyebrow>
                     </motion.div>
 
                     <h1 className="mt-6 font-grotesk text-[15vw] font-bold lowercase leading-[0.9] tracking-tighter text-ink sm:text-8xl lg:text-[7.5rem]">
-                        <MaskLine delay={0.35}>{t.hero.titlePre}</MaskLine>
-                        <MaskLine delay={0.5}>
+                        <MaskLine delay={B + 0.35}>{t.hero.titlePre}</MaskLine>
+                        <MaskLine delay={B + 0.5}>
                             <em className="font-playfair italic tracking-normal text-arcblue">
                                 {t.hero.titleEm}
                             </em>
@@ -59,7 +62,7 @@ const Hero = () => {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.9, delay: B + 0.85, ease: [0.22, 1, 0.36, 1] }}
                         className="mt-8 max-w-md text-base leading-relaxed text-ink2 sm:text-lg"
                     >
                         {t.hero.sub}
@@ -68,7 +71,7 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.9, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.9, delay: B + 1.05, ease: [0.22, 1, 0.36, 1] }}
                         className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
                     >
                         <a
@@ -93,7 +96,7 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 40, rotate: 2 }}
                     animate={{ opacity: 1, y: 0, rotate: 1.5 }}
-                    transition={{ duration: 1.1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 1.1, delay: B + 0.7, ease: [0.22, 1, 0.36, 1] }}
                     style={{ y: imgY }}
                     className="relative z-10 mx-auto mt-10 max-w-xs sm:max-w-sm lg:col-span-4 lg:-ml-24 lg:mt-0 lg:max-w-none"
                 >
@@ -118,7 +121,7 @@ const Hero = () => {
                 aria-hidden="true"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1.2, delay: 1.2 }}
+                transition={{ duration: 1.2, delay: B + 1.2 }}
                 className="hero-watermark pointer-events-none absolute -bottom-10 left-0 select-none whitespace-nowrap font-anton text-[24vw] uppercase leading-none"
             >
                 in-season

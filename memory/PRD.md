@@ -108,3 +108,9 @@
 - Foto de equipa + bios de Uxue e Gonçalo para a secção Sobre
 - Posição + citação do Alex; atletas 2 e 3 completos
 - Texto de política de privacidade (recomendado antes do lançamento)
+
+## Implementado (2026-08-14, parte 7) — INTRO DE MARCA
+- Preloader animado (Intro.jsx): fundo azul #1B33DC → logo "arc.lab" branco (logo-mark-white.png, sem tagline) entra com animação → desaparece e entra "athlete development" manuscrito (Caveat, branco, centrado) → overlay desliza para cima e revela a página (~3.9s total)
+- Mostra 1x por sessão (sessionStorage "arclab_intro_seen"); hero atrasa as suas animações (base B=3.8s) quando o intro toca
+- Header mobile: canto superior esquerdo usa agora o ícone de app (icon.png, círculo azul); desktop mantém logo horizontal
+- Scroll bloqueado durante o intro

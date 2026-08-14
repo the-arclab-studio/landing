@@ -17,9 +17,9 @@ const Header = () => {
                         className="hidden h-8 w-auto sm:block"
                     />
                     <img
-                        src="/images/logo-mark.png"
+                        src="/images/icon.png"
                         alt="ARC.LAB"
-                        className="h-7 w-auto sm:hidden"
+                        className="h-9 w-9 sm:hidden"
                     />
                 </a>
                 <nav
