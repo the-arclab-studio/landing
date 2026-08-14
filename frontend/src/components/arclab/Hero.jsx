@@ -7,7 +7,7 @@ import { useLang } from "./LangContext";
 import { introSeen } from "./Intro";
 import { waLink } from "./data";
 
-const B = introSeen() ? 0 : 5.0;
+const B = introSeen() ? 0 : 5.9;
 
 const Corner = ({ className }) => (
     <span

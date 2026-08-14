@@ -120,3 +120,7 @@
 - Fundo do intro mudado para azul escuro #15259B (a pedido)
 - Tagline "athlete development" agora em Anton (letra pesada tipo logo), tracking apertado entre letras, palavras bem espaçadas (dois spans com gap)
 - Testemunhos: agora 4 atletas (grid sm:2 lg:4); Alex real + 3 placeholders
+
+## Implementado (2026-08-14, parte 9)
+- Intro: fundo ainda mais escuro #0F1C6F; entrada do logo mais lenta (1.3s ease); tagline passou a "ATHLETE DEVELOPMENT" em maiúsculas Anton (sans condensada pesada, all-caps), tracking apertado e palavras muito espaçadas; efeito GLITCH CSS (fatias clip-path + deslocamentos, ~0.65s) na entrada do texto
+- Novos tempos: logo até 2.4s, tagline até 5.2s, overlay sobe, fim ~6.0s; hero base delay B=5.9
