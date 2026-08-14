@@ -131,18 +131,6 @@ const Prueba = () => {
                                 </figcaption>
                             </motion.figure>
                         </AnimatePresence>
-
-                        <div className="mt-6 text-center">
-                            <span
-                                data-testid="carousel-counter"
-                                className="font-grotesk text-[11px] uppercase tracking-[0.35em] text-ink2"
-                            >
-                                <span className="text-arcblue">
-                                    {String(idx + 1).padStart(2, "0")}
-                                </span>{" "}
-                                — {String(n).padStart(2, "0")}
-                            </span>
-                        </div>
                     </div>
 
                     <Peek a={next} side="next" onClick={() => go(1)} label={p.photoLabel} />
