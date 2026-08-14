@@ -220,6 +220,20 @@
 .glitch-img.exiting .gb {
     animation: glitch-clip 0.95s steps(2, end) 0.12s both;
 }
+.logo-dot {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transition: background-color 1.6s ease;
+    pointer-events: none;
+}
+.logo-dot.warm {
+    background: #fb6101;
+}
 
 @keyframes marquee {
     from {

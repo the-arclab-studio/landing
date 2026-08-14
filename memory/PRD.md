@@ -132,3 +132,8 @@
 ## Implementado (2026-08-14, parte 11)
 - Intro final: logo entra SÓ com fade (sem subir/descer, 1.2s), segura ~1.7s, sai com GLITCH (0.95s, classe .exiting dispara as camadas clip-path); tagline minimalista: Space Grotesk caps, text-sm/xl, tracking .45em, palavras muito afastadas, entra só com fade
 - Timeline: fade logo 0-1.2 · hold · glitch-out 2.9-3.85 · tagline 3.85-7.0 · overlay sobe · fim 7.8s · hero B=7.7
+
+## Implementado (2026-08-14, parte 12)
+- Intro: o ponto do "arc.lab" faz transição branco→laranja #FB6101 (amostrado do ícone de app) durante o hold, chegando a laranja mesmo quando começa o glitch (dot isolado via máscara CSS, dot.png + logo-mark-white-nodot.png)
+- Testemunhos passaram a CARROSSEL: 1 cartão de cada vez, foto grande 4:5, setas prev/next (desktop nos lados, mobile junto ao contador), contador "01 — 04", auto-rotação 5.5s (reinicia ao clicar)
+- Fix build: mask-image inline no JSX (css-loader não resolve /images)

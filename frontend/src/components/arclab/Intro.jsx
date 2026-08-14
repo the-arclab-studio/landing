@@ -13,10 +13,12 @@ export const introSeen = () => {
 
 const Intro = ({ onDone }) => {
     const [phase, setPhase] = useState(0);
+    const [warm, setWarm] = useState(false);
     const [exiting, setExiting] = useState(false);
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
+        const tw = setTimeout(() => setWarm(true), 1300);
         const t0 = setTimeout(() => setExiting(true), 2900);
         const t1 = setTimeout(() => setPhase(1), 3850);
         const t2 = setTimeout(() => setPhase(2), 7000);
@@ -28,10 +30,7 @@ const Intro = ({ onDone }) => {
             onDone();
         }, 7800);
         return () => {
-            clearTimeout(t0);
-            clearTimeout(t1);
-            clearTimeout(t2);
-            clearTimeout(t3);
+            [tw, t0, t1, t2, t3].forEach(clearTimeout);
             document.body.style.overflow = "";
         };
     }, [onDone]);
@@ -56,9 +55,18 @@ const Intro = ({ onDone }) => {
                         transition={{ duration: 1.2, ease: "easeOut" }}
                     >
                         <img
-                            src="/images/logo-mark-white.png"
+                            src="/images/logo-mark-white-nodot.png"
                             alt="ARC.LAB"
                             className="w-full"
+                        />
+                        <span
+                            aria-hidden="true"
+                            data-testid="intro-logo-dot"
+                            className={`logo-dot ${warm ? "warm" : ""}`}
+                            style={{
+                                WebkitMaskImage: "url(/images/dot.png)",
+                                maskImage: "url(/images/dot.png)",
+                            }}
                         />
                         <img
                             src="/images/logo-mark-white.png"
