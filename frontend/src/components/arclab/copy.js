@@ -93,6 +93,8 @@ export const COPY = {
         },
         cambios: {
             label: "¿Qué cambia?",
+            rotatorPre: "Con el programa me siento con",
+            rotatorWords: ["más fuerza", "más velocidad", "más resistencia", "más explosivo"],
             titleL1: "cuando tu plan",
             titleL2: "es realmente",
             titleEm: "tuyo.",

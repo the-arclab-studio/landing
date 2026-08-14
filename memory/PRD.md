@@ -187,3 +187,6 @@
 - Frames (parêntesis retos) removidos das fotos que sangram (Problema, Club) — ficavam quebrados; mantidos nos cartões do carrossel
 - ¿QUÉ CAMBIA? redesenhado: linhas editoriais grandes (ícone azul + título 5xl + texto à direita + seta no hover, fundo branco no hover); mobile empilha
 - Nota: rembg instalado no env (cutouts); ideia de tirar fundo a mais fotos fica pendente
+
+## Implementado (2026-08-15, parte 3)
+- ¿QUÉ CAMBIA?: rotador vertical "Con el programa me siento con" + palavras a rodar de cima para baixo (más fuerza / más velocidad / más resistencia / más explosivo), uma palavra azul em destaque no centro com metade da anterior e da seguinte visíveis (janela 3.6em, overflow hidden); loop seamless com palavra duplicada; 2.4s por palavra
