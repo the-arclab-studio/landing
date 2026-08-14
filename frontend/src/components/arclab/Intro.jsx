@@ -13,19 +13,22 @@ export const introSeen = () => {
 
 const Intro = ({ onDone }) => {
     const [phase, setPhase] = useState(0);
+    const [exiting, setExiting] = useState(false);
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
-        const t1 = setTimeout(() => setPhase(1), 2800);
-        const t2 = setTimeout(() => setPhase(2), 6200);
+        const t0 = setTimeout(() => setExiting(true), 2900);
+        const t1 = setTimeout(() => setPhase(1), 3850);
+        const t2 = setTimeout(() => setPhase(2), 7000);
         const t3 = setTimeout(() => {
             try {
                 sessionStorage.setItem(KEY, "1");
             } catch {}
             document.body.style.overflow = "";
             onDone();
-        }, 7000);
+        }, 7800);
         return () => {
+            clearTimeout(t0);
             clearTimeout(t1);
             clearTimeout(t2);
             clearTimeout(t3);
@@ -45,17 +48,12 @@ const Intro = ({ onDone }) => {
                 {phase === 0 && (
                     <motion.div
                         key="logo"
-                        className="glitch-img w-52 sm:w-72"
+                        className={`glitch-img w-52 sm:w-72 ${exiting ? "exiting" : ""}`}
                         data-testid="intro-logo"
-                        initial={{ opacity: 0, scale: 0.86, y: 24 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{
-                            opacity: 0,
-                            scale: 0.94,
-                            y: -16,
-                            transition: { duration: 0.45 },
-                        }}
-                        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, transition: { duration: 0.25 } }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
                     >
                         <img
                             src="/images/logo-mark-white.png"
@@ -80,13 +78,14 @@ const Intro = ({ onDone }) => {
                     <motion.p
                         key="tagline"
                         data-testid="intro-tagline"
-                        className="px-6 text-center font-grotesk text-xl font-medium uppercase tracking-[0.3em] text-white sm:text-3xl"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -14 }}
-                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        className="flex items-baseline gap-8 px-6 text-center font-grotesk text-sm font-medium uppercase tracking-[0.45em] text-white sm:gap-12 sm:text-xl"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
                     >
-                        athlete development
+                        <span>athlete</span>
+                        <span>development</span>
                     </motion.p>
                 )}
             </AnimatePresence>

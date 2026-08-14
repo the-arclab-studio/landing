@@ -128,3 +128,7 @@
 ## Implementado (2026-08-14, parte 10)
 - Intro ajustado: fundo #15259B (azul elétrico ligeiramente escuro); GLITCH agora sobre o logo "arc.lab" (3 camadas da imagem com clip-path, ~1s); tagline "ATHLETE DEVELOPMENT" em Space Grotesk maiúsculas com tracking amplo (letra da tagline do logo), tamanho menor, sem glitch
 - Tempos finais: logo até 2.8s · tagline 3.2→6.2s · overlay sobe ~6.2-7.0s · hero B=6.9
+
+## Implementado (2026-08-14, parte 11)
+- Intro final: logo entra SÓ com fade (sem subir/descer, 1.2s), segura ~1.7s, sai com GLITCH (0.95s, classe .exiting dispara as camadas clip-path); tagline minimalista: Space Grotesk caps, text-sm/xl, tracking .45em, palavras muito afastadas, entra só com fade
+- Timeline: fade logo 0-1.2 · hold · glitch-out 2.9-3.85 · tagline 3.85-7.0 · overlay sobe · fim 7.8s · hero B=7.7

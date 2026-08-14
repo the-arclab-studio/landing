@@ -214,11 +214,11 @@
     opacity: 0;
     pointer-events: none;
 }
-.glitch-img .ga {
-    animation: glitch-clip 1s steps(2, end) 0.35s both;
+.glitch-img.exiting .ga {
+    animation: glitch-clip 0.95s steps(2, end) both;
 }
-.glitch-img .gb {
-    animation: glitch-clip 1s steps(2, end) 0.48s both;
+.glitch-img.exiting .gb {
+    animation: glitch-clip 0.95s steps(2, end) 0.12s both;
 }
 
 @keyframes marquee {
