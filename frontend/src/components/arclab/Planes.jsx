@@ -51,7 +51,7 @@ const PlanCard = ({ plan, wa }) => {
                     src="/images/elite.png"
                     alt="elite."
                     data-testid="plan-elite-logo"
-                    className="mt-4 h-10 w-auto"
+                    className="mt-4 h-8 w-auto max-w-full object-contain object-left"
                 />
             ) : (
                 <h3 className="mt-4 font-grotesk text-3xl font-bold uppercase tracking-tight text-ink">
