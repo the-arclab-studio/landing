@@ -72,3 +72,9 @@
 
 ## Pendente do cliente
 - Textos dos 3 testemunhos (citação + Nome · Liga · Posição) — perguntado, aguarda resposta
+
+## Implementado (2026-08-14, parte 3)
+- Foto de treino removida do bloco Prueba a pedido do cliente
+- Bloco Prueba refeito: 3 cartões com slot de foto reservado (4:5, parêntesis retos azuis, etiqueta "Foto del atleta"), frase genérica e meta "Nombre · Liga · Posición" — à espera dos conteúdos reais
+- WhatsApp: cliente vai criar WhatsApp empresarial bilingue — sem alterações necessárias
+- training.jpg mantido em /public/images (sem uso); elite logo ajustado para 32px após feedback visual

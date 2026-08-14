@@ -1,5 +1,3 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { Eyebrow, Headline } from "./Bits";
 import { useLang } from "./LangContext";
@@ -7,19 +5,31 @@ import { useLang } from "./LangContext";
 const Corner = ({ className }) => (
     <span
         aria-hidden="true"
-        className={`pointer-events-none absolute z-10 h-7 w-7 border-arcblue ${className}`}
+        className={`pointer-events-none absolute z-10 h-5 w-5 border-arcblue ${className}`}
     />
+);
+
+const PhotoSlot = ({ label, idx }) => (
+    <div
+        data-testid={`testimonial-photo-slot-${idx}`}
+        className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-bone"
+    >
+        <Corner className="left-2.5 top-2.5 border-l-2 border-t-2" />
+        <Corner className="right-2.5 top-2.5 border-r-2 border-t-2" />
+        <Corner className="bottom-2.5 left-2.5 border-b-2 border-l-2" />
+        <Corner className="bottom-2.5 right-2.5 border-b-2 border-r-2" />
+        <div className="flex h-full flex-col items-center justify-center gap-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
+            <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
+                {label}
+            </span>
+        </div>
+    </div>
 );
 
 const Prueba = () => {
     const { t } = useLang();
     const p = t.prueba;
-    const ref = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start end", "end start"],
-    });
-    const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
     return (
         <section
@@ -33,33 +43,16 @@ const Prueba = () => {
                     <Headline className="mt-6" pre={p.titlePre} em={p.titleEm} />
                 </Reveal>
 
-                <Reveal className="mt-14">
-                    <figure ref={ref} className="relative mx-auto max-w-xl">
-                        <Corner className="left-3 top-3 border-l-2 border-t-2" />
-                        <Corner className="right-3 top-3 border-r-2 border-t-2" />
-                        <Corner className="bottom-3 left-3 border-b-2 border-l-2" />
-                        <Corner className="bottom-3 right-3 border-b-2 border-r-2" />
-                        <div className="card-soft overflow-hidden !rounded-2xl">
-                            <motion.img
-                                src="/images/training.jpg"
-                                alt={t.photoAlt}
-                                data-testid="training-photo"
-                                style={{ y, scale: 1.12 }}
-                                className="w-full grayscale"
-                            />
-                        </div>
-                    </figure>
-                </Reveal>
-
                 <div className="mt-14 grid gap-5 md:grid-cols-3">
                     {[0, 1, 2].map((i) => (
-                        <Reveal key={i} delay={i * 0.12}>
+                        <Reveal key={i} delay={i * 0.12} className="h-full">
                             <figure
                                 data-testid={`testimonial-card-${i + 1}`}
-                                className="card-soft h-full bg-white p-8"
+                                className="card-soft flex h-full flex-col bg-white p-6"
                             >
-                                <blockquote className="font-playfair text-xl italic leading-relaxed text-ink2">
-                                    “[{p.placeholder}]”
+                                <PhotoSlot label={p.photoLabel} idx={i + 1} />
+                                <blockquote className="mt-6 flex-1 font-playfair text-xl italic leading-relaxed text-ink">
+                                    “{p.quote}”
                                 </blockquote>
                                 <figcaption className="mt-6 font-grotesk text-[10px] font-medium uppercase tracking-[0.25em] text-ink2">
                                     {p.meta}

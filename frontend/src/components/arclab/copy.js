@@ -165,7 +165,8 @@ export const COPY = {
             eyebrow: "Prueba · Programa 01 → 02",
             titlePre: "palabra de",
             titleEm: "jugador.",
-            placeholder: "Testimonio real — pendiente de recibir.",
+            quote: "El trabajo de cada semana se nota el día del partido.",
+            photoLabel: "Foto del atleta",
             meta: "Nombre · Liga · Posición",
         },
         faq: {
@@ -384,7 +385,8 @@ export const COPY = {
             eyebrow: "Prova · Programa 01 → 02",
             titlePre: "palavra de",
             titleEm: "jogador.",
-            placeholder: "Testemunho real — por receber.",
+            quote: "O trabalho de cada semana nota-se no dia do jogo.",
+            photoLabel: "Foto do atleta",
             meta: "Nome · Liga · Posição",
         },
         faq: {
