@@ -16,15 +16,15 @@ const Intro = ({ onDone }) => {
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
-        const t1 = setTimeout(() => setPhase(1), 1300);
-        const t2 = setTimeout(() => setPhase(2), 3050);
+        const t1 = setTimeout(() => setPhase(1), 1900);
+        const t2 = setTimeout(() => setPhase(2), 4300);
         const t3 = setTimeout(() => {
             try {
                 sessionStorage.setItem(KEY, "1");
             } catch {}
             document.body.style.overflow = "";
             onDone();
-        }, 3900);
+        }, 5100);
         return () => {
             clearTimeout(t1);
             clearTimeout(t2);
@@ -36,7 +36,7 @@ const Intro = ({ onDone }) => {
     return (
         <motion.div
             data-testid="intro-overlay"
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-arcblue"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#15259B]"
             initial={{ y: 0 }}
             animate={phase === 2 ? { y: "-100%" } : { y: 0 }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
@@ -64,13 +64,14 @@ const Intro = ({ onDone }) => {
                     <motion.p
                         key="tagline"
                         data-testid="intro-tagline"
-                        className="px-6 text-center font-caveat text-5xl lowercase text-white sm:text-7xl"
-                        initial={{ opacity: 0, y: 24, rotate: -2 }}
-                        animate={{ opacity: 1, y: 0, rotate: -2 }}
+                        className="flex items-baseline gap-5 px-6 text-center font-anton text-4xl lowercase leading-none tracking-[-0.01em] text-white sm:gap-8 sm:text-6xl"
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -14 }}
-                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        athlete development
+                        <span>athlete</span>
+                        <span>development</span>
                     </motion.p>
                 )}
             </AnimatePresence>

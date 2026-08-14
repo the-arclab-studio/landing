@@ -114,3 +114,9 @@
 - Mostra 1x por sessão (sessionStorage "arclab_intro_seen"); hero atrasa as suas animações (base B=3.8s) quando o intro toca
 - Header mobile: canto superior esquerdo usa agora o ícone de app (icon.png, círculo azul); desktop mantém logo horizontal
 - Scroll bloqueado durante o intro
+
+## Implementado (2026-08-14, parte 8)
+- Intro mais lento: logo visível ~1.9s (hold ≥1s após entrada), tagline visível ~1.7s; total ~5.1s; hero base delay B=5.0
+- Fundo do intro mudado para azul escuro #15259B (a pedido)
+- Tagline "athlete development" agora em Anton (letra pesada tipo logo), tracking apertado entre letras, palavras bem espaçadas (dois spans com gap)
+- Testemunhos: agora 4 atletas (grid sm:2 lg:4); Alex real + 3 placeholders

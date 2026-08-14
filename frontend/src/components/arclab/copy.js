@@ -172,6 +172,7 @@ export const COPY = {
                 { meta: "Alex Almenta · 2ª FEB", img: "/images/athlete-1.jpg" },
                 { meta: "Nombre · Liga · Posición" },
                 { meta: "Nombre · Liga · Posición" },
+                { meta: "Nombre · Liga · Posición" },
             ],
         },
         faq: {
