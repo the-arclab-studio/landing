@@ -1,54 +1,53 @@
 import { motion } from "framer-motion";
-import { PersonStanding, Activity, Calendar, Target } from "lucide-react";
+import { User, BarChart3, Calendar, Crosshair } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { Eyebrow } from "./Bits";
 import { useLang } from "./LangContext";
 
-const ICONS = {
-    person: PersonStanding,
-    activity: Activity,
-    calendar: Calendar,
-    target: Target,
-};
+const ICONS = { user: User, chart: BarChart3, calendar: Calendar, target: Crosshair };
 
-const POS = [
+const NODE_POS = [
     "left-0 top-0",
-    "right-0 top-0 text-right",
+    "right-0 top-0",
     "left-0 bottom-0",
-    "right-0 bottom-0 text-right",
+    "right-0 bottom-0",
 ];
 
 const LINES = [
-    "M 400 260 L 170 115",
-    "M 400 260 L 630 115",
-    "M 400 260 L 170 405",
-    "M 400 260 L 630 405",
+    "M 31 31 L 400 260",
+    "M 769 31 L 400 260",
+    "M 31 489 L 400 260",
+    "M 769 489 L 400 260",
 ];
 const DOTS = [
-    [170, 115],
-    [630, 115],
-    [170, 405],
-    [630, 405],
+    [336, 196],
+    [464, 196],
+    [336, 324],
+    [464, 324],
 ];
 
 const Node = ({ node, right = false }) => {
     const Icon = ICONS[node.icon];
     return (
-        <div>
-            <Icon
-                className={`h-5 w-5 text-arcblue ${right ? "ml-auto" : ""}`}
-                strokeWidth={1.5}
-            />
-            <h3 className="mt-3 font-grotesk text-sm font-bold uppercase tracking-[0.25em] text-ink">
-                {node.title}
-            </h3>
-            <p
-                className={`mt-2 max-w-[220px] text-sm leading-relaxed text-ink2 ${
-                    right ? "ml-auto" : ""
-                }`}
-            >
-                {node.text}
-            </p>
+        <div
+            className={`flex items-center gap-4 ${
+                right ? "flex-row-reverse text-right" : ""
+            }`}
+        >
+            <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-ink/60 bg-white sm:h-20 sm:w-20">
+                <Icon className="h-6 w-6 text-ink sm:h-7 sm:w-7" strokeWidth={1.25} />
+            </span>
+            <div className="max-w-[200px]">
+                <h3 className="font-grotesk text-sm font-bold uppercase tracking-[0.15em] text-ink">
+                    {node.title}
+                </h3>
+                <span
+                    aria-hidden="true"
+                    className={`mt-1.5 block h-0.5 w-6 bg-arcblue ${right ? "ml-auto" : ""}`}
+                />
+                <p className="mt-2 text-sm leading-relaxed text-ink2">
+                    {node.text}
+                </p>
+            </div>
         </div>
     );
 };
@@ -60,26 +59,63 @@ const Solucion = () => {
         <section
             id="solucion"
             data-testid="solucion-section"
-            className="scroll-mt-24 px-6 py-24 sm:py-32"
+            className="relative scroll-mt-24 overflow-hidden bg-bone px-6 py-24 sm:py-32"
         >
-            <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:items-center lg:gap-8">
+            <svg
+                viewBox="0 0 200 300"
+                fill="none"
+                aria-hidden="true"
+                className="pointer-events-none absolute -left-10 bottom-0 h-64 w-40 opacity-90"
+            >
+                <motion.path
+                    d="M 0 300 C 30 220, 60 160, 95 95"
+                    stroke="#1B33DC"
+                    strokeWidth="1.5"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 1.4, ease: "easeInOut" }}
+                />
+                <motion.circle
+                    cx="95"
+                    cy="95"
+                    r="6"
+                    fill="#1B33DC"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ delay: 1.3, duration: 0.35, ease: "backOut" }}
+                />
+            </svg>
+
+            <div className="relative mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:items-center lg:gap-8">
                 <Reveal className="lg:col-span-4">
-                    <Eyebrow>{s.label}</Eyebrow>
-                    <h2 className="mt-6 font-grotesk text-[11vw] font-bold uppercase leading-[0.95] tracking-tighter text-ink sm:text-6xl lg:text-6xl">
+                    <p className="font-grotesk text-sm font-bold uppercase tracking-[0.2em] text-ink">
+                        {s.label}
+                        <span
+                            aria-hidden="true"
+                            className="mt-2 block h-0.5 w-8 bg-arcblue"
+                        />
+                    </p>
+                    <h2 className="mt-8 font-grotesk text-[11vw] font-bold uppercase leading-[0.95] tracking-tighter text-ink sm:text-6xl">
                         {s.titleL1}
                         <br />
                         {s.titleL2}
                         <br />
-                        <em className="font-playfair lowercase italic text-arcblue">
-                            {s.titleEm}
-                        </em>
+                        <span className="text-arcblue">{s.titleEm}</span>
                     </h2>
+                    <p className="mt-8 max-w-xs text-base leading-relaxed text-ink2">
+                        {s.sub1}
+                    </p>
+                    <p className="mt-4 max-w-xs text-base font-semibold text-ink">
+                        {s.sub2}
+                    </p>
                 </Reveal>
 
-                <Reveal className="mt-14 hidden md:block lg:col-span-8 lg:mt-0">
+                <Reveal className="mt-16 hidden md:block lg:col-span-8 lg:mt-0">
                     <div
                         data-testid="sistema-diagram"
-                        className="relative mx-auto h-[480px] w-full"
+                        className="relative mx-auto aspect-[800/520] w-full"
                     >
                         <svg
                             viewBox="0 0 800 520"
@@ -88,17 +124,26 @@ const Solucion = () => {
                             preserveAspectRatio="none"
                             className="absolute inset-0 h-full w-full"
                         >
+                            <circle
+                                cx="400"
+                                cy="260"
+                                r="118"
+                                stroke="#151515"
+                                strokeOpacity="0.15"
+                                strokeWidth="1"
+                                strokeDasharray="3 5"
+                            />
                             {LINES.map((d, i) => (
                                 <motion.path
                                     key={i}
                                     d={d}
-                                    stroke="#1B33DC"
+                                    stroke="#151515"
                                     strokeWidth="1"
                                     initial={{ pathLength: 0 }}
                                     whileInView={{ pathLength: 1 }}
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{
-                                        duration: 1.1,
+                                        duration: 1,
                                         delay: 0.3 + i * 0.15,
                                         ease: "easeInOut",
                                     }}
@@ -109,13 +154,13 @@ const Solucion = () => {
                                     key={i}
                                     cx={cx}
                                     cy={cy}
-                                    r="4"
-                                    fill="#1B33DC"
+                                    r="4.5"
+                                    fill="#151515"
                                     initial={{ scale: 0 }}
                                     whileInView={{ scale: 1 }}
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{
-                                        delay: 1.2 + i * 0.15,
+                                        delay: 1.1 + i * 0.15,
                                         duration: 0.35,
                                         ease: "backOut",
                                     }}
@@ -123,24 +168,29 @@ const Solucion = () => {
                             ))}
                         </svg>
 
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                            className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-arcblue bg-white shadow-[0_24px_60px_-30px_rgba(27,51,220,0.35)]"
-                        >
-                            <img
-                                src="/images/logo-mark.png"
-                                alt="ARC.LAB"
-                                className="h-7 w-auto"
-                            />
-                        </motion.div>
+                        <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.85 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                                className="flex h-44 w-44 flex-col items-center justify-center gap-2 rounded-full border border-ink/70 bg-white sm:h-48 sm:w-48"
+                            >
+                                <img
+                                    src="/images/logo-mark.png"
+                                    alt="ARC.LAB"
+                                    className="h-8 w-auto"
+                                />
+                                <span className="font-grotesk text-[8px] font-medium uppercase tracking-[0.3em] text-ink2">
+                                    Tu mejor versión
+                                </span>
+                            </motion.div>
+                        </div>
 
                         {s.nodes.map((node, i) => (
                             <div
                                 key={i}
-                                className={`absolute w-[210px] ${POS[i]}`}
+                                className={`absolute z-10 ${NODE_POS[i]}`}
                             >
                                 <Node node={node} right={i % 2 === 1} />
                             </div>

@@ -174,3 +174,7 @@
 - CLUB: texto à esquerda, foto placeholder integrada à direita com bleed
 - CAMBIOS: sem headline (mockup), 4 colunas com ícones em chips azul-claro (zap/seta/bateria/olho)
 - Planos para baixo: INTACTOS
+
+## Implementado (2026-08-14, parte 18)
+- SOLUCION refeita conforme mockup do cliente: label com traço azul por baixo, "CONTIGO." azul pesado (não itálico), sub "Tu cuerpo, tu carga... Todo conectado." + "Todo adaptado a ti."; diagrama: círculos com ícones outline (user/barras/calendário/target), linhas escuras com pontos no círculo central, anel exterior tracejado, "TU MEJOR VERSIÓN" sob o logo; trajectória azul entra pelo canto inferior esquerdo com ponto
+- Fix: framer-motion sobrepunha o translate do círculo central — wrapper div

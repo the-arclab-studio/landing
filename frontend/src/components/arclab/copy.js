@@ -34,14 +34,16 @@ export const COPY = {
             titleL1: "un plan que",
             titleL2: "se mueve",
             titleEm: "contigo.",
+            sub1: "Tu cuerpo, tu carga, tu calendario y tu partido. Todo conectado.",
+            sub2: "Todo adaptado a ti.",
             nodes: [
                 {
-                    icon: "person",
+                    icon: "user",
                     title: "Tu cuerpo",
                     text: "Lo evaluamos. Lo entendemos.",
                 },
                 {
-                    icon: "activity",
+                    icon: "chart",
                     title: "Tu carga",
                     text: "Analizamos tu carga de entrenamiento cada semana.",
                 },
