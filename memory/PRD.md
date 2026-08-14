@@ -150,3 +150,18 @@
 - Carrossel: setas passaram para os lados da foto (flutuantes, sombra suave); contador fica sozinho por baixo
 - Mobile: peeks reduzidos a w-12 para a foto central ficar grande; frase text-lg no mobile
 - FLUIDEZ: transição mudou de sequencial (mode=wait) para simultânea (mode=popLayout, 0.45s) — cartões cruzam-se em vez de esperar; era código, não hosting
+
+## Implementado (2026-08-14, parte 16) — REBUILD DA PRIMEIRA METADE (novo prompt editorial)
+- Nova estrutura hero→cambios (planos para baixo INTACTOS, intro mantido):
+  1. Header mais leve (sem borda, blur suave), CTA "ESCRÍBENOS ↗"
+  2. HERO: headline 3 linhas "TU PRIMER / PLAN / de verdad.", foto NOVA de dunk explosivo (Unsplash photo-1728941803861, espelhada+recortada+P&B em /images/hero-dunk.jpg), grelha técnica subtil, linha-trajectória azul com ponto final a cruzar o hero
+  3. PROBLEMA: "¿TE SUENA?", foto placeholder (banco, P&B) com parêntesis retos, 3 dores com marcadores azuis finos, fecho itálico
+  4. SOLUCION (NOVO, #solucion): "un plan que se mueve contigo." + diagrama sistema ARC.LAB (círculo central com logo, 4 nós — Tu cuerpo/Tu carga/Tu calendario/Tu partido — ligados por linhas azuis animadas; mobile: lista vertical)
+  5. METODO (#metodo): sequência horizontal 01→02→03, números Playfair gigantes azuis, linha azul + setas entre etapas
+  6. CLUB: manifesto negro 4 linhas, "subir." em azul suave #9AA2EE, foto placeholder cinematográfica (de trás) — A AGUARDAR FOTO REAL
+  7. CAMBIOS (NOVO): "¿QUÉ CAMBIA?" 4 colunas com divisores finos + ícones outline azuis
+- Enfoque.jsx apagado (substituído por Solucion+Metodo); hero cta2 → "Ver cómo trabajamos ↓" (#solucion)
+
+## Pendente do cliente
+- Foto real para Problema (jogador no banco) e Club (jogador de trás na pista)
+- Nota: foto do hero é STOCK (Unsplash) a pedido do cliente — substituível por foto real

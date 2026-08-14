@@ -4,7 +4,7 @@ import { waLink } from "./data";
 const Header = () => {
     const { t } = useLang();
     return (
-        <header className="fixed inset-x-0 top-0 z-40 border-b border-line bg-white/80 backdrop-blur-xl">
+        <header className="fixed inset-x-0 top-0 z-40 bg-white/60 backdrop-blur-xl">
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
                 <a
                     href="#top"
@@ -49,7 +49,7 @@ const Header = () => {
                     data-testid="header-cta-btn"
                     className="btn-blue !px-5 !py-2.5 !text-[11px]"
                 >
-                    {t.nav.cta}
+                    {t.nav.cta} <span aria-hidden="true">↗</span>
                 </a>
             </div>
         </header>

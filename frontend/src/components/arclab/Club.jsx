@@ -1,47 +1,61 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "./Reveal";
-import { Eyebrow, Headline } from "./Bits";
+import { Eyebrow } from "./Bits";
 import { useLang } from "./LangContext";
+
+const Corner = ({ className }) => (
+    <span
+        aria-hidden="true"
+        className={`pointer-events-none absolute z-10 h-6 w-6 border-arcblue ${className}`}
+    />
+);
 
 const Club = () => {
     const { t } = useLang();
     const c = t.club;
-    const ref = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start end", "end start"],
-    });
-    const y = useTransform(scrollYProgress, [0, 1], [40, -40]);
-
     return (
         <section
-            ref={ref}
             data-testid="club-section"
             className="relative overflow-hidden bg-ink px-6 py-28 sm:py-40"
         >
-            <motion.span
-                aria-hidden="true"
-                style={{ y }}
-                className="pointer-events-none absolute -right-8 top-8 select-none whitespace-nowrap font-anton text-[22vw] uppercase leading-none text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.07)]"
-            >
-                equipo
-            </motion.span>
-            <div className="relative mx-auto max-w-4xl">
+            <div className="relative mx-auto max-w-5xl">
                 <Reveal>
                     <Eyebrow dark>{c.eyebrow}</Eyebrow>
-                    <Headline
-                        dark
-                        className="mt-6 text-[11vw] sm:text-6xl lg:text-7xl"
-                        pre={c.titlePre}
-                        em={c.titleEm}
-                    />
+                    <h2 className="mt-6 font-grotesk text-[11vw] font-bold lowercase leading-[0.95] tracking-tighter text-white sm:text-6xl lg:text-7xl">
+                        {c.titleL1}
+                        <br />
+                        {c.titleL2}
+                        <br />
+                        {c.titleL3}
+                        <br />
+                        {c.titleL4}{" "}
+                        <em className="font-playfair italic text-[#9AA2EE]">
+                            {c.titleEm}
+                        </em>
+                    </h2>
                     <p className="mt-10 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
                         {c.paraPre}{" "}
                         <strong className="font-semibold text-white">
                             {c.paraStrong}
                         </strong>
                     </p>
+                </Reveal>
+
+                <Reveal className="mt-16">
+                    <figure
+                        data-testid="club-photo-slot"
+                        className="relative aspect-video w-full overflow-hidden rounded-[18px] bg-white/5 sm:aspect-[21/9]"
+                    >
+                        <Corner className="left-3 top-3 border-l-2 border-t-2" />
+                        <Corner className="right-3 top-3 border-r-2 border-t-2" />
+                        <Corner className="bottom-3 left-3 border-b-2 border-l-2" />
+                        <Corner className="bottom-3 right-3 border-b-2 border-r-2" />
+                        <div className="flex h-full flex-col items-center justify-center gap-3">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#9AA2EE]" />
+                            <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-white/40">
+                                {c.photoLabel}
+                            </span>
+                        </div>
+                    </figure>
                 </Reveal>
             </div>
         </section>

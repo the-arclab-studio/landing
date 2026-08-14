@@ -8,8 +8,10 @@ import Header from "@/components/arclab/Header";
 import Hero from "@/components/arclab/Hero";
 import Marquee from "@/components/arclab/Marquee";
 import Problema from "@/components/arclab/Problema";
-import Enfoque from "@/components/arclab/Enfoque";
+import Solucion from "@/components/arclab/Solucion";
+import Metodo from "@/components/arclab/Metodo";
 import Club from "@/components/arclab/Club";
+import Cambios from "@/components/arclab/Cambios";
 import Planes from "@/components/arclab/Planes";
 import Prueba from "@/components/arclab/Prueba";
 import Sobre from "@/components/arclab/Sobre";
@@ -48,8 +50,10 @@ export default function App() {
                     <Hero />
                     <Marquee />
                     <Problema />
-                    <Enfoque />
+                    <Solucion />
+                    <Metodo />
                     <Club />
+                    <Cambios />
                     <Planes />
                     <Prueba />
                     <Sobre />

@@ -1,6 +1,13 @@
 import { Reveal } from "./Reveal";
-import { Headline } from "./Bits";
+import { Eyebrow } from "./Bits";
 import { useLang } from "./LangContext";
+
+const Corner = ({ className }) => (
+    <span
+        aria-hidden="true"
+        className={`pointer-events-none absolute z-10 h-6 w-6 border-arcblue ${className}`}
+    />
+);
 
 const Problema = () => {
     const { t } = useLang();
@@ -12,36 +19,52 @@ const Problema = () => {
         >
             <div className="mx-auto max-w-6xl">
                 <Reveal>
-                    <Headline
-                        pre={p.titlePre}
-                        em={p.titleEm}
-                        className="max-w-4xl text-[11vw] sm:text-6xl lg:text-7xl"
-                    />
+                    <Eyebrow>{p.label}</Eyebrow>
+                    <h2 className="mt-6 font-grotesk text-[11vw] font-bold lowercase leading-[0.95] tracking-tighter text-ink sm:text-6xl lg:text-7xl">
+                        {p.titleL1}
+                        <br />
+                        {p.titleL2}{" "}
+                        <em className="font-playfair italic text-arcblue">
+                            {p.titleEm}
+                        </em>
+                    </h2>
                 </Reveal>
 
-                <div className="mt-14 sm:mt-20">
-                    {p.lines.map((l, i) => (
-                        <Reveal key={i} delay={i * 0.12}>
-                            <p
-                                data-testid={`problema-line-${i}`}
-                                className={`flex items-baseline gap-5 border-t border-line py-7 font-grotesk text-xl font-medium leading-snug text-ink sm:py-9 sm:text-3xl ${
-                                    i % 2 === 1 ? "md:pl-24" : ""
-                                }`}
-                            >
-                                <span
-                                    aria-hidden="true"
-                                    className="shrink-0 font-playfair text-3xl italic text-arcblue sm:text-5xl"
-                                >
-                                    —
+                <div className="mt-14 grid items-center gap-12 md:grid-cols-2 md:gap-16">
+                    <Reveal>
+                        <figure
+                            data-testid="problema-photo-slot"
+                            className="relative aspect-[3/4] w-full overflow-hidden rounded-[18px] bg-white"
+                        >
+                            <Corner className="left-3 top-3 border-l-2 border-t-2" />
+                            <Corner className="right-3 top-3 border-r-2 border-t-2" />
+                            <Corner className="bottom-3 left-3 border-b-2 border-l-2" />
+                            <Corner className="bottom-3 right-3 border-b-2 border-r-2" />
+                            <div className="flex h-full flex-col items-center justify-center gap-3">
+                                <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
+                                <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
+                                    {p.photoLabel}
                                 </span>
-                                {l}
-                            </p>
-                        </Reveal>
-                    ))}
+                            </div>
+                        </figure>
+                    </Reveal>
+
+                    <div className="space-y-10">
+                        {p.lines.map((l, i) => (
+                            <Reveal key={i} delay={i * 0.12}>
+                                <p
+                                    data-testid={`problema-line-${i}`}
+                                    className="border-t border-arcblue pt-5 text-lg leading-relaxed text-ink sm:text-xl"
+                                >
+                                    {l}
+                                </p>
+                            </Reveal>
+                        ))}
+                    </div>
                 </div>
 
                 <Reveal delay={0.15}>
-                    <p className="mt-14 font-playfair text-3xl italic leading-tight text-ink sm:mt-20 sm:text-5xl">
+                    <p className="mt-16 font-playfair text-3xl italic leading-tight text-ink sm:mt-20 sm:text-5xl">
                         {p.closePre}{" "}
                         <span className="text-arcblue">{p.closeEm}</span>
                     </p>

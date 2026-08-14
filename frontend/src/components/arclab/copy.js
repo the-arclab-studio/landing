@@ -5,15 +5,18 @@ export const COPY = {
         nav: { planes: "Planes", jugadores: "Jugadores", nosotros: "Nosotros", dudas: "Dudas", cta: "Escríbenos" },
         hero: {
             eyebrow: "ARC.LAB · In-Season",
-            titlePre: "tu primer plan",
+            titleL1: "tu primer",
+            titleL2: "plan",
             titleEm: "de verdad.",
             sub: "Preparación física para jugadores de baloncesto que quieren dar el salto.",
-            photoAlt: "Jugador de baloncesto en plena acción de tiro",
+            photoAlt: "Jugador de baloncesto en pleno mate, en el pico del salto",
             cta1: "Escríbenos",
-            cta2: "Ver los planes",
+            cta2: "Ver cómo trabajamos",
         },
         problema: {
-            titlePre: "entrenar mucho no es entrenar",
+            label: "¿Te suena?",
+            titleL1: "entrenar mucho",
+            titleL2: "no es entrenar",
             titleEm: "bien.",
             lines: [
                 "Copias ejercicios de Instagram sin saber si te sirven a ti.",
@@ -22,11 +25,38 @@ export const COPY = {
             ],
             closePre: "El siguiente nivel no se improvisa.",
             closeEm: "Se planifica.",
+            photoLabel: "Foto — jugador tras el entreno",
         },
-        enfoque: {
-            eyebrow: "El enfoque · In-Season",
-            titlePre: "tu mejor versión,",
-            titleEm: "toda la temporada.",
+        solucion: {
+            label: "La solución",
+            titleL1: "un plan que",
+            titleL2: "se mueve",
+            titleEm: "contigo.",
+            nodes: [
+                {
+                    icon: "person",
+                    title: "Tu cuerpo",
+                    text: "Lo evaluamos. Lo entendemos.",
+                },
+                {
+                    icon: "activity",
+                    title: "Tu carga",
+                    text: "Analizamos tu carga de entrenamiento cada semana.",
+                },
+                {
+                    icon: "calendar",
+                    title: "Tu calendario",
+                    text: "Competiciones, viajes, partidos, descansos.",
+                },
+                {
+                    icon: "target",
+                    title: "Tu partido",
+                    text: "Todo el trabajo apunta a tu mejor versión el día que importa.",
+                },
+            ],
+        },
+        metodo: {
+            label: "Nuestro método",
             steps: [
                 {
                     n: "01",
@@ -41,17 +71,45 @@ export const COPY = {
                 {
                     n: "03",
                     title: "Día de partido",
-                    text: "Todo el trabajo apunta a una cosa: llegar al día de partido ligero, explosivo y preparado.",
+                    text: "Todo el trabajo apunta a una cosa: llegar el día de partido ligero, explosivo y preparado.",
                 },
             ],
         },
         club: {
             eyebrow: "El club y tú",
-            titlePre: "el trabajo de equipo te mantiene. el individual te hace",
+            titleL1: "el trabajo de equipo",
+            titleL2: "te mantiene.",
+            titleL3: "el individual",
+            titleL4: "te hace",
             titleEm: "subir.",
             paraPre:
                 "El trabajo físico del club muchas veces se queda corto para quien busca mejoras de verdad. No es culpa de nadie — es imposible afinar el trabajo de doce jugadores a la vez. Pero ese trabajo, si quieres subir,",
             paraStrong: "alguien tiene que hacerlo contigo.",
+            photoLabel: "Foto — jugador solo en la pista",
+        },
+        cambios: {
+            label: "¿Qué cambia?",
+            titleL1: "cuando tu plan",
+            titleL2: "es realmente",
+            titleEm: "tuyo.",
+            items: [
+                { icon: "dumbbell", title: "Más fuerza", text: "En cada contacto." },
+                {
+                    icon: "zap",
+                    title: "Más explosividad",
+                    text: "Primer paso, salto, reacción, velocidad.",
+                },
+                {
+                    icon: "gauge",
+                    title: "Menos fatiga",
+                    text: "Gestionamos tu carga para rendir más.",
+                },
+                {
+                    icon: "crosshair",
+                    title: "Más control",
+                    text: "Sabes qué hacer, por qué y para qué.",
+                },
+            ],
         },
         planes: {
             eyebrow: "Los planes · Mensualidad",
