@@ -232,7 +232,7 @@ export const COPY = {
             photoLabel: "Foto del atleta",
             athletes: [
                 { meta: "Alex Almenta · 2ª FEB", img: "/images/athlete-1.jpg", team: "" },
-                { meta: "Nombre · Liga · Posición", team: "" },
+                { meta: "Nombre · Liga · Posición", img: "/images/athlete-2.jpg", team: "" },
                 { meta: "Nombre · Liga · Posición", team: "" },
                 { meta: "Nombre · Liga · Posición", team: "" },
             ],

@@ -178,3 +178,7 @@
 ## Implementado (2026-08-14, parte 18)
 - SOLUCION refeita conforme mockup do cliente: label com traço azul por baixo, "CONTIGO." azul pesado (não itálico), sub "Tu cuerpo, tu carga... Todo conectado." + "Todo adaptado a ti."; diagrama: círculos com ícones outline (user/barras/calendário/target), linhas escuras com pontos no círculo central, anel exterior tracejado, "TU MEJOR VERSIÓN" sob o logo; trajectória azul entra pelo canto inferior esquerdo com ponto
 - Fix: framer-motion sobrepunha o translate do círculo central — wrapper div
+
+## Implementado (2026-08-15)
+- Fotos reais aplicadas (todas P&B): climbers → Problema (esforço, sangria à esquerda); #15 de costas com stick (recorte) → manifesto Club; foto de grupo do treino → foto de equipa no Sobre; mulher no gym → atleta 2 do carrossel (nome/liga/equipa pendentes)
+- Ficheiros: problema.jpg, club.jpg, team.jpg, athlete-2.jpg em /public/images

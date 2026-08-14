@@ -39,12 +39,11 @@ const Problema = () => {
                             <Corner className="right-3 top-3 border-r-2 border-t-2" />
                             <Corner className="bottom-3 left-3 border-b-2 border-l-2 md:left-28 xl:left-44" />
                             <Corner className="bottom-3 right-3 border-b-2 border-r-2" />
-                            <div className="flex h-full flex-col items-center justify-center gap-3">
-                                <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
-                                <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
-                                    {p.photoLabel}
-                                </span>
-                            </div>
+                            <img
+                                src="/images/problema.jpg"
+                                alt="Jugador en pleno esfuerzo durante el entrenamiento"
+                                className="h-full w-full object-cover grayscale"
+                            />
                         </figure>
                     </Reveal>
                 </div>

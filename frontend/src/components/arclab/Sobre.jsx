@@ -44,12 +44,11 @@ const Sobre = () => {
                         className="relative aspect-[16/9] w-full overflow-hidden rounded-[18px] bg-bone sm:aspect-[21/9]"
                     >
                         <Corners />
-                        <div className="flex h-full flex-col items-center justify-center gap-3">
-                            <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
-                            <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
-                                {s.photoLabel}
-                            </span>
-                        </div>
+                        <img
+                            src="/images/team.jpg"
+                            alt="Jugadores ARC.LAB entrenando en la pista"
+                            className="h-full w-full object-cover grayscale"
+                        />
                     </figure>
                 </Reveal>
 

@@ -49,12 +49,11 @@ const Club = () => {
                         <Corner className="right-3 top-3 border-r-2 border-t-2 lg:right-28" />
                         <Corner className="bottom-3 left-3 border-b-2 border-l-2" />
                         <Corner className="bottom-3 right-3 border-b-2 border-r-2 lg:right-28" />
-                        <div className="flex h-full flex-col items-center justify-center gap-3">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#9AA2EE]" />
-                            <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-white/40">
-                                {c.photoLabel}
-                            </span>
-                        </div>
+                        <img
+                            src="/images/club.jpg"
+                            alt="Jugador trabajando solo, de espaldas"
+                            className="h-full w-full object-cover grayscale"
+                        />
                     </figure>
                 </Reveal>
             </div>
