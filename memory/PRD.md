@@ -165,3 +165,12 @@
 ## Pendente do cliente
 - Foto real para Problema (jogador no banco) e Club (jogador de trás na pista)
 - Nota: foto do hero é STOCK (Unsplash) a pedido do cliente — substituível por foto real
+
+## Implementado (2026-08-14, parte 17) — MOCKUP FIEL (hero → ¿qué cambia?)
+- HERO: atleta em RECORTE sem fundo (rembg/u2net sobre foto Unsplash, espelhada, P&B → /images/hero-cutout.png), sombra suave; trajectória azul sobe até à bola com ponto final; micro-etiqueta "TRAYECTORIA DE MEJORA"; coluna direita "PLANIFICA. ADAPTA. RENDE. SUBE." (SUBE azul — nota: "RENDE." está assim no mockup, possível gralha de "RINDE."); grelha técnica subtil de fundo
+- PROBLEMA: foto placeholder a sangrar na margem esquerda (margens negativas), dores à direita com marcadores azuis, fecho itálico por baixo
+- SOLUCION: título à esquerda, diagrama à direita (linhas cruzadas animadas + pontos, círculo central com logo); mobile vertical
+- METODO: números Playfair não-itálicos, linha azul com ponto de origem à esquerda
+- CLUB: texto à esquerda, foto placeholder integrada à direita com bleed
+- CAMBIOS: sem headline (mockup), 4 colunas com ícones em chips azul-claro (zap/seta/bateria/olho)
+- Planos para baixo: INTACTOS

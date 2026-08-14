@@ -12,10 +12,10 @@ const ICONS = {
 };
 
 const POS = [
-    "left-[2%] top-[2%]",
-    "right-[2%] top-[2%] text-right",
-    "left-[2%] bottom-[2%]",
-    "right-[2%] bottom-[2%] text-right",
+    "left-0 top-0",
+    "right-0 top-0 text-right",
+    "left-0 bottom-0",
+    "right-0 bottom-0 text-right",
 ];
 
 const LINES = [
@@ -31,15 +31,22 @@ const DOTS = [
     [630, 405],
 ];
 
-const Node = ({ node, className = "" }) => {
+const Node = ({ node, right = false }) => {
     const Icon = ICONS[node.icon];
     return (
-        <div className={className}>
-            <Icon className="h-5 w-5 text-arcblue" strokeWidth={1.5} />
+        <div>
+            <Icon
+                className={`h-5 w-5 text-arcblue ${right ? "ml-auto" : ""}`}
+                strokeWidth={1.5}
+            />
             <h3 className="mt-3 font-grotesk text-sm font-bold uppercase tracking-[0.25em] text-ink">
                 {node.title}
             </h3>
-            <p className="mt-2 max-w-[220px] text-sm leading-relaxed text-ink2 md:max-w-[240px]">
+            <p
+                className={`mt-2 max-w-[220px] text-sm leading-relaxed text-ink2 ${
+                    right ? "ml-auto" : ""
+                }`}
+            >
                 {node.text}
             </p>
         </div>
@@ -55,23 +62,24 @@ const Solucion = () => {
             data-testid="solucion-section"
             className="scroll-mt-24 px-6 py-24 sm:py-32"
         >
-            <div className="mx-auto max-w-6xl">
-                <Reveal>
+            <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:items-center lg:gap-8">
+                <Reveal className="lg:col-span-4">
                     <Eyebrow>{s.label}</Eyebrow>
-                    <h2 className="mt-6 font-grotesk text-[11vw] font-bold lowercase leading-[0.95] tracking-tighter text-ink sm:text-6xl lg:text-7xl">
+                    <h2 className="mt-6 font-grotesk text-[11vw] font-bold uppercase leading-[0.95] tracking-tighter text-ink sm:text-6xl lg:text-6xl">
                         {s.titleL1}
                         <br />
-                        {s.titleL2}{" "}
-                        <em className="font-playfair italic text-arcblue">
+                        {s.titleL2}
+                        <br />
+                        <em className="font-playfair lowercase italic text-arcblue">
                             {s.titleEm}
                         </em>
                     </h2>
                 </Reveal>
 
-                <Reveal className="mt-16 hidden md:block">
+                <Reveal className="mt-14 hidden md:block lg:col-span-8 lg:mt-0">
                     <div
                         data-testid="sistema-diagram"
-                        className="relative mx-auto h-[520px] max-w-4xl"
+                        className="relative mx-auto h-[480px] w-full"
                     >
                         <svg
                             viewBox="0 0 800 520"
@@ -106,7 +114,11 @@ const Solucion = () => {
                                     initial={{ scale: 0 }}
                                     whileInView={{ scale: 1 }}
                                     viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ delay: 1.2 + i * 0.15, duration: 0.35, ease: "backOut" }}
+                                    transition={{
+                                        delay: 1.2 + i * 0.15,
+                                        duration: 0.35,
+                                        ease: "backOut",
+                                    }}
                                 />
                             ))}
                         </svg>
@@ -128,22 +140,20 @@ const Solucion = () => {
                         {s.nodes.map((node, i) => (
                             <div
                                 key={i}
-                                className={`absolute w-[220px] ${POS[i]}`}
+                                className={`absolute w-[210px] ${POS[i]}`}
                             >
-                                <Node node={node} className={i % 2 === 1 ? "[&>p]:ml-auto [&>svg]:ml-auto" : ""} />
+                                <Node node={node} right={i % 2 === 1} />
                             </div>
                         ))}
                     </div>
                 </Reveal>
 
                 <div className="mt-14 space-y-10 border-l border-arcblue/40 pl-6 md:hidden">
-                    <div className="flex items-center gap-3">
-                        <img
-                            src="/images/logo-mark.png"
-                            alt="ARC.LAB"
-                            className="h-6 w-auto"
-                        />
-                    </div>
+                    <img
+                        src="/images/logo-mark.png"
+                        alt="ARC.LAB"
+                        className="h-6 w-auto"
+                    />
                     {s.nodes.map((node, i) => (
                         <Reveal key={i} delay={i * 0.1}>
                             <Node node={node} />

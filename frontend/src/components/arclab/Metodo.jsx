@@ -27,15 +27,20 @@ const Metodo = () => {
                         transition={{ duration: 1.6, ease: "easeInOut" }}
                         className="absolute left-0 right-0 top-10 hidden h-px origin-left bg-arcblue md:block"
                     />
+                    <motion.div
+                        aria-hidden="true"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ delay: 1.5, duration: 0.35, ease: "backOut" }}
+                        className="absolute -left-1.5 top-[2.35rem] hidden h-3 w-3 rounded-full bg-arcblue md:block"
+                    />
                     <div className="grid gap-14 md:grid-cols-3 md:gap-10">
                         {m.steps.map((s, i) => (
                             <Reveal key={s.n} delay={i * 0.15}>
-                                <div
-                                    data-testid={`metodo-step-${s.n}`}
-                                    className="relative"
-                                >
+                                <div data-testid={`metodo-step-${s.n}`} className="relative">
                                     <div className="flex items-end justify-between">
-                                        <span className="relative bg-white pr-4 font-playfair text-8xl italic leading-none text-arcblue md:pt-0 lg:text-9xl">
+                                        <span className="relative bg-white pr-4 font-playfair text-8xl leading-none text-arcblue lg:text-9xl">
                                             {s.n}
                                         </span>
                                         {i < m.steps.length - 1 && (

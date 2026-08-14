@@ -12,6 +12,8 @@ export const COPY = {
             photoAlt: "Jugador de baloncesto en pleno mate, en el pico del salto",
             cta1: "Escríbenos",
             cta2: "Ver cómo trabajamos",
+            trayLabel: "Trayectoria de mejora",
+            words: ["Planifica.", "Adapta.", "Rende.", "Sube."],
         },
         problema: {
             label: "¿Te suena?",
@@ -93,19 +95,19 @@ export const COPY = {
             titleL2: "es realmente",
             titleEm: "tuyo.",
             items: [
-                { icon: "dumbbell", title: "Más fuerza", text: "En cada contacto." },
+                { icon: "zap", title: "Más fuerza", text: "En cada contacto." },
                 {
-                    icon: "zap",
+                    icon: "arrow",
                     title: "Más explosividad",
                     text: "Primer paso, salto, reacción, velocidad.",
                 },
                 {
-                    icon: "gauge",
+                    icon: "battery",
                     title: "Menos fatiga",
                     text: "Gestionamos tu carga para rendir más.",
                 },
                 {
-                    icon: "crosshair",
+                    icon: "eye",
                     title: "Más control",
                     text: "Sabes qué hacer, por qué y para qué.",
                 },
