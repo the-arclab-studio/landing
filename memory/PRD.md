@@ -96,3 +96,15 @@
 - Club: bloco escuro com watermark "EQUIPO" outlined em parallax
 - Header mobile: logo mais pequeno, CTA vira só ícone ✆ em ecrãs xs
 - Secções Planes/Prueba/FAQ/Contacto/Footer INTACTAS; copy final intocado
+
+## Implementado (2026-08-14, parte 6)
+- Site passou a 100% ESPANHOL: toggle ES/PT removido, bloco PT apagado de copy.js, App fixa COPY.es
+- Bug logo mobile: header usa agora logo-mark.png (só "arc.lab", recortado do horizontal) em <sm; horizontal completo em sm+
+- Nova secção "Sobre nosotros" (#nosotros, entre Prueba e FAQ): headline, slot foto de equipa (21:9, parêntesis retos), 2 cartões (@uxisureda ES, @gmorais.24 PT) com bio placeholder "[Bio pendiente]"; nav ganhou link "Nosotros"
+- Checklist de lançamento (vídeo): robots.txt criado; og-image.png gerada (logo + arco azul, 1200x630) e ligada nas meta OG (URL absoluta do preview — atualizar no domínio final); JSON-LD Organization schema no index.html
+- PostHog já existe no template (analytics); Privacy policy PENDENTE (precisa dados legais)
+
+## Pendente do cliente
+- Foto de equipa + bios de Uxue e Gonçalo para a secção Sobre
+- Posição + citação do Alex; atletas 2 e 3 completos
+- Texto de política de privacidade (recomendado antes do lançamento)

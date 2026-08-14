@@ -1,25 +1,8 @@
 import { useLang } from "./LangContext";
 import { waLink } from "./data";
 
-const LangBtn = ({ code, label }) => {
-    const { lang, setLang } = useLang();
-    const active = lang === code;
-    return (
-        <button
-            onClick={() => setLang(code)}
-            data-testid={`lang-toggle-${code}`}
-            aria-pressed={active}
-            className={`font-grotesk text-[11px] font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
-                active ? "text-arcblue" : "text-ink2 hover:text-ink"
-            }`}
-        >
-            {label}
-        </button>
-    );
-};
-
 const Header = () => {
-    const { lang, t } = useLang();
+    const { t } = useLang();
     return (
         <header className="fixed inset-x-0 top-0 z-40 border-b border-line bg-white/80 backdrop-blur-xl">
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
@@ -31,7 +14,12 @@ const Header = () => {
                     <img
                         src="/images/logo-horizontal.png"
                         alt="ARC.LAB · Athlete Development"
-                        className="h-6 w-auto sm:h-8"
+                        className="hidden h-8 w-auto sm:block"
+                    />
+                    <img
+                        src="/images/logo-mark.png"
+                        alt="ARC.LAB"
+                        className="h-7 w-auto sm:hidden"
                     />
                 </a>
                 <nav
@@ -41,6 +29,7 @@ const Header = () => {
                     {[
                         ["planes", "#planes"],
                         ["jugadores", "#jugadores"],
+                        ["nosotros", "#nosotros"],
                         ["dudas", "#dudas"],
                     ].map(([key, href]) => (
                         <a
@@ -53,27 +42,15 @@ const Header = () => {
                         </a>
                     ))}
                 </nav>
-                <div className="flex items-center gap-4">
-                    <div
-                        className="flex items-center gap-2"
-                        role="group"
-                        aria-label="Idioma / Language"
-                    >
-                        <LangBtn code="es" label="ES" />
-                        <span className="text-line">·</span>
-                        <LangBtn code="pt" label="PT" />
-                    </div>
-                    <a
-                        href={waLink(lang, "generic")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-testid="header-cta-btn"
-                        className="btn-blue !px-4 !py-2.5 !text-[11px] sm:!px-5"
-                    >
-                        <span aria-hidden="true" className="sm:hidden">✆</span>
-                        <span className="hidden sm:inline">{t.nav.cta}</span>
-                    </a>
-                </div>
+                <a
+                    href={waLink("es", "generic")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="header-cta-btn"
+                    className="btn-blue !px-5 !py-2.5 !text-[11px]"
+                >
+                    {t.nav.cta}
+                </a>
             </div>
         </header>
     );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Lenis from "lenis";
 import { LangContext } from "@/components/arclab/LangContext";
 import { COPY } from "@/components/arclab/copy";
@@ -10,14 +10,13 @@ import Enfoque from "@/components/arclab/Enfoque";
 import Club from "@/components/arclab/Club";
 import Planes from "@/components/arclab/Planes";
 import Prueba from "@/components/arclab/Prueba";
+import Sobre from "@/components/arclab/Sobre";
 import Faq from "@/components/arclab/Faq";
 import Contacto from "@/components/arclab/Contacto";
 import Footer from "@/components/arclab/Footer";
 import FloatingWhatsApp from "@/components/arclab/FloatingWhatsApp";
 
 export default function App() {
-    const [lang, setLang] = useState("es");
-
     useEffect(() => {
         const lenis = new Lenis({ lerp: 0.09 });
         let raf;
@@ -33,7 +32,9 @@ export default function App() {
     }, []);
 
     return (
-        <LangContext.Provider value={{ lang, setLang, t: COPY[lang] }}>
+        <LangContext.Provider
+            value={{ lang: "es", setLang: () => {}, t: COPY.es }}
+        >
             <div className="grain bg-white text-ink">
                 <Header />
                 <main>
@@ -44,6 +45,7 @@ export default function App() {
                     <Club />
                     <Planes />
                     <Prueba />
+                    <Sobre />
                     <Faq />
                     <Contacto />
                 </main>
