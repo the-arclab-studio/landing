@@ -141,3 +141,7 @@
 ## Implementado (2026-08-14, parte 13)
 - Carrossel: intervalo 5.5s→6.5s; peeks laterais (cartões anterior/seguinte desvanecidos atrás do principal, clicáveis, só lg+); frase menor (text-xl) e centrada; linha de equipa azul por baixo do meta (campo team em copy.js — nomes de equipa PENDENTES do cliente, placeholder "Equipo — pendiente")
 - Glitch do intro 0.5s mais tarde: 3.4s→4.35s; tagline até 7.5s; fim 8.3s; hero B=8.2
+
+## Implementado (2026-08-14, parte 14)
+- Carrossel estilo mockup: cartão central por cima, fotos anterior/seguinte a espreitar por trás dos dois lados (peeks sobrepostos, ~40% visível, clicáveis); setas prev/next + contador sempre por baixo; SWIPE (drag x) no telemóvel
+- Ajustes: peeks w-56 desktop / w-20 mobile, overlap -/+8, opacity 75%

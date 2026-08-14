@@ -44,8 +44,8 @@ const Peek = ({ a, side, onClick, label }) => (
         onClick={onClick}
         data-testid={`carousel-peek-${side}`}
         aria-label={side === "prev" ? "Anterior" : "Siguiente"}
-        className={`relative z-0 hidden w-40 shrink-0 opacity-50 transition-all duration-500 hover:opacity-80 lg:block ${
-            side === "prev" ? "-mr-14" : "-ml-14"
+        className={`relative z-0 w-20 shrink-0 scale-[0.92] opacity-60 transition-all duration-500 hover:opacity-90 sm:w-56 sm:scale-95 sm:opacity-75 ${
+            side === "prev" ? "-mr-6 sm:-mr-8" : "-ml-6 sm:-ml-8"
         }`}
     >
         <Photo a={a} label={label} />
@@ -57,7 +57,7 @@ const Arrow = ({ dir, onClick }) => (
         onClick={onClick}
         data-testid={`carousel-${dir === -1 ? "prev" : "next"}`}
         aria-label={dir === -1 ? "Anterior" : "Siguiente"}
-        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors duration-300 hover:border-arcblue hover:text-arcblue"
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/15 bg-white text-ink transition-colors duration-300 hover:border-arcblue hover:text-arcblue"
     >
         {dir === -1 ? (
             <ArrowLeft className="h-5 w-5" />
@@ -98,16 +98,23 @@ const Prueba = () => {
                 <div className="mt-14 flex items-center justify-center">
                     <Peek a={prev} side="prev" onClick={() => go(-1)} label={p.photoLabel} />
 
-                    <div className="relative z-10 w-full max-w-md">
+                    <div className="relative z-10 w-full min-w-0 max-w-md">
                         <AnimatePresence mode="wait">
                             <motion.figure
                                 key={idx}
                                 data-testid="testimonial-card"
-                                className="card-soft bg-white p-6"
+                                className="card-soft cursor-grab bg-white p-6 active:cursor-grabbing"
                                 initial={{ opacity: 0, x: 70 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -70 }}
                                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                                drag="x"
+                                dragConstraints={{ left: 0, right: 0 }}
+                                dragElastic={0.15}
+                                onDragEnd={(e, info) => {
+                                    if (info.offset.x < -70) go(1);
+                                    else if (info.offset.x > 70) go(-1);
+                                }}
                             >
                                 <Photo a={a} label={p.photoLabel} big />
                                 <blockquote className="mt-7 text-center font-playfair text-xl italic leading-relaxed text-ink">
