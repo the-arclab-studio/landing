@@ -48,7 +48,7 @@ const Intro = ({ onDone }) => {
                 {phase === 0 && (
                     <motion.div
                         key="logo"
-                        className={`glitch-img w-52 sm:w-72 ${exiting ? "exiting" : ""}`}
+                        className={`glitch-img w-64 sm:w-96 ${exiting ? "exiting" : ""}`}
                         data-testid="intro-logo"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -78,7 +78,7 @@ const Intro = ({ onDone }) => {
                     <motion.p
                         key="tagline"
                         data-testid="intro-tagline"
-                        className="flex items-baseline gap-8 px-6 text-center font-grotesk text-sm font-medium uppercase tracking-[0.45em] text-white sm:gap-12 sm:text-xl"
+                        className="flex items-baseline gap-8 px-6 text-center font-grotesk text-sm font-bold uppercase tracking-[0.45em] text-white sm:gap-12 sm:text-xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
