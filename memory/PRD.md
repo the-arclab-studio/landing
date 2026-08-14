@@ -63,3 +63,12 @@
 - P0: 3 testemunhos reais (substituir placeholders no bloco Prueba); logo real logo_arclab.png
 - P1: TikTok (removido do footer v2); imagem og:image real
 - P2: guardar idioma escolhido (localStorage)
+
+## Implementado (2026-08-14, parte 2)
+- Logo REAL aplicado: horizontal (2. Logo P-Horizontal.png) no header, principal no footer, ícone azul como favicon; ficheiros trimmed em /public/images/ (logo-horizontal.png, logo-principal.png, icon.png)
+- Imagem "elite." (azul claro + ponto lima, fundo transparente) no cartão do plano Elite, substituindo o título em texto
+- Assinatura "by uxisureda ✕ arc.lab" (Caveat) adicionada ao rodapé, por o documento de identidade (ago/2026) a exigir em todas as peças
+- Documento de identidade visual recebido como referência base (não literal); paleta da página já conforme (#1B33DC etc.)
+
+## Pendente do cliente
+- Textos dos 3 testemunhos (citação + Nome · Liga · Posição) — perguntado, aguarda resposta

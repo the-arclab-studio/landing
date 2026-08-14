@@ -46,15 +46,18 @@ const PlanCard = ({ plan, wa }) => {
             >
                 {plan.tag}
             </p>
-            <h3
-                className={`mt-4 text-3xl font-bold uppercase tracking-tight ${
-                    dark
-                        ? "font-playfair normal-case italic text-[#93A5FF]"
-                        : "font-grotesk text-ink"
-                }`}
-            >
-                {plan.name}
-            </h3>
+            {dark ? (
+                <img
+                    src="/images/elite.png"
+                    alt="elite."
+                    data-testid="plan-elite-logo"
+                    className="mt-4 h-10 w-auto"
+                />
+            ) : (
+                <h3 className="mt-4 font-grotesk text-3xl font-bold uppercase tracking-tight text-ink">
+                    {plan.name}
+                </h3>
+            )}
             <p className="mt-6">
                 <span
                     className={`font-playfair text-5xl italic ${

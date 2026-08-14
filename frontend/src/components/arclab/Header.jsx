@@ -26,9 +26,13 @@ const Header = () => {
                 <a
                     href="#top"
                     data-testid="brand-wordmark"
-                    className="wordmark font-marker text-2xl leading-none text-ink"
+                    aria-label="ARC.LAB — inicio"
                 >
-                    arc.lab
+                    <img
+                        src="/images/logo-horizontal.png"
+                        alt="ARC.LAB · Athlete Development"
+                        className="h-8 w-auto"
+                    />
                 </a>
                 <nav
                     className="hidden items-center gap-8 md:flex"

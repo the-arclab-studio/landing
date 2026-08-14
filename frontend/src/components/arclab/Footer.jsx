@@ -10,9 +10,12 @@ const Footer = () => {
                 <Reveal>
                     <div className="flex flex-col items-start justify-between gap-10 sm:flex-row sm:items-end">
                         <div>
-                            <p className="wordmark font-marker text-4xl text-ink">
-                                arc.lab
-                            </p>
+                            <img
+                                src="/images/logo-principal.png"
+                                alt="ARC.LAB · Athlete Development"
+                                data-testid="footer-logo"
+                                className="h-20 w-auto"
+                            />
                             <p className="mt-4 font-grotesk text-sm font-bold uppercase tracking-[0.25em] text-ink">
                                 {t.footer.motto1}{" "}
                                 <span className="text-arcblue">
@@ -46,9 +49,13 @@ const Footer = () => {
                             </a>
                         </nav>
                     </div>
-                    <div className="mt-14 border-t border-line pt-5">
+                    <div className="mt-14 flex items-center justify-between border-t border-line pt-5">
                         <p className="text-xs text-ink2">
                             © 2026 ARC.LAB · Performance
+                        </p>
+                        <p className="font-caveat text-xl text-ink2">
+                            by uxisureda <span className="text-arcblue">✕</span>{" "}
+                            arc.lab
                         </p>
                     </div>
                 </Reveal>
