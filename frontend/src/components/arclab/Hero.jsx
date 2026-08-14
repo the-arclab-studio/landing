@@ -2,12 +2,12 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Arc from "./Arc";
 import { MaskLine } from "./Reveal";
+import { Eyebrow } from "./Bits";
 import { useLang } from "./LangContext";
-import { waES, waPT } from "./data";
+import { waLink } from "./data";
 
 const Hero = () => {
     const { lang, t } = useLang();
-    const wa = lang === "pt" ? waPT : waES;
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -39,21 +39,19 @@ const Hero = () => {
             </motion.div>
 
             <div className="relative mx-auto max-w-6xl">
-                <motion.p
+                <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="eyebrow"
                 >
-                    {t.hero.eyebrow}
-                </motion.p>
+                    <Eyebrow>{t.hero.eyebrow}</Eyebrow>
+                </motion.div>
 
-                <h1 className="mt-8 font-grotesk text-[13.5vw] font-bold lowercase leading-[0.98] tracking-tight text-ink sm:text-7xl lg:text-8xl">
-                    <MaskLine delay={0.35}>{t.hero.line1}</MaskLine>
+                <h1 className="mt-8 font-grotesk text-[13.5vw] font-bold lowercase leading-[0.98] tracking-[-0.02em] text-ink sm:text-7xl lg:text-8xl">
+                    <MaskLine delay={0.35}>{t.hero.titlePre}</MaskLine>
                     <MaskLine delay={0.5}>
-                        {t.hero.line2pre}{" "}
                         <em className="font-playfair italic text-arcblue">
-                            {t.hero.line2em}
+                            {t.hero.titleEm}
                         </em>
                     </MaskLine>
                 </h1>
@@ -71,23 +69,23 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
-                    className="mt-10 flex flex-wrap items-center gap-6"
+                    className="mt-10 flex flex-wrap items-center gap-4"
                 >
                     <a
-                        href={wa}
+                        href={waLink(lang, "generic")}
                         target="_blank"
                         rel="noopener noreferrer"
                         data-testid="hero-whatsapp-btn"
                         className="btn-blue"
                     >
-                        {t.hero.cta}
+                        <span aria-hidden="true">✆</span> {t.hero.cta1}
                     </a>
                     <a
                         href="#planes"
                         data-testid="hero-plans-link"
-                        className="font-grotesk text-sm font-medium uppercase tracking-[0.2em] text-ink underline decoration-arcblue decoration-2 underline-offset-8 transition-colors duration-300 hover:text-arcblue"
+                        className="btn-outline"
                     >
-                        {t.hero.plans}
+                        {t.hero.cta2}
                     </a>
                 </motion.div>
             </div>

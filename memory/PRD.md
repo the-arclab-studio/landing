@@ -49,3 +49,17 @@
 ## Próximas tarefas
 1. Receber logo + texto legal + TikTok do cliente e aplicar
 2. Revisão de copy pelo cliente
+
+## Implementado (2026-08-14) — REBUILD v2 (copy final aprobado)
+- Página reconstruída com o prompt FINAL v2: 8 blocos na ordem exata (Hero "tu primer plan de verdad." / Problema / Enfoque 3 passos sem caixas / El Club y Tú — ÚNICO bloco escuro #151515 / Los Planes — Basic 50€, PRO 95€ destacado #EEF0FC, Duo 80€/jugador, ELITE 220€ cartão escuro / Prueba — 3 placeholders de testemunho + foto de treino / FAQ acordeão 7 perguntas / Empezar)
+- Tabela comparativa colapsável "COMPARA LOS PLANES AL DETALLE" (coluna Pro com tinte azul, Elite escura), fechada por defeito
+- Header sticky com nav âncora Planes/Jugadores/Dudas + botão azul "Escríbenos"; wordmark rodado com sombra suave
+- WhatsApp com mensagem pré-preenchida POR PLANO (generic/basic/pro/duo/elite), números ES e PT
+- Footer: wordmark + mote "NADA PORQUE SÍ. TODO POR UNA RAZÓN."
+- Toggle ES/PT mantido: toda a copy v2 traduzida para PT-PT; mensagens WhatsApp mantidas em espanhol (conforme spec)
+- Google login: DESCARTADO (v2 diz "sin login"); exportação para outro servidor discutida — ver notas
+
+## Backlog atualizado
+- P0: 3 testemunhos reais (substituir placeholders no bloco Prueba); logo real logo_arclab.png
+- P1: TikTok (removido do footer v2); imagem og:image real
+- P2: guardar idioma escolhido (localStorage)

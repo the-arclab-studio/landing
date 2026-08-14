@@ -127,6 +127,23 @@
         transform: translateY(-2px);
         box-shadow: 0 18px 40px -14px rgba(27, 51, 220, 0.55);
     }
+    .btn-outline {
+        @apply inline-flex items-center gap-2 rounded-full border border-ink/20 bg-transparent px-7 py-3.5 font-grotesk text-sm font-medium uppercase tracking-[0.15em] text-ink;
+        transition:
+            border-color 0.35s ease,
+            color 0.35s ease,
+            transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-outline:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+        transform: translateY(-2px);
+    }
+    .wordmark {
+        display: inline-block;
+        transform: rotate(-2deg);
+        text-shadow: 0 6px 18px rgba(21, 21, 21, 0.18);
+    }
 }
 
 @keyframes marquee {

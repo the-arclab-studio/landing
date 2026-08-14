@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
-import { waES, waPT } from "./data";
+import { waLink } from "./data";
 
 const FloatingWhatsApp = () => {
     const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ const FloatingWhatsApp = () => {
                         className="card-soft flex flex-col gap-2 !rounded-2xl bg-white p-3 ring-1 ring-line"
                     >
                         <a
-                            href={waES}
+                            href={waLink("es", "generic")}
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="float-whatsapp-es"
@@ -26,7 +26,7 @@ const FloatingWhatsApp = () => {
                             🇪🇸 España
                         </a>
                         <a
-                            href={waPT}
+                            href={waLink("pt", "generic")}
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="float-whatsapp-pt"
@@ -42,7 +42,7 @@ const FloatingWhatsApp = () => {
                 data-testid="float-whatsapp-toggle"
                 aria-label="Abrir contacto por WhatsApp"
                 aria-expanded={open}
-                className="btn-blue !h-14 !w-14 !rounded-full !p-0 justify-center"
+                className="btn-blue !h-14 !w-14 justify-center !rounded-full !p-0"
             >
                 {open ? (
                     <X className="h-5 w-5" />

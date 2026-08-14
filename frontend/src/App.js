@@ -5,10 +5,12 @@ import { COPY } from "@/components/arclab/copy";
 import Header from "@/components/arclab/Header";
 import Hero from "@/components/arclab/Hero";
 import Marquee from "@/components/arclab/Marquee";
+import Problema from "@/components/arclab/Problema";
 import Enfoque from "@/components/arclab/Enfoque";
-import PhotoSection from "@/components/arclab/PhotoSection";
+import Club from "@/components/arclab/Club";
 import Planes from "@/components/arclab/Planes";
-import Extras from "@/components/arclab/Extras";
+import Prueba from "@/components/arclab/Prueba";
+import Faq from "@/components/arclab/Faq";
 import Contacto from "@/components/arclab/Contacto";
 import Footer from "@/components/arclab/Footer";
 import FloatingWhatsApp from "@/components/arclab/FloatingWhatsApp";
@@ -19,8 +21,8 @@ export default function App() {
     useEffect(() => {
         const lenis = new Lenis({ lerp: 0.09 });
         let raf;
-        const loop = (t) => {
-            lenis.raf(t);
+        const loop = (time) => {
+            lenis.raf(time);
             raf = requestAnimationFrame(loop);
         };
         raf = requestAnimationFrame(loop);
@@ -37,10 +39,12 @@ export default function App() {
                 <main>
                     <Hero />
                     <Marquee />
+                    <Problema />
                     <Enfoque />
-                    <PhotoSection />
+                    <Club />
                     <Planes />
-                    <Extras />
+                    <Prueba />
+                    <Faq />
                     <Contacto />
                 </main>
                 <Footer />

@@ -1,7 +1,12 @@
-const WA_MSG_ES =
-    "Hola, quiero info del acompañamiento in-season de ARCLAB";
-const WA_MSG_PT =
-    "Olá, quero info sobre o acompanhamento in-season da ARCLAB";
+const NUMS = { es: "34698136937", pt: "351969291245" };
 
-export const waES = `https://wa.me/34698136937?text=${encodeURIComponent(WA_MSG_ES)}`;
-export const waPT = `https://wa.me/351969291245?text=${encodeURIComponent(WA_MSG_PT)}`;
+const MSGS = {
+    generic: "Hola, quiero información de ARC.LAB",
+    basic: "Hola, me interesa el plan Basic",
+    pro: "Hola, me interesa el plan Pro",
+    duo: "Hola, nos interesa el plan Duo",
+    elite: "Hola, quiero pedir plaza Elite",
+};
+
+export const waLink = (country = "es", msg = "generic") =>
+    `https://wa.me/${NUMS[country]}?text=${encodeURIComponent(MSGS[msg])}`;
