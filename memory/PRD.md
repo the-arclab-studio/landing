@@ -78,3 +78,12 @@
 - Bloco Prueba refeito: 3 cartões com slot de foto reservado (4:5, parêntesis retos azuis, etiqueta "Foto del atleta"), frase genérica e meta "Nombre · Liga · Posición" — à espera dos conteúdos reais
 - WhatsApp: cliente vai criar WhatsApp empresarial bilingue — sem alterações necessárias
 - training.jpg mantido em /public/images (sem uso); elite logo ajustado para 32px após feedback visual
+
+## Implementado (2026-08-14, parte 4)
+- Testemunho 1: Alex Almenta · 2ª FEB com foto real convertida a P&B (/images/athlete-1.jpg), parêntesis retos azuis por cima, frase genérica provisória
+- Cartões 2 e 3 continuam placeholders (foto + meta por receber)
+- copy.js: prueba.athletes[] — estrutura pronta para encaixar os restantes
+
+## Pendente do cliente
+- Posição do Alex Almenta (falta no meta) + a sua frase/citação real
+- Atleta 2 e 3: foto, nome, liga, posição, citação

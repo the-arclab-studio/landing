@@ -167,7 +167,11 @@ export const COPY = {
             titleEm: "jugador.",
             quote: "El trabajo de cada semana se nota el día del partido.",
             photoLabel: "Foto del atleta",
-            meta: "Nombre · Liga · Posición",
+            athletes: [
+                { meta: "Alex Almenta · 2ª FEB", img: "/images/athlete-1.jpg" },
+                { meta: "Nombre · Liga · Posición" },
+                { meta: "Nombre · Liga · Posición" },
+            ],
         },
         faq: {
             eyebrow: "Dudas frecuentes",
@@ -387,7 +391,11 @@ export const COPY = {
             titleEm: "jogador.",
             quote: "O trabalho de cada semana nota-se no dia do jogo.",
             photoLabel: "Foto do atleta",
-            meta: "Nome · Liga · Posição",
+            athletes: [
+                { meta: "Alex Almenta · 2ª FEB", img: "/images/athlete-1.jpg" },
+                { meta: "Nome · Liga · Posição" },
+                { meta: "Nome · Liga · Posição" },
+            ],
         },
         faq: {
             eyebrow: "Dúvidas frequentes",
