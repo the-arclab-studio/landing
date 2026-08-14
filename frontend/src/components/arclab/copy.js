@@ -169,11 +169,12 @@ export const COPY = {
             quote: "El trabajo de cada semana se nota el día del partido.",
             photoLabel: "Foto del atleta",
             athletes: [
-                { meta: "Alex Almenta · 2ª FEB", img: "/images/athlete-1.jpg" },
-                { meta: "Nombre · Liga · Posición" },
-                { meta: "Nombre · Liga · Posición" },
-                { meta: "Nombre · Liga · Posición" },
+                { meta: "Alex Almenta · 2ª FEB", img: "/images/athlete-1.jpg", team: "" },
+                { meta: "Nombre · Liga · Posición", team: "" },
+                { meta: "Nombre · Liga · Posición", team: "" },
+                { meta: "Nombre · Liga · Posición", team: "" },
             ],
+            teamPending: "Equipo — pendiente",
         },
         faq: {
             eyebrow: "Dudas frecuentes",

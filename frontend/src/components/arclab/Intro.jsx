@@ -19,16 +19,16 @@ const Intro = ({ onDone }) => {
     useEffect(() => {
         document.body.style.overflow = "hidden";
         const tw = setTimeout(() => setWarm(true), 1300);
-        const t0 = setTimeout(() => setExiting(true), 2900);
-        const t1 = setTimeout(() => setPhase(1), 3850);
-        const t2 = setTimeout(() => setPhase(2), 7000);
+        const t0 = setTimeout(() => setExiting(true), 3400);
+        const t1 = setTimeout(() => setPhase(1), 4350);
+        const t2 = setTimeout(() => setPhase(2), 7500);
         const t3 = setTimeout(() => {
             try {
                 sessionStorage.setItem(KEY, "1");
             } catch {}
             document.body.style.overflow = "";
             onDone();
-        }, 7800);
+        }, 8300);
         return () => {
             [tw, t0, t1, t2, t3].forEach(clearTimeout);
             document.body.style.overflow = "";

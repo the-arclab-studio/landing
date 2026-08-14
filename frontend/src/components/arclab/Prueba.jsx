@@ -12,14 +12,58 @@ const Corner = ({ className }) => (
     />
 );
 
-const Arrow = ({ dir, onClick, mobile = false }) => (
+const Photo = ({ a, label, big = false }) => (
+    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-bone">
+        {big && (
+            <>
+                <Corner className="left-3 top-3 border-l-2 border-t-2" />
+                <Corner className="right-3 top-3 border-r-2 border-t-2" />
+                <Corner className="bottom-3 left-3 border-b-2 border-l-2" />
+                <Corner className="bottom-3 right-3 border-b-2 border-r-2" />
+            </>
+        )}
+        {a.img ? (
+            <img
+                src={a.img}
+                alt={a.meta}
+                className="h-full w-full object-cover object-top grayscale"
+            />
+        ) : (
+            <div className="flex h-full flex-col items-center justify-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
+                <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
+                    {label}
+                </span>
+            </div>
+        )}
+    </div>
+);
+
+const Peek = ({ a, side, onClick, label }) => (
     <button
         onClick={onClick}
-        data-testid={`carousel-${dir === -1 ? "prev" : "next"}${mobile ? "-mobile" : ""}`}
+        data-testid={`carousel-peek-${side}`}
+        aria-label={side === "prev" ? "Anterior" : "Siguiente"}
+        className={`relative z-0 hidden w-40 shrink-0 opacity-50 transition-all duration-500 hover:opacity-80 lg:block ${
+            side === "prev" ? "-mr-14" : "-ml-14"
+        }`}
+    >
+        <Photo a={a} label={label} />
+    </button>
+);
+
+const Arrow = ({ dir, onClick }) => (
+    <button
+        onClick={onClick}
+        data-testid={`carousel-${dir === -1 ? "prev" : "next"}`}
         aria-label={dir === -1 ? "Anterior" : "Siguiente"}
         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors duration-300 hover:border-arcblue hover:text-arcblue"
     >
-        {dir === -1 ? <ArrowLeft className="h-5 w-5" /> : <ArrowRight className="h-5 w-5" />}
+        {dir === -1 ? (
+            <ArrowLeft className="h-5 w-5" />
+        ) : (
+            <ArrowRight className="h-5 w-5" />
+        )}
     </button>
 );
 
@@ -31,11 +75,13 @@ const Prueba = () => {
     const go = (d) => setIdx((i) => (i + d + n) % n);
 
     useEffect(() => {
-        const id = setInterval(() => setIdx((i) => (i + 1) % n), 5500);
+        const id = setInterval(() => setIdx((i) => (i + 1) % n), 6500);
         return () => clearInterval(id);
     }, [idx, n]);
 
     const a = p.athletes[idx];
+    const prev = p.athletes[(idx - 1 + n) % n];
+    const next = p.athletes[(idx + 1) % n];
 
     return (
         <section
@@ -49,12 +95,10 @@ const Prueba = () => {
                     <Headline className="mt-6" pre={p.titlePre} em={p.titleEm} />
                 </Reveal>
 
-                <div className="mt-14 flex items-center justify-center gap-6 sm:gap-10">
-                    <div className="hidden sm:block">
-                        <Arrow dir={-1} onClick={() => go(-1)} />
-                    </div>
+                <div className="mt-14 flex items-center justify-center">
+                    <Peek a={prev} side="prev" onClick={() => go(-1)} label={p.photoLabel} />
 
-                    <div className="w-full max-w-md">
+                    <div className="relative z-10 w-full max-w-md">
                         <AnimatePresence mode="wait">
                             <motion.figure
                                 key={idx}
@@ -65,42 +109,21 @@ const Prueba = () => {
                                 exit={{ opacity: 0, x: -70 }}
                                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                <div
-                                    data-testid="testimonial-photo-slot"
-                                    className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-bone"
-                                >
-                                    <Corner className="left-3 top-3 border-l-2 border-t-2" />
-                                    <Corner className="right-3 top-3 border-r-2 border-t-2" />
-                                    <Corner className="bottom-3 left-3 border-b-2 border-l-2" />
-                                    <Corner className="bottom-3 right-3 border-b-2 border-r-2" />
-                                    {a.img ? (
-                                        <img
-                                            src={a.img}
-                                            alt={a.meta}
-                                            className="h-full w-full object-cover object-top grayscale"
-                                        />
-                                    ) : (
-                                        <div className="flex h-full flex-col items-center justify-center gap-3">
-                                            <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
-                                            <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
-                                                {p.photoLabel}
-                                            </span>
-                                        </div>
-                                    )}
-                                </div>
-                                <blockquote className="mt-7 font-playfair text-2xl italic leading-relaxed text-ink">
+                                <Photo a={a} label={p.photoLabel} big />
+                                <blockquote className="mt-7 text-center font-playfair text-xl italic leading-relaxed text-ink">
                                     “{a.quote || p.quote}”
                                 </blockquote>
-                                <figcaption className="mt-5 font-grotesk text-[11px] font-medium uppercase tracking-[0.25em] text-ink2">
+                                <figcaption className="mt-5 text-center font-grotesk text-[11px] font-medium uppercase tracking-[0.25em] text-ink2">
                                     {a.meta}
+                                    <span className="mt-1 block text-arcblue">
+                                        {a.team || p.teamPending}
+                                    </span>
                                 </figcaption>
                             </motion.figure>
                         </AnimatePresence>
 
                         <div className="mt-8 flex items-center justify-center gap-6">
-                            <div className="sm:hidden">
-                                <Arrow dir={-1} mobile onClick={() => go(-1)} />
-                            </div>
+                            <Arrow dir={-1} onClick={() => go(-1)} />
                             <span
                                 data-testid="carousel-counter"
                                 className="font-grotesk text-[11px] uppercase tracking-[0.35em] text-ink2"
@@ -110,15 +133,11 @@ const Prueba = () => {
                                 </span>{" "}
                                 — {String(n).padStart(2, "0")}
                             </span>
-                            <div className="sm:hidden">
-                                <Arrow dir={1} mobile onClick={() => go(1)} />
-                            </div>
+                            <Arrow dir={1} onClick={() => go(1)} />
                         </div>
                     </div>
 
-                    <div className="hidden sm:block">
-                        <Arrow dir={1} onClick={() => go(1)} />
-                    </div>
+                    <Peek a={next} side="next" onClick={() => go(1)} label={p.photoLabel} />
                 </div>
             </div>
         </section>

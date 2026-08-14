@@ -137,3 +137,7 @@
 - Intro: o ponto do "arc.lab" faz transição branco→laranja #FB6101 (amostrado do ícone de app) durante o hold, chegando a laranja mesmo quando começa o glitch (dot isolado via máscara CSS, dot.png + logo-mark-white-nodot.png)
 - Testemunhos passaram a CARROSSEL: 1 cartão de cada vez, foto grande 4:5, setas prev/next (desktop nos lados, mobile junto ao contador), contador "01 — 04", auto-rotação 5.5s (reinicia ao clicar)
 - Fix build: mask-image inline no JSX (css-loader não resolve /images)
+
+## Implementado (2026-08-14, parte 13)
+- Carrossel: intervalo 5.5s→6.5s; peeks laterais (cartões anterior/seguinte desvanecidos atrás do principal, clicáveis, só lg+); frase menor (text-xl) e centrada; linha de equipa azul por baixo do meta (campo team em copy.js — nomes de equipa PENDENTES do cliente, placeholder "Equipo — pendiente")
+- Glitch do intro 0.5s mais tarde: 3.4s→4.35s; tagline até 7.5s; fim 8.3s; hero B=8.2
