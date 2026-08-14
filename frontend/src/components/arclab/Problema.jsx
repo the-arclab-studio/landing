@@ -35,10 +35,6 @@ const Problema = () => {
                             data-testid="problema-photo-slot"
                             className="relative aspect-[4/3] w-full overflow-hidden rounded-[18px] bg-white md:-ml-24 md:w-[calc(100%+6rem)] xl:-ml-40 xl:w-[calc(100%+10rem)]"
                         >
-                            <Corner className="left-3 top-3 border-l-2 border-t-2 md:left-28 xl:left-44" />
-                            <Corner className="right-3 top-3 border-r-2 border-t-2" />
-                            <Corner className="bottom-3 left-3 border-b-2 border-l-2 md:left-28 xl:left-44" />
-                            <Corner className="bottom-3 right-3 border-b-2 border-r-2" />
                             <img
                                 src="/images/problema.jpg"
                                 alt="Jugador en pleno esfuerzo durante el entrenamiento"

@@ -182,3 +182,8 @@
 ## Implementado (2026-08-15)
 - Fotos reais aplicadas (todas P&B): climbers → Problema (esforço, sangria à esquerda); #15 de costas com stick (recorte) → manifesto Club; foto de grupo do treino → foto de equipa no Sobre; mulher no gym → atleta 2 do carrossel (nome/liga/equipa pendentes)
 - Ficheiros: problema.jpg, club.jpg, team.jpg, athlete-2.jpg em /public/images
+
+## Implementado (2026-08-15, parte 2)
+- Frames (parêntesis retos) removidos das fotos que sangram (Problema, Club) — ficavam quebrados; mantidos nos cartões do carrossel
+- ¿QUÉ CAMBIA? redesenhado: linhas editoriais grandes (ícone azul + título 5xl + texto à direita + seta no hover, fundo branco no hover); mobile empilha
+- Nota: rembg instalado no env (cutouts); ideia de tirar fundo a mais fotos fica pendente

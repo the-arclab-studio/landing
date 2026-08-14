@@ -45,10 +45,6 @@ const Club = () => {
                         data-testid="club-photo-slot"
                         className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px] bg-white/5 sm:aspect-square lg:-mr-24 lg:w-[calc(100%+6rem)]"
                     >
-                        <Corner className="left-3 top-3 border-l-2 border-t-2" />
-                        <Corner className="right-3 top-3 border-r-2 border-t-2 lg:right-28" />
-                        <Corner className="bottom-3 left-3 border-b-2 border-l-2" />
-                        <Corner className="bottom-3 right-3 border-b-2 border-r-2 lg:right-28" />
                         <img
                             src="/images/club.jpg"
                             alt="Jugador trabajando solo, de espaldas"
