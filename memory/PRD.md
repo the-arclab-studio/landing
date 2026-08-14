@@ -145,3 +145,8 @@
 ## Implementado (2026-08-14, parte 14)
 - Carrossel estilo mockup: cartão central por cima, fotos anterior/seguinte a espreitar por trás dos dois lados (peeks sobrepostos, ~40% visível, clicáveis); setas prev/next + contador sempre por baixo; SWIPE (drag x) no telemóvel
 - Ajustes: peeks w-56 desktop / w-20 mobile, overlap -/+8, opacity 75%
+
+## Implementado (2026-08-14, parte 15)
+- Carrossel: setas passaram para os lados da foto (flutuantes, sombra suave); contador fica sozinho por baixo
+- Mobile: peeks reduzidos a w-12 para a foto central ficar grande; frase text-lg no mobile
+- FLUIDEZ: transição mudou de sequencial (mode=wait) para simultânea (mode=popLayout, 0.45s) — cartões cruzam-se em vez de esperar; era código, não hosting
