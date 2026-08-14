@@ -1,0 +1,94 @@
+{
+  "theme": "light",
+  "design_concept": "Kinetic Restraint - A fusion of brutalist elite athletic performance and high-end editorial Swiss typography. Mobile-first layout emphasizing bold asymmetrical layouts, kinetic scroll-linked SVG motion, and stark monochromatic photography with sharp blue accents.",
+  "colors": {
+    "primary_bg": "#FFFFFF",
+    "ink": "#151515",
+    "secondary_text": "#616161",
+    "panels_bone": "#F4F4F1",
+    "lines_borders": "#E5E5E0",
+    "brand_blue": "#1B33DC",
+    "dark_blue": "#15259B",
+    "whatsapp_green": "#25D366",
+    "forbidden_colors": ["orange", "teal", "heavy black backgrounds except in block 4", "blue as dominant background"]
+  },
+  "typography": {
+    "fonts": {
+      "primary_header": "'Space Grotesk', sans-serif",
+      "accent_italic": "'Playfair Display', serif",
+      "body": "'Inter', sans-serif",
+      "signature": "'Caveat', cursive",
+      "stamp": "'Permanent Marker', cursive",
+      "giant_impact": "'Anton', sans-serif"
+    },
+    "rules": {
+      "headers": "Space Grotesk 700, ALL LOWERCASE. Use tracking-tighter for massive impact.",
+      "accent_closings": "Playfair Display italic in Brand Blue #1B33DC. Used for the blue closing of headers, numbers, and prices.",
+      "overlines": "Uppercase, tracking-[0.3em], preceded by a solid blue line. Example: `border-l-2 border-[#1B33DC] pl-3`.",
+      "hierarchy": "H1: text-[12vw] md:text-7xl leading-[0.85] tracking-tighter. Body: text-base md:text-lg text-[#616161] leading-relaxed.",
+      "forbidden_fonts": ["Roboto", "Open Sans", "Lato"]
+    }
+  },
+  "visual_enhancers": {
+    "arc_motif": "A blue parabola SVG (representing a shooting trajectory) that travels across the page, ending in a solid blue dot. Must be animated using Framer Motion.",
+    "photography": "Strictly Black & White. Use CSS `grayscale` if needed. Add decorative square brackets `[ ]` to the corners of image containers.",
+    "cards": "Bone grey #F4F4F1, rounded-[18px], shadow-sm, with sharp inner paddings.",
+    "buttons": "Pill-shaped or sharp, but for WhatsApp use floating Action Button with blue/brand colors as requested (or native green if conversion dictates, but prompt says 'CTAs de WhatsApp azuis'). Use Brand Blue for CTA."
+  },
+  "layouts_and_grids": {
+    "general": "Mobile-first. Do NOT default to center alignment. Rely on the Swiss Grid and Asymmetry. Break elements out of standard containers by overlapping images and text.",
+    "hero": "Asymmetrical. Massive lowercase text overlapping a B&W kinetic athlete image. The blue arc starts here.",
+    "problema": "Bento-style or zig-zag overlap. 3 lines of text with the italic closing, juxtaposed heavily against a fatigued athlete image.",
+    "enfoque": "3 step cards (01/02/03). Stacked vertically on mobile, side-by-side or masonry on desktop.",
+    "el_club_y_tu": "The ONLY dark block. bg-[#151515] with white text and blue accents. Embed the gym image with a subtle blend mode or sharp bracket frame."
+  },
+  "motion_and_interaction": {
+    "scrolling": "MANDATORY: Use `lenis` for smooth scrolling to give momentum.",
+    "animations": "Use `framer-motion` for scroll-triggered entrances. Cards should slide up and fade in with a slight delay stagger. The blue arc path should use `strokeDasharray` and `strokeDashoffset` to draw itself on scroll.",
+    "marquee": "Use `react-fast-marquee`. Slow, continuous editorial ribbon between Hero and Problema. Text: Ink #151515 on Bone #F4F4F1 background, interspersed with a solid blue dot."
+  },
+  "image_urls": {
+    "hero_kinetic": {
+      "url": "https://images.unsplash.com/photo-1721750475333-f76dda4d320a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwyfHxiYXNrZXRiYWxsJTIwcGxheWVyJTIwYWN0aW9uJTIwYmxhY2slMjBhbmQlMjB3aGl0ZXxlbnwwfHx8fDE3ODY3MjcxMTN8MA&ixlib=rb-4.1.0&q=85",
+      "description": "B&W Action shot of a basketball player jumping. Use in the Hero section.",
+      "placement_instructions": "Place on the right/background, overlapping with the giant hero text. Apply corner brackets `[ ]` via CSS."
+    },
+    "problema_fatigue": {
+      "url": "https://images.unsplash.com/photo-1504364269860-8be73aabdff2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwxfHx0aXJlZCUyMGJhc2tldGJhbGwlMjBwbGF5ZXIlMjBibGFjayUyMGFuZCUyMHdoaXRlfGVufDB8fHx8MTc4NjcyNzExM3ww&ixlib=rb-4.1.0&q=85",
+      "description": "B&W Close up of a tired, intensely breathing athlete.",
+      "placement_instructions": "Use in the 'Problema' section. Clip or mask it into a striking vertical rectangle alongside the 3 pain points."
+    },
+    "el_club_dark": {
+      "url": "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzV8MHwxfHNlYXJjaHwyfHxkYXJrJTIwZ3ltJTIwd29ya291dCUyMGJsYWNrJTIwYW5kJTIwd2hpdGV8ZW58MHx8fHwxNzg2NzI3MTEzfDA&ixlib=rb-4.1.0&q=85",
+      "description": "B&W Dark gym pullup back shot.",
+      "placement_instructions": "Use in 'El Club y Tú'. Needs to sit on the #151515 background, perhaps with a linear gradient fading into the black."
+    }
+  },
+  "component_structure": {
+    "header": "Sticky nav. bg-white/80 backdrop-blur-xl border-b border-[#E5E5E0]. Logo left, anchor links center, ES/PT toggle right. z-50.",
+    "floating_whatsapp": "Fixed bottom-right z-50. bg-[#1B33DC] text-white rounded-full p-4 shadow-lg hover:-translate-y-1 transition-transform."
+  },
+  "instructions_to_main_agent": [
+    "Install and use Google Fonts: Space Grotesk, Playfair Display, Inter, Caveat, Permanent Marker, Anton.",
+    "Install framer-motion, lucide-react, react-fast-marquee, @studio-freight/react-lenis (or lenis).",
+    "Build strictly as a single-page landing layout in React.",
+    "DO NOT modify the Plans, FAQ, Contact, or Footer sections. Build placeholders for them if needed, or assume they are appended below.",
+    "Ensure all text remains in Spanish as requested, with structural support for a PT toggle.",
+    "Enforce the 'Kinetic Restraint' brand tightly: no orange, no default blue backgrounds, stick to the Bone, Ink, and White palette with Brand Blue (#1B33DC) ONLY for accents, trajectories, and specific emphasis text.",
+    "All interactive elements MUST have a data-testid attribute for robust testing."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Avoid generic 'AI slop' aesthetics (centered layouts, simplistic gradients).",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Do NOT apply universal transitions (`transition: all`). Use targeted transitions.",
+    "Do NOT center align the app container. Respect human natural reading flow.",
+    "Never use AI assistant emojis for icons. Use lucide-react.",
+    "Use 2-3x more spacing than feels comfortable. Use Tailwind spacing scale generously.",
+    "Ensure high contrast and accessibility on all text over images or dark backgrounds."
+  ],
+  "accessibility": {
+    "contrast": "Ensure text over images meets WCAG AA standards. Use text shadows or gradients where necessary.",
+    "focus_states": "All focusable elements must have an offset outline using Brand Blue (#1B33DC).",
+    "reduced_motion": "Respect prefers-reduced-motion for Framer Motion animations."
+  }
+}

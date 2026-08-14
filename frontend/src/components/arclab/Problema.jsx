@@ -6,21 +6,31 @@ const Problema = () => {
     const { t } = useLang();
     const p = t.problema;
     return (
-        <section data-testid="problema-section" className="bg-bone px-6 py-28">
-            <div className="mx-auto max-w-4xl">
+        <section
+            data-testid="problema-section"
+            className="bg-bone px-6 py-24 sm:py-32"
+        >
+            <div className="mx-auto max-w-6xl">
                 <Reveal>
-                    <Headline pre={p.titlePre} em={p.titleEm} />
+                    <Headline
+                        pre={p.titlePre}
+                        em={p.titleEm}
+                        className="max-w-4xl text-[11vw] sm:text-6xl lg:text-7xl"
+                    />
                 </Reveal>
-                <div className="mt-14 space-y-6">
+
+                <div className="mt-14 sm:mt-20">
                     {p.lines.map((l, i) => (
-                        <Reveal key={i} delay={i * 0.1}>
+                        <Reveal key={i} delay={i * 0.12}>
                             <p
                                 data-testid={`problema-line-${i}`}
-                                className="flex gap-4 text-base leading-relaxed text-ink sm:text-lg"
+                                className={`flex items-baseline gap-5 border-t border-line py-7 font-grotesk text-xl font-medium leading-snug text-ink sm:py-9 sm:text-3xl ${
+                                    i % 2 === 1 ? "md:pl-24" : ""
+                                }`}
                             >
                                 <span
                                     aria-hidden="true"
-                                    className="font-grotesk font-bold text-arcblue"
+                                    className="shrink-0 font-playfair text-3xl italic text-arcblue sm:text-5xl"
                                 >
                                     —
                                 </span>
@@ -29,8 +39,9 @@ const Problema = () => {
                         </Reveal>
                     ))}
                 </div>
-                <Reveal delay={0.2}>
-                    <p className="mt-16 font-playfair text-2xl italic leading-snug text-ink sm:text-3xl">
+
+                <Reveal delay={0.15}>
+                    <p className="mt-14 font-playfair text-3xl italic leading-tight text-ink sm:mt-20 sm:text-5xl">
                         {p.closePre}{" "}
                         <span className="text-arcblue">{p.closeEm}</span>
                     </p>

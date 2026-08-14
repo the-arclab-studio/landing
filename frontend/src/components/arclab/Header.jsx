@@ -31,7 +31,7 @@ const Header = () => {
                     <img
                         src="/images/logo-horizontal.png"
                         alt="ARC.LAB · Athlete Development"
-                        className="h-8 w-auto"
+                        className="h-6 w-auto sm:h-8"
                     />
                 </a>
                 <nav
@@ -68,9 +68,10 @@ const Header = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         data-testid="header-cta-btn"
-                        className="btn-blue !px-5 !py-2.5 !text-[11px]"
+                        className="btn-blue !px-4 !py-2.5 !text-[11px] sm:!px-5"
                     >
-                        {t.nav.cta}
+                        <span aria-hidden="true" className="sm:hidden">✆</span>
+                        <span className="hidden sm:inline">{t.nav.cta}</span>
                     </a>
                 </div>
             </div>

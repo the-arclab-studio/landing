@@ -87,3 +87,12 @@
 ## Pendente do cliente
 - Posição do Alex Almenta (falta no meta) + a sua frase/citação real
 - Atleta 2 e 3: foto, nome, liga, posição, citação
+
+## Implementado (2026-08-14, parte 5) — REDESIGN "mais apelativo, mobile-first"
+- Cliente: "parece um PDF em movimento" → redesign dos blocos Hero→Club (design_agent guidelines em /app/design_guidelines.json)
+- Hero: layout assimétrico, título gigante (15vw mobile) a sobrepor foto de ação real (Alex, P&B, parêntesis retos, ligeira rotação, parallax), arco azul por cima, watermark Anton "IN-SEASON", CTAs full-width no mobile
+- Problema: 3 dores como linhas grandes statement (zig-zag em desktop, travessão azul Playfair gigante), fecho itálico grande
+- Enfoque: passos com números Playfair gigantes + ghost numbers, colunas com offset masonry em desktop
+- Club: bloco escuro com watermark "EQUIPO" outlined em parallax
+- Header mobile: logo mais pequeno, CTA vira só ícone ✆ em ecrãs xs
+- Secções Planes/Prueba/FAQ/Contacto/Footer INTACTAS; copy final intocado
