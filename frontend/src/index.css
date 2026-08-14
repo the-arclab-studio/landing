@@ -201,6 +201,26 @@
     }
 }
 
+.glitch-img {
+    position: relative;
+}
+.glitch-img img {
+    display: block;
+}
+.glitch-img .ga,
+.glitch-img .gb {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.glitch-img .ga {
+    animation: glitch-clip 1s steps(2, end) 0.35s both;
+}
+.glitch-img .gb {
+    animation: glitch-clip 1s steps(2, end) 0.48s both;
+}
+
 @keyframes marquee {
     from {
         transform: translateX(0);

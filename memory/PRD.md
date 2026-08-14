@@ -124,3 +124,7 @@
 ## Implementado (2026-08-14, parte 9)
 - Intro: fundo ainda mais escuro #0F1C6F; entrada do logo mais lenta (1.3s ease); tagline passou a "ATHLETE DEVELOPMENT" em maiúsculas Anton (sans condensada pesada, all-caps), tracking apertado e palavras muito espaçadas; efeito GLITCH CSS (fatias clip-path + deslocamentos, ~0.65s) na entrada do texto
 - Novos tempos: logo até 2.4s, tagline até 5.2s, overlay sobe, fim ~6.0s; hero base delay B=5.9
+
+## Implementado (2026-08-14, parte 10)
+- Intro ajustado: fundo #15259B (azul elétrico ligeiramente escuro); GLITCH agora sobre o logo "arc.lab" (3 camadas da imagem com clip-path, ~1s); tagline "ATHLETE DEVELOPMENT" em Space Grotesk maiúsculas com tracking amplo (letra da tagline do logo), tamanho menor, sem glitch
+- Tempos finais: logo até 2.8s · tagline 3.2→6.2s · overlay sobe ~6.2-7.0s · hero B=6.9
