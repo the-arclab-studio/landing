@@ -239,3 +239,14 @@
 
 ## Implementado (2026-08-15, parte 12)
 - Coluna de fotos finalmente como o mockup v3: placeholders ESTICADOS (flex-1, altura total), encostados uns aos outros SEM molduras/bordas/cartões, sem linha nem fundo — começam imediatamente sob a ponta da faixa azul do hero e terminam rente ao bloco preto; bloco de resultados mantido PRETO (escolha do cliente, apesar do mockup azul)
+
+
+## Implementado (2026-08-15, parte 13) — FOTOS REAIS NA FAIXA + FUNDO BRANCO
+- Cliente enviou 3 imagens reais exatamente a 300×913 (rosto / mão com bola / pernas — composição de "atleta gigante"): aplicadas na coluna (Strip.jsx) como UMA imagem contínua, sem etiquetas, pontos, linhas ou divisórias; ficheiros otimizados em /public/images/strip-01/02/03.jpg (~50-70KB cada)
+- Medidas comunicadas ao cliente: cada frame = 15.6vw de largura (300px @1920) × ~913px de altura (dinâmico, 1/3 da coluna total); recomendado ratio 1:3 com sujeito centrado (object-cover)
+- FUNDO BRANCO total do Hero até ao fim da faixa: bg-bone removido do Problema; linhas fininhas (border-t border-line, #e5e5e0 1px) a dividir todos os blocos (Problema/Solucion/Metodo/Rotador) — a linha passa por baixo da coluna de imagens (interrompida pela faixa, z-20)
+- Fix overlaps pré-existentes (texto escondido atrás da faixa): passos do Metodo ganharam lg:pr-[9vw]; Rotador limitado a lg:max-w-sm com pre-line lg:text-2xl e palavras lg:text-5xl — verificado a 1920px e 1280px
+
+## Pendente do cliente
+- Conteúdos Atletas 3 e 4 do carrossel (foto, nome, liga, equipa, citação) + posição/citação do Alex
+- Bios de Uxue e Gonçalo (Sobre) + revisão mobile da primeira metade (utilizador tinha dito "esquece o mobile" — revisitar quando quiser)

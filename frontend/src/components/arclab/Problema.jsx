@@ -9,7 +9,7 @@ const Problema = () => {
     return (
         <section
             data-testid="problema-section"
-            className="relative bg-bone py-24 sm:py-32"
+            className="relative border-t border-line py-24 sm:py-32"
         >
             <SideNum n="02" />
             <Cross className="right-4 top-10" />

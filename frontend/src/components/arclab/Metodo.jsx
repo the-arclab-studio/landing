@@ -32,7 +32,7 @@ const Metodo = () => {
                             </p>
                         </Reveal>
 
-                        <div className="relative z-20 mt-14 grid gap-10 sm:grid-cols-3 sm:gap-6">
+                        <div className="relative z-20 mt-14 grid gap-10 sm:grid-cols-3 sm:gap-6 lg:pr-[9vw]">
                             {m.steps.map((s, i) => (
                                 <Reveal key={s.n} delay={i * 0.12}>
                                     <div
