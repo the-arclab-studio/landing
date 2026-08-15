@@ -194,3 +194,6 @@
 ## Implementado (2026-08-15, parte 4)
 - METODO substituído pelo mockup "HECHO PARA TU JUEGO.": letras gigantes A (cheia) R (cheia) C (outline) em Anton azul como fundo, cutout real do #15 (rembg, /images/metodo-cutout.png) a sobrepor as letras, sub "Tu físico tiene que entender tu juego." + traço azul, 3 passos EVALUAMOS/PREPAREMOS/RENDIMOS com copy do mockup, divisores verticais
 - Tentativas falhadas: cutout do Alex (tinha defensor) e stock dribble (artefactos) — documentado
+
+## Implementado (2026-08-15, parte 5)
+- METODO reenquadrado: "ARC" como palavra única coesa (A+R cheios, C outline, Anton ~19-23rem, alinhada à direita, lê-se como ARC), atleta #15 por cima; coluna esquerda com título + sub + 3 passos com números grandes (destaque à informação); mobile limpo sem letras gigantes
