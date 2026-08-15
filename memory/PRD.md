@@ -232,3 +232,7 @@
 - O elemento contínuo é a FAIXA AZUL (não uma linha fina): o paralelogramo azul do hero (clip-path 58%→112% topo / 42.2%→57.8% base) desce e ENCAIXA ao pixel na coluna azul central (15.6vw centrada) que atravessa Problema→Solucion→Metodo→Rotador até ao bloco preto
 - Os 3 placeholders (Foto 01/02/03) são cartões brancos DENTRO da coluna azul
 - Linha curva fina do hero removida (o fio é a faixa); Rotador extraído para componente próprio (dentro do stream); Cambios = só bloco preto; ponto azul no fim da coluna a entrar no preto
+
+## Implementado (2026-08-15, parte 11)
+- Faixa azul do hero ESTANCA assim que começam as fotos (fim do hero = início da coluna)
+- Coluna: fotos/placeholders voltaram ao tamanho proporcional 3:4 (como antes), sem esticar; entre elas corre uma linha azul fina (1px, 40%) até ao ponto azul no bloco preto
