@@ -190,3 +190,7 @@
 
 ## Implementado (2026-08-15, parte 3)
 - ¿QUÉ CAMBIA?: rotador vertical "Con el programa me siento con" + palavras a rodar de cima para baixo (más fuerza / más velocidad / más resistencia / más explosivo), uma palavra azul em destaque no centro com metade da anterior e da seguinte visíveis (janela 3.6em, overflow hidden); loop seamless com palavra duplicada; 2.4s por palavra
+
+## Implementado (2026-08-15, parte 4)
+- METODO substituído pelo mockup "HECHO PARA TU JUEGO.": letras gigantes A (cheia) R (cheia) C (outline) em Anton azul como fundo, cutout real do #15 (rembg, /images/metodo-cutout.png) a sobrepor as letras, sub "Tu físico tiene que entender tu juego." + traço azul, 3 passos EVALUAMOS/PREPAREMOS/RENDIMOS com copy do mockup, divisores verticais
+- Tentativas falhadas: cutout do Alex (tinha defensor) e stock dribble (artefactos) — documentado

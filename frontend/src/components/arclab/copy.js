@@ -60,22 +60,25 @@ export const COPY = {
             ],
         },
         metodo: {
-            label: "Nuestro método",
+            titleL1: "hecho para",
+            titleEm: "tu juego.",
+            sub: "Tu físico tiene que entender tu juego.",
+            photoAlt: "Jugador ARC.LAB en acción con el balón",
             steps: [
                 {
                     n: "01",
-                    title: "Rendimiento",
-                    text: "Que lo notes en la pista: más fuerte en el contacto, más explosivo y con piernas para más minutos.",
+                    title: "Evaluamos",
+                    text: "Entendemos tu perfil atlético, tu historial y las demandas de tu posición.",
                 },
                 {
                     n: "02",
-                    title: "Fatiga",
-                    text: "Ajustamos tu plan cada semana, al detalle — hablando contigo, según cómo te sientes y tu carga de pista.",
+                    title: "Preparamos",
+                    text: "Diseñamos un plan específico que desarrolla lo que tu juego realmente exige.",
                 },
                 {
                     n: "03",
-                    title: "Día de partido",
-                    text: "Todo el trabajo apunta a una cosa: llegar el día de partido ligero, explosivo y preparado.",
+                    title: "Rendimos",
+                    text: "Entrenas con intención. Compites con ventaja. Evolucionas cada día.",
                 },
             ],
         },
