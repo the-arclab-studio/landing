@@ -36,23 +36,11 @@ const Solucion = () => {
                     </Reveal>
                 </div>
 
-                <Reveal className="hidden lg:col-span-3 lg:block">
-                    <figure
-                        data-testid="solucion-photo-slot"
-                        className="relative aspect-[3/4] w-full overflow-hidden rounded-[18px] bg-bone"
-                    >
-                        <div className="flex h-full flex-col items-center justify-center gap-3">
-                            <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
-                            <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
-                                {s.photoLabel}
-                            </span>
-                        </div>
-                        <span aria-hidden="true" className="absolute bottom-2 left-2 font-grotesk text-sm text-arcblue">×</span>
-                        <span aria-hidden="true" className="absolute right-2 top-2 font-grotesk text-sm text-arcblue">×</span>
-                    </figure>
+                <Reveal className="hidden lg:col-span-4 lg:block">
+                    <div className="aspect-[3/4] w-full" aria-hidden="true" />
                 </Reveal>
 
-                <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:col-span-5">
+                <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:col-span-4">
                     {s.items.map((item, i) => (
                         <Reveal key={i} delay={i * 0.1}>
                             <div data-testid={`solucion-item-${i + 1}`}>

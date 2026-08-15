@@ -15,9 +15,9 @@ const Metodo = () => {
             <Cross className="right-4 top-10" />
             <div className="relative mx-auto max-w-7xl">
                 <div className="lg:grid lg:grid-cols-12 lg:items-end">
-                    <div className="lg:col-span-7">
+                    <div className="lg:col-span-6">
                         <Reveal>
-                            <h2 className="font-grotesk text-[13vw] font-bold uppercase leading-[0.9] tracking-tighter text-ink sm:text-7xl lg:text-[5.5rem]">
+                            <h2 className="font-grotesk text-[13vw] font-bold uppercase leading-[0.9] tracking-tighter text-ink sm:text-7xl lg:text-6xl xl:text-7xl">
                                 {m.titleL1}
                                 <br />
                                 {m.titleL2}{" "}
@@ -56,7 +56,7 @@ const Metodo = () => {
 
                     <Reveal
                         delay={0.2}
-                        className="mt-14 lg:col-span-5 lg:mt-0"
+                        className="mt-14 lg:col-span-6 lg:mt-0"
                     >
                         <img
                             src="/images/metodo-cutout.png"

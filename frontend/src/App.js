@@ -6,7 +6,7 @@ import { COPY } from "@/components/arclab/copy";
 import Intro, { introSeen } from "@/components/arclab/Intro";
 import Header from "@/components/arclab/Header";
 import Hero from "@/components/arclab/Hero";
-import Marquee from "@/components/arclab/Marquee";
+import Strip from "@/components/arclab/Strip";
 import Problema from "@/components/arclab/Problema";
 import Solucion from "@/components/arclab/Solucion";
 import Metodo from "@/components/arclab/Metodo";
@@ -47,10 +47,12 @@ export default function App() {
                 <Header />
                 <main>
                     <Hero />
-                    <Marquee />
-                    <Problema />
-                    <Solucion />
-                    <Metodo />
+                    <div className="relative">
+                        <Strip />
+                        <Problema />
+                        <Solucion />
+                        <Metodo />
+                    </div>
                     <Cambios />
                     <Planes />
                     <Prueba />

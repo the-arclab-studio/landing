@@ -218,3 +218,9 @@
 - PLANES: header estilo mockup ("LOS PLANES × MENSUALIDAD", "ELIGE TU NIVEL DE ACOMPAÑAMIENTO.", "Más estructura. Más resultados. Más tú."); cartões/comparador/banda INTACTOS
 - SECÇÃO CLUB (manifesto negro) REMOVIDA do fluxo — não existe no mockup v3; ficheiro Club.jsx mantido para eventual regresso
 - Copy do mockup v3 = novo copy final (substituiu textos anteriores em hero/problema/solucion/planes header)
+
+## Implementado (2026-08-15, parte 8) — FIO CONTÍNUO LINHA→IMAGENS
+- A linha azul nasce no hero (curva nova HeroLine, desce até ao ponto azul no fundo do hero, centro) e TRANSFORMA-SE numa faixa vertical contínua de 300px (Strip.jsx) que atravessa Problema→Solucion→Metodo com 3 placeholders gigantes (Foto 01/02/03) e termina com ponto azul na fronteira com o bloco preto (Cambios)
+- Marquee REMOVIDO para não quebrar a continuidade
+- Secções 02/03/04 reformatadas para 3 colunas à volta da faixa (conteúdo nunca passa por baixo)
+- Nota: faixa só em lg+ (utilizador pediu foco desktop)

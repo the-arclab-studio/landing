@@ -27,6 +27,34 @@ const Hoop = ({ className = "" }) => (
     </svg>
 );
 
+const HeroLine = () => (
+    <svg
+        viewBox="0 0 1200 900"
+        fill="none"
+        aria-hidden="true"
+        preserveAspectRatio="none"
+        className="h-full w-full"
+    >
+        <motion.path
+            d="M 120 300 C 420 220, 760 320, 700 560 C 660 720, 620 800, 600 898"
+            stroke="#1B33DC"
+            strokeWidth="1.5"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2.2, delay: B + 1.2, ease: "easeInOut" }}
+        />
+        <motion.circle
+            cx="600"
+            cy="898"
+            r="6"
+            fill="#1B33DC"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: B + 3.2, duration: 0.4, ease: "backOut" }}
+        />
+    </svg>
+);
+
 const Hero = () => {
     const { t } = useLang();
     const ref = useRef(null);
@@ -57,6 +85,13 @@ const Hero = () => {
             />
 
             <Hoop className="absolute right-16 top-32 z-10 hidden w-24 lg:block xl:w-28" />
+
+            <motion.div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 z-[5]"
+            >
+                <HeroLine />
+            </motion.div>
 
             <div className="relative z-20 mx-auto grid max-w-7xl lg:grid-cols-12">
                 <div className="lg:col-span-6 lg:pt-16">
