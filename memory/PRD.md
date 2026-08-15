@@ -227,3 +227,8 @@
 
 ## Implementado (2026-08-15, parte 9)
 - Linha do hero redesenhada: curva tipo trajetória de lançamento (sobe para a bola, desce) terminando EXATAMENTE no topo da faixa (verificado por medição: heroBottom === stripTop ao pixel, ponta da linha no centro 50% = centro da faixa); ponto azul no topo da faixa recebe a linha
+
+## Implementado (2026-08-15, parte 10) — FAIXA AZUL CONTÍNUA (correção de interpretação)
+- O elemento contínuo é a FAIXA AZUL (não uma linha fina): o paralelogramo azul do hero (clip-path 58%→112% topo / 42.2%→57.8% base) desce e ENCAIXA ao pixel na coluna azul central (15.6vw centrada) que atravessa Problema→Solucion→Metodo→Rotador até ao bloco preto
+- Os 3 placeholders (Foto 01/02/03) são cartões brancos DENTRO da coluna azul
+- Linha curva fina do hero removida (o fio é a faixa); Rotador extraído para componente próprio (dentro do stream); Cambios = só bloco preto; ponto azul no fim da coluna a entrar no preto

@@ -27,25 +27,6 @@ const Hoop = ({ className = "" }) => (
     </svg>
 );
 
-const HeroLine = () => (
-    <svg
-        viewBox="0 0 1200 900"
-        fill="none"
-        aria-hidden="true"
-        preserveAspectRatio="none"
-        className="h-full w-full"
-    >
-        <motion.path
-            d="M 60 520 C 320 240, 780 130, 950 210 C 880 480, 720 720, 600 900"
-            stroke="#1B33DC"
-            strokeWidth="1.5"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2.2, delay: B + 1.2, ease: "easeInOut" }}
-        />
-    </svg>
-);
-
 const Hero = () => {
     const { t } = useLang();
     const ref = useRef(null);
@@ -63,26 +44,20 @@ const Hero = () => {
             className="relative overflow-hidden px-6 pb-16 pt-28 sm:pt-32 lg:min-h-[92vh] lg:pb-0"
         >
             <Cross className="left-4 top-24" />
-            <Cross className="bottom-8 right-4" />
             <SideNum n="01" />
 
             <motion.div
                 aria-hidden="true"
                 initial={{ scaleY: 0 }}
                 animate={{ scaleY: 1 }}
-                transition={{ duration: 1.1, delay: B + 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute -right-[6%] top-0 z-0 hidden h-[110%] w-[38%] origin-top bg-arcblue lg:block"
-                style={{ clipPath: "polygon(32% 0, 100% 0, 68% 100%, 0 100%)" }}
+                transition={{ duration: 1.2, delay: B + 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 z-0 hidden origin-top bg-arcblue lg:block"
+                style={{
+                    clipPath: "polygon(58% 0, 112% 0, 57.8% 100%, 42.2% 100%)",
+                }}
             />
 
             <Hoop className="absolute right-16 top-32 z-10 hidden w-24 lg:block xl:w-28" />
-
-            <motion.div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 z-[5]"
-            >
-                <HeroLine />
-            </motion.div>
 
             <div className="relative z-20 mx-auto grid max-w-7xl lg:grid-cols-12">
                 <div className="lg:col-span-6 lg:pt-16">
