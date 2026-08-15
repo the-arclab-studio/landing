@@ -236,3 +236,6 @@
 ## Implementado (2026-08-15, parte 11)
 - Faixa azul do hero ESTANCA assim que começam as fotos (fim do hero = início da coluna)
 - Coluna: fotos/placeholders voltaram ao tamanho proporcional 3:4 (como antes), sem esticar; entre elas corre uma linha azul fina (1px, 40%) até ao ponto azul no bloco preto
+
+## Implementado (2026-08-15, parte 12)
+- Coluna de fotos finalmente como o mockup v3: placeholders ESTICADOS (flex-1, altura total), encostados uns aos outros SEM molduras/bordas/cartões, sem linha nem fundo — começam imediatamente sob a ponta da faixa azul do hero e terminam rente ao bloco preto; bloco de resultados mantido PRETO (escolha do cliente, apesar do mockup azul)
