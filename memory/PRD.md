@@ -224,3 +224,6 @@
 - Marquee REMOVIDO para não quebrar a continuidade
 - Secções 02/03/04 reformatadas para 3 colunas à volta da faixa (conteúdo nunca passa por baixo)
 - Nota: faixa só em lg+ (utilizador pediu foco desktop)
+
+## Implementado (2026-08-15, parte 9)
+- Linha do hero redesenhada: curva tipo trajetória de lançamento (sobe para a bola, desce) terminando EXATAMENTE no topo da faixa (verificado por medição: heroBottom === stripTop ao pixel, ponta da linha no centro 50% = centro da faixa); ponto azul no topo da faixa recebe a linha

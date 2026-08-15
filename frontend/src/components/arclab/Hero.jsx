@@ -36,21 +36,12 @@ const HeroLine = () => (
         className="h-full w-full"
     >
         <motion.path
-            d="M 120 300 C 420 220, 760 320, 700 560 C 660 720, 620 800, 600 898"
+            d="M 60 520 C 320 240, 780 130, 950 210 C 880 480, 720 720, 600 900"
             stroke="#1B33DC"
             strokeWidth="1.5"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ duration: 2.2, delay: B + 1.2, ease: "easeInOut" }}
-        />
-        <motion.circle
-            cx="600"
-            cy="898"
-            r="6"
-            fill="#1B33DC"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: B + 3.2, duration: 0.4, ease: "backOut" }}
         />
     </svg>
 );
