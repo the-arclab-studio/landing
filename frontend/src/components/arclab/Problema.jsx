@@ -1,13 +1,7 @@
+import { X } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { Eyebrow } from "./Bits";
+import { SideNum, Cross } from "./Bits";
 import { useLang } from "./LangContext";
-
-const Corner = ({ className }) => (
-    <span
-        aria-hidden="true"
-        className={`pointer-events-none absolute z-10 h-6 w-6 border-arcblue ${className}`}
-    />
-);
 
 const Problema = () => {
     const { t } = useLang();
@@ -15,54 +9,74 @@ const Problema = () => {
     return (
         <section
             data-testid="problema-section"
-            className="bg-bone py-24 sm:py-32"
+            className="relative bg-bone py-24 sm:py-32"
         >
-            <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:gap-16">
-                <div>
+            <SideNum n="02" />
+            <Cross className="right-4 top-10" />
+            <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12">
+                <div className="lg:col-span-5">
                     <Reveal>
-                        <Eyebrow>{p.label}</Eyebrow>
-                        <h2 className="mt-6 font-grotesk text-[11vw] font-bold uppercase leading-[0.95] tracking-tighter text-ink sm:text-6xl lg:text-7xl">
+                        <h2 className="font-grotesk text-[11vw] font-bold uppercase leading-[0.92] tracking-tighter text-ink sm:text-6xl lg:text-[4.2rem]">
                             {p.titleL1}
                             <br />
-                            {p.titleL2}{" "}
-                            <span className="text-arcblue">
-                                {p.titleEm}
-                            </span>
+                            {p.titleL2}
+                            <br />
+                            <span className="text-arcblue">{p.titleEm}</span>
                         </h2>
-                    </Reveal>
-                    <Reveal className="mt-12">
-                        <figure
-                            data-testid="problema-photo-slot"
-                            className="relative aspect-[4/3] w-full overflow-hidden rounded-[18px] bg-white md:-ml-24 md:w-[calc(100%+6rem)] xl:-ml-40 xl:w-[calc(100%+10rem)]"
-                        >
-                            <img
-                                src="/images/problema.jpg"
-                                alt="Jugador en pleno esfuerzo durante el entrenamiento"
-                                className="h-full w-full object-cover grayscale"
-                            />
-                        </figure>
+                        <span
+                            aria-hidden="true"
+                            className="mt-8 block h-0.5 w-8 bg-arcblue"
+                        />
+                        <p className="mt-8 max-w-xs text-base leading-relaxed text-ink2">
+                            {p.sub}
+                        </p>
                     </Reveal>
                 </div>
 
-                <div className="flex flex-col justify-center">
+                <Reveal className="hidden lg:col-span-3 lg:block">
+                    <figure
+                        data-testid="problema-photo-slot"
+                        className="relative aspect-[3/4] w-full overflow-hidden rounded-[18px] bg-white shadow-[0_24px_60px_-32px_rgba(21,21,21,0.16)]"
+                    >
+                        <div className="flex h-full flex-col items-center justify-center gap-3">
+                            <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
+                            <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
+                                {p.photoLabel}
+                            </span>
+                        </div>
+                        <span aria-hidden="true" className="absolute bottom-2 left-2 font-grotesk text-sm text-arcblue">×</span>
+                        <span aria-hidden="true" className="absolute right-2 top-2 font-grotesk text-sm text-arcblue">×</span>
+                    </figure>
+                </Reveal>
+
+                <div className="lg:col-span-4">
                     <div className="space-y-10">
-                        {p.lines.map((l, i) => (
-                            <Reveal key={i} delay={i * 0.12}>
-                                <p
-                                    data-testid={`problema-line-${i}`}
-                                    className="border-t border-arcblue pt-5 text-lg leading-relaxed text-ink sm:text-xl"
-                                >
-                                    {l}
-                                </p>
+                        {p.problems.map((pr, i) => (
+                            <Reveal key={pr.n} delay={i * 0.12}>
+                                <div data-testid={`problema-item-${pr.n}`}>
+                                    <div className="flex items-baseline justify-between gap-4">
+                                        <p className="flex items-baseline gap-4">
+                                            <span className="font-playfair text-2xl text-arcblue">
+                                                {pr.n}
+                                            </span>
+                                            <span className="font-grotesk text-lg font-bold uppercase tracking-tight text-ink">
+                                                {pr.title}
+                                            </span>
+                                        </p>
+                                        <X
+                                            aria-hidden="true"
+                                            className="h-4 w-4 shrink-0 text-arcblue"
+                                            strokeWidth={2.5}
+                                        />
+                                    </div>
+                                    <p className="mt-2 pl-11 text-sm leading-relaxed text-ink2">
+                                        {pr.text}
+                                    </p>
+                                    <span className="mt-5 block border-t border-line" />
+                                </div>
                             </Reveal>
                         ))}
                     </div>
-                    <Reveal delay={0.2}>
-                        <p className="mt-14 font-playfair text-2xl italic leading-tight text-ink sm:text-3xl">
-                            {p.closePre}{" "}
-                            <span className="text-arcblue">{p.closeEm}</span>
-                        </p>
-                    </Reveal>
                 </div>
             </div>
         </section>

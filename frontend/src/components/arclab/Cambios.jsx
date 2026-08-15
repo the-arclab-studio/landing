@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Zap, MoveUpRight, BatteryMedium, Eye, ArrowRight } from "lucide-react";
+import { X } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { Eyebrow } from "./Bits";
+import { Eyebrow, SideNum } from "./Bits";
 import { useLang } from "./LangContext";
-
-const ICONS = { zap: Zap, arrow: MoveUpRight, battery: BatteryMedium, eye: Eye };
 
 const Rotator = ({ pre, words }) => {
     const items = [...words, words[0]];
@@ -66,47 +64,59 @@ const Cambios = () => {
     const { t } = useLang();
     const c = t.cambios;
     return (
-        <section
-            data-testid="cambios-section"
-            className="bg-bone px-6 py-24 sm:py-32"
-        >
-            <div className="mx-auto max-w-6xl">
-                <Reveal>
-                    <Eyebrow>{c.label}</Eyebrow>
-                </Reveal>
+        <section data-testid="cambios-section" className="relative">
+            <div className="relative px-6 py-24 sm:py-28">
+                <SideNum n="05" />
+                <div className="mx-auto max-w-6xl">
+                    <Reveal>
+                        <Eyebrow>{c.label}</Eyebrow>
+                    </Reveal>
+                    <Reveal delay={0.1}>
+                        <Rotator pre={c.rotatorPre} words={c.rotatorWords} />
+                    </Reveal>
+                </div>
+            </div>
 
-                <Reveal delay={0.1}>
-                    <Rotator pre={c.rotatorPre} words={c.rotatorWords} />
-                </Reveal>
-
-                <div className="mt-12">
-                    {c.items.map((item, i) => {
-                        const Icon = ICONS[item.icon];
-                        return (
-                            <Reveal key={i} delay={i * 0.08}>
-                                <div
-                                    data-testid={`cambios-item-${i + 1}`}
-                                    className="group grid grid-cols-[auto_1fr] items-center gap-x-6 gap-y-2 border-t border-line py-8 transition-colors duration-300 last:border-b hover:bg-white/60 sm:grid-cols-[auto_1fr_auto_auto] sm:py-10 md:gap-x-12"
-                                >
-                                    <Icon
-                                        className="h-8 w-8 text-arcblue transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110 sm:h-10 sm:w-10"
-                                        strokeWidth={1.25}
-                                    />
-                                    <h3 className="font-grotesk text-3xl font-bold uppercase leading-none tracking-tighter text-ink transition-colors duration-300 group-hover:text-arcblue sm:text-5xl">
-                                        {item.title}
-                                    </h3>
-                                    <p className="col-span-2 max-w-xs text-sm leading-relaxed text-ink2 sm:col-span-1 sm:text-base">
-                                        {item.text}
-                                    </p>
-                                    <ArrowRight
+            <div className="relative overflow-hidden bg-ink">
+                <img
+                    src="/images/hero-cutout.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -left-24 bottom-0 w-[420px] opacity-[0.07] grayscale"
+                />
+                <img
+                    src="/images/metodo-cutout.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-20 top-0 w-[380px] -scale-x-100 opacity-[0.07] grayscale"
+                />
+                <div className="relative mx-auto grid max-w-7xl md:grid-cols-2">
+                    {c.outcomes.map((o, i) => (
+                        <Reveal key={i} delay={i * 0.08}>
+                            <div
+                                data-testid={`cambios-item-${i + 1}`}
+                                className={`flex items-baseline gap-5 border-white/10 px-6 py-12 sm:px-12 sm:py-16 ${
+                                    i % 2 === 0 ? "md:border-r" : ""
+                                } ${i < 2 ? "border-b" : ""} ${
+                                    i >= 2 ? "max-md:border-t" : ""
+                                } ${i === 1 || i === 2 ? "max-md:border-b" : ""} ${
+                                    i === 3 ? "max-md:border-b-0" : ""
+                                }`}
+                            >
+                                <h3 className="font-grotesk text-6xl font-bold uppercase leading-none tracking-tighter text-white sm:text-7xl">
+                                    {o.pre}
+                                </h3>
+                                <p className="font-grotesk text-2xl font-bold uppercase tracking-tight text-[#9AA2EE] sm:text-3xl">
+                                    {o.word}
+                                    <X
                                         aria-hidden="true"
-                                        className="hidden h-6 w-6 -translate-x-3 text-arcblue opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block"
-                                        strokeWidth={1.5}
+                                        className="ml-2 inline h-4 w-4 align-baseline text-arcblue"
+                                        strokeWidth={3}
                                     />
-                                </div>
-                            </Reveal>
-                        );
-                    })}
+                                </p>
+                            </div>
+                        </Reveal>
+                    ))}
                 </div>
             </div>
         </section>

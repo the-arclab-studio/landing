@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ChevronDown } from "lucide-react";
+import { Check, ChevronDown, X } from "lucide-react";
 import { Reveal } from "./Reveal";
-import { Eyebrow, Headline } from "./Bits";
+import { SideNum } from "./Bits";
 import { useLang } from "./LangContext";
 import { waLink } from "./data";
 
@@ -137,16 +137,25 @@ const Planes = () => {
         <section
             id="planes"
             data-testid="planes-section"
-            className="scroll-mt-24 px-6 py-28"
+            className="relative scroll-mt-24 px-6 py-28"
         >
+            <SideNum n="06" />
             <div className="mx-auto max-w-7xl">
                 <Reveal>
-                    <Eyebrow>{p.eyebrow}</Eyebrow>
-                    <Headline
-                        className="mt-6"
-                        pre={p.titlePre}
-                        em={p.titleEm}
-                    />
+                    <p className="flex items-center gap-3 font-grotesk text-[11px] font-medium uppercase tracking-[0.3em] text-ink2">
+                        {p.eyebrow}
+                        <X className="h-3.5 w-3.5 text-arcblue" strokeWidth={2.5} />
+                        {p.eyebrow2}
+                    </p>
+                    <h2 className="mt-6 font-grotesk text-[11vw] font-bold uppercase leading-[0.92] tracking-tighter text-ink sm:text-6xl lg:text-7xl">
+                        {p.titleL1}
+                        <br />
+                        {p.titleL2}{" "}
+                        <span className="text-arcblue">{p.titleEm}</span>
+                    </h2>
+                    <p className="mt-6 max-w-xl text-lg font-medium text-ink">
+                        {p.sub}
+                    </p>
                     <p className="mt-8 flex max-w-xl items-start gap-3 text-base text-ink2">
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-arcblue" />
                         {p.note}

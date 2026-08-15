@@ -206,3 +206,15 @@
   · metodo: stance baixo de drible → cutout (metodo-cutout.png)
 - Fotos reais deixaram a primeira metade (ficam em /public/images: athlete-1/2, team, training para uso futuro — carrossel AINDA USA athlete-1/athlete-2 reais, abaixo dos planos)
 - TIPOGRAFIA UNIFICADA (hero→cambios): todos os headlines = Space Grotesk 700 UPPERCASE tracking-tighter com palavra final em AZUL SÓLIDO (sem itálico serif); Playfair fica reservado a números/citações/rotador
+
+## Implementado (2026-08-15, parte 7) — MOCKUP V3 (hero → transição de planos)
+- Header: nav ENTRENAMIENTO/CÓMO FUNCIONA/PLANES/SOBRE ARC.LAB (âncoras #metodo/#solucion/#planes/#nosotros), só CTA "EMPEZAR AHORA ↗" (sem INICIAR SESIÓN)
+- Números de margem 01—06 com traço azul (SideNum em Bits.jsx) + marcas "+" nos cantos (Cross)
+- HERO: faixa azul diagonal (clip-path paralelogramo) à direita, cutout IA novo do dunker streetball (gen2), tabela de basket em outline no canto, copy novo ("Entrenamiento personal... quieren más.", EMPEZAR AHORA/VER PLANES)
+- PROBLEMA: 3 colunas — headline+sub "Haces el esfuerzo..." / faixa central PLACEHOLDER / 3 problemas numerados com × azul (Sin dirección / Demasiado esfuerzo / Sin conexión con el juego)
+- SOLUCION: headline + subs à esquerda, faixa PLACEHOLDER central, 2x2 CUERPO/CARGA/CALENDARIO/PARTIDO à direita (diagrama de círculo REMOVIDO)
+- METODO: HECHO PARA TU JUEGO. + cutout IA da jogadora a driblar; passos EVALUAMOS/PREPAREMOS/RENDIMOS em 3 colunas
+- CAMBIOS: rotador mantido + NOVO bloco PRETO full-width "MÁS FUERZA / MÁS EXPLOSIVIDAD / MENOS FATIGA / MÁS CONTROL" (branco gigante + azul-suave, × azuis, jogadores fantasma nos cantos)
+- PLANES: header estilo mockup ("LOS PLANES × MENSUALIDAD", "ELIGE TU NIVEL DE ACOMPAÑAMIENTO.", "Más estructura. Más resultados. Más tú."); cartões/comparador/banda INTACTOS
+- SECÇÃO CLUB (manifesto negro) REMOVIDA do fluxo — não existe no mockup v3; ficheiro Club.jsx mantido para eventual regresso
+- Copy do mockup v3 = novo copy final (substituiu textos anteriores em hero/problema/solucion/planes header)

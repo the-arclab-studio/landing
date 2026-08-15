@@ -5,7 +5,7 @@ const Header = () => {
     const { t } = useLang();
     return (
         <header className="fixed inset-x-0 top-0 z-40 bg-white/60 backdrop-blur-xl">
-            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
                 <a
                     href="#top"
                     data-testid="brand-wordmark"
@@ -23,14 +23,14 @@ const Header = () => {
                     />
                 </a>
                 <nav
-                    className="hidden items-center gap-8 md:flex"
+                    className="hidden items-center gap-8 lg:flex"
                     aria-label="Secciones"
                 >
                     {[
+                        ["entrenamiento", "#metodo"],
+                        ["comoFunciona", "#solucion"],
                         ["planes", "#planes"],
-                        ["jugadores", "#jugadores"],
-                        ["nosotros", "#nosotros"],
-                        ["dudas", "#dudas"],
+                        ["sobre", "#nosotros"],
                     ].map(([key, href]) => (
                         <a
                             key={key}
