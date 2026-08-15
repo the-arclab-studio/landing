@@ -113,9 +113,9 @@ const Hero = () => {
                         <MaskLine delay={B + 0.35}>{t.hero.titleL1}</MaskLine>
                         <MaskLine delay={B + 0.48}>{t.hero.titleL2}</MaskLine>
                         <MaskLine delay={B + 0.61}>
-                            <em className="font-playfair lowercase italic tracking-normal text-arcblue">
+                            <span className="text-arcblue">
                                 {t.hero.titleEm}
-                            </em>
+                            </span>
                         </MaskLine>
                     </h1>
 

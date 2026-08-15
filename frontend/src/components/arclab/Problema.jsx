@@ -25,9 +25,9 @@ const Problema = () => {
                             {p.titleL1}
                             <br />
                             {p.titleL2}{" "}
-                            <em className="font-playfair lowercase italic text-arcblue">
+                            <span className="text-arcblue">
                                 {p.titleEm}
-                            </em>
+                            </span>
                         </h2>
                     </Reveal>
                     <Reveal className="mt-12">

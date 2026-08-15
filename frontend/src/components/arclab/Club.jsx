@@ -28,9 +28,9 @@ const Club = () => {
                         {c.titleL3}
                         <br />
                         {c.titleL4}{" "}
-                        <em className="font-playfair lowercase italic text-[#9AA2EE]">
+                        <span className="text-[#9AA2EE]">
                             {c.titleEm}
-                        </em>
+                        </span>
                     </h2>
                     <p className="mt-10 max-w-xl text-base leading-relaxed text-white/60 sm:text-lg">
                         {c.paraPre}{" "}

@@ -197,3 +197,12 @@
 
 ## Implementado (2026-08-15, parte 5)
 - METODO reenquadrado: "ARC" como palavra única coesa (A+R cheios, C outline, Anton ~19-23rem, alinhada à direita, lê-se como ARC), atleta #15 por cima; coluna esquerda com título + sub + 3 passos com números grandes (destaque à informação); mobile limpo sem letras gigantes
+
+## Implementado (2026-08-15, parte 6) — IMAGENS IA + CONSISTÊNCIA TIPOGRÁFICA
+- 4 imagens geradas com Gemini Nano Banana (gemini-3.1-flash-image-preview, EMERGENT_LLM_KEY, script em /app/scripts/gen_images.py — persistente):
+  · hero: dunk explosivo uma mão, fundo limpo → cutout rembg (hero-cutout.png, inclui tabela/cesto)
+  · problema: jogador cansado no banco (problema.jpg)
+  · club: jogador sozinho de costas com spotlight (club.jpg)
+  · metodo: stance baixo de drible → cutout (metodo-cutout.png)
+- Fotos reais deixaram a primeira metade (ficam em /public/images: athlete-1/2, team, training para uso futuro — carrossel AINDA USA athlete-1/athlete-2 reais, abaixo dos planos)
+- TIPOGRAFIA UNIFICADA (hero→cambios): todos os headlines = Space Grotesk 700 UPPERCASE tracking-tighter com palavra final em AZUL SÓLIDO (sem itálico serif); Playfair fica reservado a números/citações/rotador
