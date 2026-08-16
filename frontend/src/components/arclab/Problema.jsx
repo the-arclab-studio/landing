@@ -63,7 +63,7 @@ const Problema = () => {
                                             strokeWidth={2.5}
                                         />
                                     </div>
-                                    <p className="mt-2 pl-11 text-sm leading-relaxed text-ink2 lg:text-base">
+                                    <p className="mt-2 pl-11 text-sm leading-[1.75] text-ink2 lg:text-base">
                                         {pr.text}
                                     </p>
                                     <span className="mt-5 block border-t border-line lg:mt-7" />

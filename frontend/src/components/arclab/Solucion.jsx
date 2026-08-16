@@ -54,7 +54,7 @@ const Solucion = () => {
                                     <span className="mr-3 inline-block h-1.5 w-1.5 rounded-full bg-arcblue align-middle transition-transform duration-300 group-hover:scale-[1.8]" />
                                     {item.title}
                                 </h3>
-                                <p className="mt-3 max-w-[240px] text-sm leading-relaxed text-ink2 lg:text-[15px]">
+                                <p className="mt-3 max-w-[240px] text-sm leading-[1.75] text-ink2 lg:text-[15px]">
                                     {item.text}
                                 </p>
                             </div>

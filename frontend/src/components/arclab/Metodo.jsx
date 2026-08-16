@@ -45,7 +45,7 @@ const Metodo = () => {
                                         <h3 className="mt-4 font-grotesk text-sm font-bold uppercase tracking-[0.2em] text-ink transition-colors duration-300 group-hover:text-arcblue lg:text-base">
                                             {s.title}
                                         </h3>
-                                        <p className="mt-2 text-sm leading-relaxed text-ink2">
+                                        <p className="mt-2 text-sm leading-[1.75] text-ink2 lg:text-[15px]">
                                             {s.text}
                                         </p>
                                     </div>
