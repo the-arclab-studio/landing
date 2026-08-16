@@ -268,6 +268,13 @@
 - Testado com wheel real: livre a meio das secções (350, 650, 1480 sem saltos), snap correto perto das fronteiras (936→1016, 1170→1016), scroll longo fluido (5000px de uma vez)
 - Legibilidade geral: --ink-2 #616161→#525252 (mais contraste), line-height 1.75 nos textos de corpo (Problema/Solucion/Metodo/Hero), corpos lg ligeiramente maiores; copy NÃO alterada (aprovada pelo cliente)
 
+## Implementado (2026-08-16, parte 4) — SECÇÃO 05 REMOVIDA + BLOCO PRETO EXPANSÍVEL
+- Secção Rotador (¿QUÉ CAMBIA? + slot machine) REMOVIDA do fluxo (ficheiro apagado, copy limpa); Planes renumerado 06→05; a faixa de imagens encurtou e termina rente ao bloco preto (fundo da imagem cortado via object-cover — autorizado pelo cliente)
+- Bloco preto MÁS FUERZA/EXPLOSIVIDAD/MENOS FATIGA/MÁS CONTROL: visual INTACTO, mas cada célula agora abre ao clique/toque (role=button, aria-expanded, Enter/Espaço) revelando um texto (rascunho ES escrito por mim, a rever pelo cliente); VÁRIAS podem estar abertas ao mesmo tempo; × azul roda 45° (vira +) quando aberta; animação altura+fade 0.45s; hover com fundo branco 4%
+- Toques de design nos textos à direita das secções brancas: Problema (item desliza 8px no hover + linha separadora fica azul), Solucion (ponto azul estica em traço no hover)
+- Testado: abrir 1+4 em simultâneo ✓, fechar 1 mantém 4 ✓, junção imagem→preto perfeita ✓
+
+
 - Cesto desenhado (Hoop SVG) REMOVIDO da faixa azul do hero; grelha técnica e restantes traços mantidos
 
 - Conteúdos Atletas 3 e 4 do carrossel (foto, nome, liga, equipa, citação) + posição/citação do Alex

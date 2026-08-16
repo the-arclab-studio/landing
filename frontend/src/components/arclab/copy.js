@@ -81,14 +81,27 @@ export const COPY = {
             ],
         },
         cambios: {
-            label: "¿Qué cambia?",
-            rotatorPre: "Con el programa me siento con",
-            rotatorWords: ["más fuerza", "más velocidad", "más resistencia", "más explosivo"],
             outcomes: [
-                { pre: "Más", word: "fuerza" },
-                { pre: "Más", word: "explosividad" },
-                { pre: "Menos", word: "fatiga" },
-                { pre: "Más", word: "control" },
+                {
+                    pre: "Más",
+                    word: "fuerza",
+                    text: "Fuerza que se nota en cada contacto: entradas al aro, rebotes y cambios de ritmo con otro cuerpo.",
+                },
+                {
+                    pre: "Más",
+                    word: "explosividad",
+                    text: "Primer paso más rápido, saltos más altos y acciones repetidas sin perder potencia.",
+                },
+                {
+                    pre: "Menos",
+                    word: "fatiga",
+                    text: "Carga bien gestionada para llegar fresco al último cuarto. Y al próximo partido.",
+                },
+                {
+                    pre: "Más",
+                    word: "control",
+                    text: "Sabes qué entrenas, cuándo y por qué. Cada sesión con un objetivo claro.",
+                },
             ],
         },
         planes: {

@@ -47,7 +47,7 @@ const Problema = () => {
                     <div className="space-y-10 lg:space-y-14">
                         {p.problems.map((pr, i) => (
                             <Reveal key={pr.n} delay={i * 0.12}>
-                                <div data-testid={`problema-item-${pr.n}`} className="group">
+                                <div data-testid={`problema-item-${pr.n}`} className="group transition-transform duration-300 hover:translate-x-2">
                                     <div className="flex items-baseline justify-between gap-4">
                                         <p className="flex items-baseline gap-4">
                                             <span className="font-playfair text-2xl text-arcblue lg:text-3xl">
@@ -66,7 +66,7 @@ const Problema = () => {
                                     <p className="mt-2 pl-11 text-sm leading-[1.75] text-ink2 lg:text-base">
                                         {pr.text}
                                     </p>
-                                    <span className="mt-5 block border-t border-line lg:mt-7" />
+                                    <span className="mt-5 block origin-left border-t border-line transition-colors duration-500 group-hover:border-arcblue lg:mt-7" />
                                 </div>
                             </Reveal>
                         ))}

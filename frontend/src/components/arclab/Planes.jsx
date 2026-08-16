@@ -139,7 +139,7 @@ const Planes = () => {
             data-testid="planes-section"
             className="relative scroll-mt-24 px-6 py-28"
         >
-            <SideNum n="06" />
+            <SideNum n="05" />
             <div className="mx-auto max-w-7xl">
                 <Reveal>
                     <p className="flex items-center gap-3 font-grotesk text-[11px] font-medium uppercase tracking-[0.3em] text-ink2">

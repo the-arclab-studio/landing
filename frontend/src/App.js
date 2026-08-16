@@ -10,7 +10,6 @@ import Strip from "@/components/arclab/Strip";
 import Problema from "@/components/arclab/Problema";
 import Solucion from "@/components/arclab/Solucion";
 import Metodo from "@/components/arclab/Metodo";
-import Rotador from "@/components/arclab/Rotador";
 import Cambios from "@/components/arclab/Cambios";
 import Planes from "@/components/arclab/Planes";
 import Prueba from "@/components/arclab/Prueba";
@@ -105,7 +104,6 @@ export default function App() {
                         <Problema />
                         <Solucion />
                         <Metodo />
-                        <Rotador />
                     </div>
                     <Cambios />
                     <Planes />

@@ -51,7 +51,7 @@ const Solucion = () => {
                         <Reveal key={i} delay={i * 0.1}>
                             <div data-testid={`solucion-item-${i + 1}`} className="group">
                                 <h3 className="font-grotesk text-base font-bold uppercase tracking-[0.2em] text-ink transition-colors duration-300 group-hover:text-arcblue lg:text-lg">
-                                    <span className="mr-3 inline-block h-1.5 w-1.5 rounded-full bg-arcblue align-middle transition-transform duration-300 group-hover:scale-[1.8]" />
+                                    <span className="mr-3 inline-block h-1.5 w-1.5 rounded-full bg-arcblue align-middle transition-all duration-300 group-hover:w-5" />
                                     {item.title}
                                 </h3>
                                 <p className="mt-3 max-w-[240px] text-sm leading-[1.75] text-ink2 lg:text-[15px]">

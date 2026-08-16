@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { useLang } from "./LangContext";
 
 const Cambios = () => {
     const { t } = useLang();
     const c = t.cambios;
+    const [open, setOpen] = useState({});
+    const toggle = (i) => setOpen((o) => ({ ...o, [i]: !o[i] }));
+
     return (
         <section data-testid="cambios-section" className="relative">
             <div className="relative overflow-hidden bg-ink">
@@ -25,7 +30,17 @@ const Cambios = () => {
                         <Reveal key={i} delay={i * 0.08}>
                             <div
                                 data-testid={`cambios-item-${i + 1}`}
-                                className={`flex items-baseline gap-5 border-white/10 px-6 py-12 sm:px-12 sm:py-16 ${
+                                role="button"
+                                tabIndex={0}
+                                aria-expanded={!!open[i]}
+                                onClick={() => toggle(i)}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        toggle(i);
+                                    }
+                                }}
+                                className={`group cursor-pointer border-white/10 px-6 py-12 transition-colors duration-300 hover:bg-white/[0.04] sm:px-12 sm:py-16 ${
                                     i % 2 === 0 ? "md:border-r" : ""
                                 } ${i < 2 ? "border-b" : ""} ${
                                     i >= 2 ? "max-md:border-t" : ""
@@ -33,17 +48,45 @@ const Cambios = () => {
                                     i === 3 ? "max-md:border-b-0" : ""
                                 }`}
                             >
-                                <h3 className="font-grotesk text-6xl font-bold uppercase leading-none tracking-tighter text-white sm:text-7xl">
-                                    {o.pre}
-                                </h3>
-                                <p className="font-grotesk text-2xl font-bold uppercase tracking-tight text-[#9AA2EE] sm:text-3xl">
-                                    {o.word}
-                                    <X
-                                        aria-hidden="true"
-                                        className="ml-2 inline h-4 w-4 align-baseline text-arcblue"
-                                        strokeWidth={3}
-                                    />
-                                </p>
+                                <div className="flex items-baseline gap-5">
+                                    <h3 className="font-grotesk text-6xl font-bold uppercase leading-none tracking-tighter text-white sm:text-7xl">
+                                        {o.pre}
+                                    </h3>
+                                    <p className="font-grotesk text-2xl font-bold uppercase tracking-tight text-[#9AA2EE] sm:text-3xl">
+                                        {o.word}
+                                        <X
+                                            aria-hidden="true"
+                                            className={`ml-2 inline h-4 w-4 align-baseline text-arcblue transition-transform duration-300 ${
+                                                open[i] ? "rotate-45" : ""
+                                            }`}
+                                            strokeWidth={3}
+                                        />
+                                    </p>
+                                </div>
+                                <AnimatePresence initial={false}>
+                                    {open[i] && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{
+                                                height: "auto",
+                                                opacity: 1,
+                                            }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{
+                                                duration: 0.45,
+                                                ease: [0.22, 1, 0.36, 1],
+                                            }}
+                                            className="overflow-hidden"
+                                        >
+                                            <p
+                                                data-testid={`cambios-text-${i + 1}`}
+                                                className="mt-6 max-w-xs text-base leading-[1.75] text-white/60"
+                                            >
+                                                {o.text}
+                                            </p>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         </Reveal>
                     ))}
