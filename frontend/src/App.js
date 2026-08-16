@@ -31,9 +31,63 @@ export default function App() {
             raf = requestAnimationFrame(loop);
         };
         raf = requestAnimationFrame(loop);
+
+        // Scroll paginado por secção (só desktop)
+        let animating = false;
+        let unlockTimer;
+        const mql = window.matchMedia("(min-width: 1024px)");
+
+        const getStops = () => {
+            const vh = window.innerHeight;
+            const stops = [];
+            document
+                .querySelectorAll("main section, footer")
+                .forEach((el) => {
+                    const top = el.getBoundingClientRect().top + window.scrollY;
+                    stops.push(top);
+                    const bottom = top + el.offsetHeight - vh;
+                    if (bottom > top + 10) stops.push(bottom);
+                });
+            return [...new Set(stops)].sort((a, b) => a - b);
+        };
+
+        const onWheel = (e) => {
+            if (!mql.matches || e.ctrlKey) return;
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            if (animating || Math.abs(e.deltaY) < 8) return;
+            if (document.body.style.overflow === "hidden") return;
+            const y = window.scrollY;
+            const dir = e.deltaY > 0 ? 1 : -1;
+            const stops = getStops();
+            const target =
+                dir > 0
+                    ? stops.find((s) => s > y + 4)
+                    : [...stops].reverse().find((s) => s < y - 4);
+            if (target === undefined) return;
+            animating = true;
+            lenis.scrollTo(target, {
+                duration: 1.1,
+                easing: (t) => 1 - Math.pow(1 - t, 4),
+                onComplete: () => {
+                    clearTimeout(unlockTimer);
+                    unlockTimer = setTimeout(() => {
+                        animating = false;
+                    }, 120);
+                },
+            });
+        };
+
+        window.addEventListener("wheel", onWheel, {
+            passive: false,
+            capture: true,
+        });
+
         return () => {
             cancelAnimationFrame(raf);
             lenis.destroy();
+            window.removeEventListener("wheel", onWheel, { capture: true });
+            clearTimeout(unlockTimer);
         };
     }, []);
 

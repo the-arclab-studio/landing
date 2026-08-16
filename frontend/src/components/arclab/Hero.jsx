@@ -8,25 +8,6 @@ import { waLink } from "./data";
 
 const B = introSeen() ? 0 : 8.2;
 
-const Hoop = ({ className = "" }) => (
-    <svg
-        viewBox="0 0 120 100"
-        fill="none"
-        aria-hidden="true"
-        className={className}
-    >
-        <path d="M20 10h60" stroke="#151515" strokeWidth="2" strokeOpacity="0.55" />
-        <rect x="14" y="4" width="72" height="46" rx="2" stroke="#151515" strokeWidth="2" strokeOpacity="0.55" />
-        <ellipse cx="50" cy="56" rx="20" ry="5" stroke="#151515" strokeWidth="2" strokeOpacity="0.55" />
-        <path
-            d="M32 58l5 34M42 60l3 34M50 61v34M58 60l-3 34M68 58l-5 34M33 70h34M36 82h28"
-            stroke="#151515"
-            strokeWidth="1.5"
-            strokeOpacity="0.45"
-        />
-    </svg>
-);
-
 const Hero = () => {
     const { t } = useLang();
     const ref = useRef(null);
@@ -56,8 +37,6 @@ const Hero = () => {
                     clipPath: "polygon(58% 0, 112% 0, 57.8% 100%, 42.2% 100%)",
                 }}
             />
-
-            <Hoop className="absolute right-16 top-32 z-10 hidden w-24 lg:block xl:w-28" />
 
             <div className="relative z-20 mx-auto grid max-w-7xl lg:grid-cols-12">
                 <div className="lg:col-span-6 lg:pt-16">

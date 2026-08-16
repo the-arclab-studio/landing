@@ -257,5 +257,12 @@
 - Verificado a 1920px: sem overlaps com a faixa, rotador intacto, watermarks subtis
 
 ## Pendente do cliente
+
+## Implementado (2026-08-16, parte 2) — SCROLL POR SECÇÃO + NOVO ATLETA NO HERO
+- SCROLL PAGINADO (só desktop, ≥1024px): wheel interceptado no App.js → cada gesto de roda/trackpad avança/recua uma secção inteira via lenis.scrollTo (1.1s, ease-out quart); secções mais altas que o ecrã ganham paragem extra no fundo (conteúdo nunca fica inalcançável); bloqueado durante animação, durante o intro e com ctrl (zoom); mobile/tablet intactos
+- Testado com wheel real (playwright): 0→1016→1890→2722 e retorno 2722→1890 = topos exatos das secções
+- HERO: novo atleta enviado pelo cliente (ChatGPT Image 16/08, PNG c/ transparência 1024×1536, margens cortadas → 1002×1428) substituiu o cutout anterior em /images/hero-cutout.png
+- Cesto desenhado (Hoop SVG) REMOVIDO da faixa azul do hero; grelha técnica e restantes traços mantidos
+
 - Conteúdos Atletas 3 e 4 do carrossel (foto, nome, liga, equipa, citação) + posição/citação do Alex
 - Bios de Uxue e Gonçalo (Sobre) + revisão mobile da primeira metade (utilizador tinha dito "esquece o mobile" — revisitar quando quiser)
