@@ -247,6 +247,15 @@
 - FUNDO BRANCO total do Hero até ao fim da faixa: bg-bone removido do Problema; linhas fininhas (border-t border-line, #e5e5e0 1px) a dividir todos os blocos (Problema/Solucion/Metodo/Rotador) — a linha passa por baixo da coluna de imagens (interrompida pela faixa, z-20)
 - Fix overlaps pré-existentes (texto escondido atrás da faixa): passos do Metodo ganharam lg:pr-[9vw]; Rotador limitado a lg:max-w-sm com pre-line lg:text-2xl e palavras lg:text-5xl — verificado a 1920px e 1280px
 
+
+## Implementado (2026-08-16, parte 1) — SEM LINHAS DIVISÓRIAS + PÁGINA MAIS PREENCHIDA (desktop)
+- Linhas finas entre blocos REMOVIDAS a pedido (Problema/Solucion/Metodo/Rotador sem border-t; fundo branco contínuo mantido)
+- Tipografia desktop reforçada: títulos de secção lg 4.6rem / xl 5.4rem (Problema, Solucion), Metodo lg 4.8rem / xl 5.6rem (com lg:pr-[9vw] no título para nunca entrar debaixo da faixa), subs text-lg, itens/números maiores (Problema 01-03 Playfair 3xl; Metodo passos Playfair 6xl; Rotador palavras 3.4rem)
+- Mais respiro vertical: py-24/32 → lg:py-40 (secções 02/03/04) e lg:py-36 (Rotador) — a faixa de imagens cresce junto
+- Marcas de água Anton outline (.hero-watermark) a preencher os vazios: "ESFUERZO" (Problema, inf-esq), "SISTEMA" (Solucion, inf-dir), "CAMBIO" (Rotador, centro-dir) — só lg+, sangram nos cantos
+- Micro-efeitos hover: Problema (título fica azul + × roda 90°), Solucion (ponto azul escala + título azul), Metodo (título do passo azul)
+- Verificado a 1920px: sem overlaps com a faixa, rotador intacto, watermarks subtis
+
 ## Pendente do cliente
 - Conteúdos Atletas 3 e 4 do carrossel (foto, nome, liga, equipa, citação) + posição/citação do Alex
 - Bios de Uxue e Gonçalo (Sobre) + revisão mobile da primeira metade (utilizador tinha dito "esquece o mobile" — revisitar quando quiser)

@@ -33,7 +33,7 @@ const Rotator = ({ pre, words }) => {
             <p className="font-grotesk text-2xl font-bold tracking-tight text-ink sm:text-4xl lg:text-2xl">
                 {pre}
             </p>
-            <div className="relative mt-1 h-[3.6em] overflow-hidden text-4xl sm:text-6xl lg:text-5xl">
+            <div className="relative mt-1 h-[3.6em] overflow-hidden text-4xl sm:text-6xl lg:text-[3.4rem]">
                 <motion.div
                     animate={{ y: `${1.2 - idx * 1.2}em` }}
                     transition={
@@ -63,8 +63,14 @@ const Rotador = () => {
     const { t } = useLang();
     const c = t.cambios;
     return (
-        <section data-testid="rotador-section" className="relative border-t border-line px-6 py-24 sm:py-28">
+        <section data-testid="rotador-section" className="relative overflow-hidden px-6 py-24 sm:py-28 lg:py-36">
             <SideNum n="05" />
+            <span
+                aria-hidden="true"
+                className="hero-watermark pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 select-none font-anton text-[8rem] uppercase leading-none lg:block xl:text-[10rem]"
+            >
+                Cambio
+            </span>
             <div className="mx-auto max-w-6xl">
                 <Reveal>
                     <Eyebrow>{c.label}</Eyebrow>
