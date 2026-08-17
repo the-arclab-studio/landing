@@ -45,11 +45,12 @@ export default function App() {
                 .querySelectorAll("main section, footer")
                 .forEach((el) => {
                     const top = el.getBoundingClientRect().top + window.scrollY;
-                    stops.push(top);
-                    const bottom = top + el.offsetHeight - vh;
-                    if (bottom > top + 10) stops.push(bottom);
+                    const h = el.offsetHeight;
+                    stops.push({ pos: top, h });
+                    const bottom = top + h - vh;
+                    if (bottom > top + 10) stops.push({ pos: bottom, h: null });
                 });
-            return [...new Set(stops)].sort((a, b) => a - b);
+            return stops.sort((a, b) => a.pos - b.pos);
         };
 
         const onScroll = (e) => {
@@ -57,11 +58,26 @@ export default function App() {
             if (document.body.style.overflow === "hidden") return;
             if (e.direction !== 1) return;
             const y = window.scrollY;
-            const thr = Math.min(250, window.innerHeight * 0.28);
-            const next = getStops().find((s) => s > y + 2);
-            if (next === undefined || next - y > thr) return;
+            const vh = window.innerHeight;
+            const stops = getStops();
+            const i = stops.findIndex((s) => s.pos > y + 2);
+            if (i === -1) return;
+            const { pos, h } = stops[i];
+            const prev = i > 0 ? stops[i - 1].pos : 0;
+            // dispara quando ~20% da secção de baixo já está visível
+            // (paragem de fundo de secção alta: janela fixa de 250px),
+            // mas nunca antes de percorrer ~45% da secção atual — protege
+            // secções curtas (ex.: bloco preto) de serem saltadas.
+            const zone =
+                h === null
+                    ? 250
+                    : Math.min(
+                          vh - 0.2 * Math.min(h, vh),
+                          Math.max(250, 0.55 * (pos - prev))
+                      );
+            if (pos - y > zone) return;
             pushing = true;
-            lenis.scrollTo(next, {
+            lenis.scrollTo(pos, {
                 duration: 0.7,
                 easing: (t) => 1 - Math.pow(1 - t, 3),
                 onComplete: () => {

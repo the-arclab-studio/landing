@@ -94,7 +94,7 @@ const Hero = () => {
             </motion.ul>
 
             <div className="relative z-20 mx-auto grid max-w-7xl lg:grid-cols-12">
-                <div className="lg:col-span-6 lg:pt-2">
+                <div className="lg:col-span-6 lg:pt-[1.6rem] xl:pt-[5.5rem]">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}

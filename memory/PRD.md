@@ -283,6 +283,12 @@
 - Testado: livre em 400 (sem snap), captura em 800→1016, subida livre 1016→708, captura lenta 1760→1890
 - HERO: espaço branco de cima cortado (pt-24 + removido lg:pt-16 interno — conteúdo começa logo sob o header), ritmo interno mais arejado (título mt-8, sub mt-10, CTAs mt-14), nova micro-legenda "— ARC.LAB TRAINING SYSTEM" no canto inferior esquerdo (hero.footNote em copy.js) como no mockup
 
+
+## Implementado (2026-08-17, parte 3) — HERO ALINHADO ÀS LETRAS + SCROLL 20%
+- HERO: bloco esquerdo descido (lg:pt-[1.6rem] xl:pt-[5.5rem]) — topo do título alinhado com o topo das letras ARC (medido no browser: 233px vs 228px)
+- SCROLL: empurrão dispara quando ~20% da secção de baixo está visível (zona dinâmica por altura da secção), com proteção: nunca antes de percorrer ~45% da secção atual e janela fixa de 250px nas paragens de fundo de secções altas — evita que o bloco preto curto seja saltado; continua só a descer, subir é livre
+- Testado: livre aos 400px, push automático aos ~700px → enquadra Problema, subida livre sem snap
+
 - Pendente: Atletas 3 e 4 — o cliente ainda NÃO enviou fotos/nomes/ligas/citações (pedido em falta)
 
 - Testado: abrir 1+4 em simultâneo ✓, fechar 1 mantém 4 ✓, junção imagem→preto perfeita ✓
