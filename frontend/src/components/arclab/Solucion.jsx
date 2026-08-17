@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SideNum, Cross } from "./Bits";
 import { useLang } from "./LangContext";
@@ -46,15 +47,29 @@ const Solucion = () => {
                     <div className="aspect-[3/4] w-full" aria-hidden="true" />
                 </Reveal>
 
-                <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:col-span-4 lg:gap-y-16">
+                <div className="lg:col-span-4">
                     {s.items.map((item, i) => (
-                        <Reveal key={i} delay={i * 0.1}>
-                            <div data-testid={`solucion-item-${i + 1}`} className="group">
-                                <h3 className="font-grotesk text-base font-bold uppercase tracking-[0.2em] text-ink transition-colors duration-300 group-hover:text-arcblue lg:text-lg">
-                                    <span className="mr-3 inline-block h-1.5 w-1.5 rounded-full bg-arcblue align-middle transition-all duration-300 group-hover:w-5" />
-                                    {item.title}
-                                </h3>
-                                <p className="mt-3 max-w-[240px] text-sm leading-[1.75] text-ink2 lg:text-[15px]">
+                        <Reveal key={i} delay={i * 0.08}>
+                            <div
+                                data-testid={`solucion-item-${i + 1}`}
+                                className="group border-t border-line py-6 transition-colors duration-500 last:border-b hover:border-arcblue lg:py-7"
+                            >
+                                <div className="flex items-baseline justify-between gap-4">
+                                    <p className="flex items-baseline gap-4">
+                                        <span className="font-playfair text-2xl leading-none text-arcblue lg:text-3xl">
+                                            0{i + 1}
+                                        </span>
+                                        <span className="font-grotesk text-lg font-bold uppercase tracking-tight text-ink transition-colors duration-300 group-hover:text-arcblue lg:text-xl">
+                                            {item.title}
+                                        </span>
+                                    </p>
+                                    <Plus
+                                        aria-hidden="true"
+                                        className="h-4 w-4 shrink-0 text-arcblue transition-transform duration-300 group-hover:rotate-90 lg:h-5 lg:w-5"
+                                        strokeWidth={2.5}
+                                    />
+                                </div>
+                                <p className="mt-2 pl-11 text-sm leading-[1.75] text-ink2 transition-transform duration-300 group-hover:translate-x-2 lg:max-w-xs lg:text-base">
                                     {item.text}
                                 </p>
                             </div>

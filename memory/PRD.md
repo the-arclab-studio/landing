@@ -272,6 +272,13 @@
 - Secção Rotador (¿QUÉ CAMBIA? + slot machine) REMOVIDA do fluxo (ficheiro apagado, copy limpa); Planes renumerado 06→05; a faixa de imagens encurtou e termina rente ao bloco preto (fundo da imagem cortado via object-cover — autorizado pelo cliente)
 - Bloco preto MÁS FUERZA/EXPLOSIVIDAD/MENOS FATIGA/MÁS CONTROL: visual INTACTO, mas cada célula agora abre ao clique/toque (role=button, aria-expanded, Enter/Espaço) revelando um texto (rascunho ES escrito por mim, a rever pelo cliente); VÁRIAS podem estar abertas ao mesmo tempo; × azul roda 45° (vira +) quando aberta; animação altura+fade 0.45s; hover com fundo branco 4%
 - Toques de design nos textos à direita das secções brancas: Problema (item desliza 8px no hover + linha separadora fica azul), Solucion (ponto azul estica em traço no hover)
+
+## Implementado (2026-08-17, parte 1) — HERO ESTILO NOVO MOCKUP + SOLUCION REFEITA
+- HERO: letras gigantes "ARC/LAB" em outline por trás do jogador (dupla camada: outline azul 28% no branco + outline branco 55% recortada pelo clip-path da faixa azul — atravessa a faixa como no mockup); coluna de palavras CIENCIA./DISCIPLINA./MENTALIDAD./RESULTADOS. dentro da faixa (hero.bandWords em copy.js); entrada com fade após intro
+- PÉ A SOBREPOR-SE: imagem do hero desce lg:mt-20/xl:mt-24 com margem negativa equivalente — o pé ultrapassa o fim da faixa azul ~80-96px e PISA o topo da coluna de fotos (z-30 sobre a faixa z-20); hero passou a overflow-x-clip + lg:overflow-y-visible; mobile intacto
+- SOLUCION (secção 03) coluna direita redesenhada: de grelha 2×2 para LISTA numerada estilo mockup — 01-04 Playfair azul + título + "+" que roda no hover, separadores finos que ficam azuis, texto desliza no hover
+- Pendente: Atletas 3 e 4 — o cliente ainda NÃO enviou fotos/nomes/ligas/citações (pedido em falta)
+
 - Testado: abrir 1+4 em simultâneo ✓, fechar 1 mantém 4 ✓, junção imagem→preto perfeita ✓
 
 

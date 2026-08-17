@@ -22,7 +22,7 @@ const Hero = () => {
             ref={ref}
             id="top"
             data-testid="hero-section"
-            className="relative overflow-hidden px-6 pb-16 pt-28 sm:pt-32 lg:min-h-[92vh] lg:pb-0"
+            className="relative overflow-hidden px-6 pb-16 pt-28 sm:pt-32 lg:min-h-[92vh] lg:overflow-x-clip lg:overflow-y-visible lg:pb-0"
         >
             <Cross className="left-4 top-24" />
             <SideNum n="01" />
@@ -37,6 +37,61 @@ const Hero = () => {
                     clipPath: "polygon(58% 0, 112% 0, 57.8% 100%, 42.2% 100%)",
                 }}
             />
+
+            <motion.div
+                aria-hidden="true"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.4, delay: B + 1.2 }}
+                className="pointer-events-none absolute inset-0 z-[6] hidden select-none lg:block"
+            >
+                <div
+                    className="absolute right-[1%] top-[46%] -translate-y-1/2 font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
+                    style={{
+                        color: "transparent",
+                        WebkitTextStroke: "2px rgba(27,51,220,0.28)",
+                    }}
+                >
+                    ARC
+                    <br />
+                    LAB
+                </div>
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        clipPath: "polygon(58% 0, 112% 0, 57.8% 100%, 42.2% 100%)",
+                    }}
+                >
+                    <div
+                        className="absolute right-[1%] top-[46%] -translate-y-1/2 font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
+                        style={{
+                            color: "transparent",
+                            WebkitTextStroke: "2px rgba(255,255,255,0.55)",
+                        }}
+                    >
+                        ARC
+                        <br />
+                        LAB
+                    </div>
+                </div>
+            </motion.div>
+
+            <motion.ul
+                aria-hidden="true"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: B + 1.4, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute bottom-[24%] left-[47.5%] z-[7] hidden lg:block"
+            >
+                {t.hero.bandWords.map((w) => (
+                    <li
+                        key={w}
+                        className="font-grotesk text-[11px] font-medium uppercase tracking-[0.3em] text-white/85"
+                    >
+                        {w}
+                    </li>
+                ))}
+            </motion.ul>
 
             <div className="relative z-20 mx-auto grid max-w-7xl lg:grid-cols-12">
                 <div className="lg:col-span-6 lg:pt-16">
@@ -95,7 +150,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, delay: B + 0.7, ease: [0.22, 1, 0.36, 1] }}
                     style={{ y: imgY }}
-                    className="relative z-10 mx-auto mt-10 max-w-sm sm:max-w-md lg:col-span-6 lg:-mt-6 lg:max-w-none"
+                    className="relative z-30 mx-auto mt-10 max-w-sm sm:max-w-md lg:col-span-6 lg:mt-20 lg:-mb-20 lg:max-w-none xl:mt-24 xl:-mb-24"
                 >
                     <img
                         src="/images/hero-cutout.png"

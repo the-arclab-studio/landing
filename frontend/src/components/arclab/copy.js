@@ -14,6 +14,7 @@ export const COPY = {
             titleL2: "plan de",
             titleEm: "verdad.",
             sub: "Entrenamiento personal para jugadores de baloncesto que quieren más.",
+            bandWords: ["Ciencia.", "Disciplina.", "Mentalidad.", "Resultados."],
             photoAlt: "Jugador de baloncesto en pleno mate, en el pico del salto",
             cta1: "Empezar ahora",
             cta2: "Ver planes",
