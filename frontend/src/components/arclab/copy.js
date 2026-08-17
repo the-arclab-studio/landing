@@ -15,6 +15,7 @@ export const COPY = {
             titleEm: "verdad.",
             sub: "Entrenamiento personal para jugadores de baloncesto que quieren más.",
             bandWords: ["Ciencia.", "Disciplina.", "Mentalidad.", "Resultados."],
+            footNote: "Arc.Lab Training System",
             photoAlt: "Jugador de baloncesto en pleno mate, en el pico del salto",
             cta1: "Empezar ahora",
             cta2: "Ver planes",

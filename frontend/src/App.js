@@ -23,7 +23,7 @@ export default function App() {
     const [showIntro, setShowIntro] = useState(() => !introSeen());
 
     useEffect(() => {
-        const lenis = new Lenis({ lerp: 0.09 });
+        const lenis = new Lenis({ lerp: 0.14 });
         let raf;
         const loop = (time) => {
             lenis.raf(time);
@@ -31,11 +31,12 @@ export default function App() {
         };
         raf = requestAnimationFrame(loop);
 
-        // Snap suave por proximidade (só desktop): scroll livre e fluido;
-        // quando paras mesmo na fronteira entre secções, um pequeno
-        // "empurrão" assenta a secção seguinte/anterior.
-        let snapTimer;
+        // Empurrão magnético (só desktop, só a descer): scroll livre e
+        // direto; quando a secção seguinte começa a aparecer (~250px antes
+        // da fronteira), a página agarra-a e enquadra-a suavemente.
         const mql = window.matchMedia("(min-width: 1024px)");
+        let pushing = false;
+        let safety;
 
         const getStops = () => {
             const vh = window.innerHeight;
@@ -51,40 +52,47 @@ export default function App() {
             return [...new Set(stops)].sort((a, b) => a - b);
         };
 
-        const onScroll = () => {
-            if (!mql.matches) return;
-            clearTimeout(snapTimer);
-            snapTimer = setTimeout(() => {
-                if (document.body.style.overflow === "hidden") return;
-                const y = window.scrollY;
-                const thr = Math.min(
-                    180,
-                    Math.max(100, window.innerHeight * 0.15)
-                );
-                let nearest = null;
-                let dist = Infinity;
-                for (const s of getStops()) {
-                    const d = Math.abs(s - y);
-                    if (d < dist) {
-                        dist = d;
-                        nearest = s;
-                    }
-                }
-                if (nearest !== null && dist > 2 && dist <= thr) {
-                    lenis.scrollTo(nearest, {
-                        duration: 0.7,
-                        easing: (t) => 1 - Math.pow(1 - t, 3),
-                    });
-                }
-            }, 180);
+        const onScroll = (e) => {
+            if (!mql.matches || pushing) return;
+            if (document.body.style.overflow === "hidden") return;
+            if (e.direction !== 1) return;
+            const y = window.scrollY;
+            const thr = Math.min(250, window.innerHeight * 0.28);
+            const next = getStops().find((s) => s > y + 2);
+            if (next === undefined || next - y > thr) return;
+            pushing = true;
+            lenis.scrollTo(next, {
+                duration: 0.7,
+                easing: (t) => 1 - Math.pow(1 - t, 3),
+                onComplete: () => {
+                    clearTimeout(safety);
+                    pushing = false;
+                },
+            });
+            clearTimeout(safety);
+            safety = setTimeout(() => {
+                pushing = false;
+            }, 1000);
+        };
+
+        const onWheel = (e) => {
+            if (mql.matches && pushing && !e.ctrlKey) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+            }
         };
 
         lenis.on("scroll", onScroll);
+        window.addEventListener("wheel", onWheel, {
+            passive: false,
+            capture: true,
+        });
 
         return () => {
             cancelAnimationFrame(raf);
             lenis.destroy();
-            clearTimeout(snapTimer);
+            window.removeEventListener("wheel", onWheel, { capture: true });
+            clearTimeout(safety);
         };
     }, []);
 

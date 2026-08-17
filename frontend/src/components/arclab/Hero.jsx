@@ -22,7 +22,7 @@ const Hero = () => {
             ref={ref}
             id="top"
             data-testid="hero-section"
-            className="relative overflow-hidden px-6 pb-16 pt-28 sm:pt-32 lg:min-h-[92vh] lg:overflow-x-clip lg:overflow-y-visible lg:pb-0"
+            className="relative overflow-hidden px-6 pb-16 pt-24 sm:pt-28 lg:min-h-[92vh] lg:overflow-x-clip lg:overflow-y-visible lg:pt-24 lg:pb-0"
         >
             <Cross className="left-4 top-24" />
             <SideNum n="01" />
@@ -94,7 +94,7 @@ const Hero = () => {
             </motion.ul>
 
             <div className="relative z-20 mx-auto grid max-w-7xl lg:grid-cols-12">
-                <div className="lg:col-span-6 lg:pt-16">
+                <div className="lg:col-span-6 lg:pt-2">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -103,7 +103,7 @@ const Hero = () => {
                         <Eyebrow>{t.hero.eyebrow}</Eyebrow>
                     </motion.div>
 
-                    <h1 className="mt-6 font-grotesk text-[15vw] font-bold uppercase leading-[0.9] tracking-tighter text-ink sm:text-8xl lg:text-[6.2rem]">
+                    <h1 className="mt-6 font-grotesk text-[15vw] font-bold uppercase leading-[0.9] tracking-tighter text-ink sm:text-8xl lg:mt-8 lg:text-[6.2rem]">
                         <MaskLine delay={B + 0.35}>{t.hero.titleL1}</MaskLine>
                         <MaskLine delay={B + 0.48}>{t.hero.titleL2}</MaskLine>
                         <MaskLine delay={B + 0.61}>
@@ -115,7 +115,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.9, delay: B + 0.9, ease: [0.22, 1, 0.36, 1] }}
-                        className="mt-8 max-w-sm text-base leading-[1.75] text-ink2 lg:text-lg"
+                        className="mt-8 max-w-sm text-base leading-[1.75] text-ink2 lg:mt-10 lg:text-lg"
                     >
                         {t.hero.sub}
                     </motion.p>
@@ -124,7 +124,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.9, delay: B + 1.1, ease: [0.22, 1, 0.36, 1] }}
-                        className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+                        className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center lg:mt-14"
                     >
                         <a
                             href={waLink("es", "generic")}
@@ -160,6 +160,16 @@ const Hero = () => {
                     />
                 </motion.div>
             </div>
+
+            <motion.p
+                aria-hidden="true"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: B + 1.6 }}
+                className="absolute bottom-10 left-6 z-[7] hidden font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2 lg:block"
+            >
+                — {t.hero.footNote}
+            </motion.p>
         </section>
     );
 };
