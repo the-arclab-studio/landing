@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { SideNum, Cross } from "./Bits";
 import { useLang } from "./LangContext";
 
@@ -7,12 +8,12 @@ const Solucion = () => {
     const { t } = useLang();
     const s = t.solucion;
     return (
-        <section
+        <Section
             id="solucion"
             data-testid="solucion-section"
-            className="relative scroll-mt-24 overflow-hidden py-24 sm:py-32 lg:py-40"
+            className="relative scroll-mt-24 overflow-hidden"
         >
-            <SideNum n="03" />
+            <SideNum n="04" />
             <Cross className="left-4 bottom-10" />
             <span
                 aria-hidden="true"
@@ -20,7 +21,7 @@ const Solucion = () => {
             >
                 Sistema
             </span>
-            <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12">
+            <Container className="relative grid items-center gap-8 lg:grid-cols-12">
                 <div className="lg:col-span-4">
                     <Reveal>
                         <h2 className="font-grotesk text-[11vw] font-bold uppercase leading-[0.92] tracking-tighter text-ink sm:text-6xl lg:text-[4.6rem] xl:text-[5.4rem]">
@@ -52,7 +53,7 @@ const Solucion = () => {
                         <Reveal key={i} delay={i * 0.08}>
                             <div
                                 data-testid={`solucion-item-${i + 1}`}
-                                className="group border-t border-line py-6 transition-colors duration-500 last:border-b hover:border-arcblue lg:py-7"
+                                className="group border-t border-line py-6 transition-colors duration-500 last:border-b hover:border-arcblue"
                             >
                                 <div className="flex items-baseline justify-between gap-4">
                                     <p className="flex items-baseline gap-4">
@@ -69,15 +70,15 @@ const Solucion = () => {
                                         strokeWidth={2.5}
                                     />
                                 </div>
-                                <p className="mt-2 pl-11 text-sm leading-[1.75] text-ink2 transition-transform duration-300 group-hover:translate-x-2 lg:max-w-xs lg:text-base">
+                                <p className="mt-2 pl-12 text-sm leading-[1.75] text-ink2 transition-transform duration-300 group-hover:translate-x-2 lg:max-w-xs lg:text-base">
                                     {item.text}
                                 </p>
                             </div>
                         </Reveal>
                     ))}
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 

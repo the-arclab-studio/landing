@@ -78,7 +78,7 @@ export default function App() {
             if (pos - y > zone) return;
             pushing = true;
             lenis.scrollTo(pos, {
-                duration: 0.7,
+                duration: 0.25,
                 easing: (t) => 1 - Math.pow(1 - t, 3),
                 onComplete: () => {
                     clearTimeout(safety);
@@ -88,7 +88,7 @@ export default function App() {
             clearTimeout(safety);
             safety = setTimeout(() => {
                 pushing = false;
-            }, 1000);
+            }, 450);
         };
 
         const onWheel = (e) => {
@@ -126,8 +126,8 @@ export default function App() {
                     <div className="relative">
                         <Strip />
                         <Problema />
-                        <Solucion />
                         <Metodo />
+                        <Solucion />
                     </div>
                     <Cambios />
                     <Planes />

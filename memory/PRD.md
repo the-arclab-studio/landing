@@ -287,6 +287,24 @@
 ## Implementado (2026-08-17, parte 3) — HERO ALINHADO ÀS LETRAS + SCROLL 20%
 - HERO: bloco esquerdo descido (lg:pt-[1.6rem] xl:pt-[5.5rem]) — topo do título alinhado com o topo das letras ARC (medido no browser: 233px vs 228px)
 - SCROLL: empurrão dispara quando ~20% da secção de baixo está visível (zona dinâmica por altura da secção), com proteção: nunca antes de percorrer ~45% da secção atual e janela fixa de 250px nas paragens de fundo de secções altas — evita que o bloco preto curto seja saltado; continua só a descer, subir é livre
+
+## Regras de design do cliente (2026-08-17) — ver /app/memory/design_rules.md
+- Layout.jsx criado: <Container> (max-w-6xl mx-auto px-6) + <Section> (py-16 md:py-24 lg:py-32) — ainda NÃO aplicados às secções existentes
+- Decisões do cliente sobre conflitos: regra 5 (paddings) OK normalizar; regra 1 (max-w-6xl) RESPESAR; regra 10 MANTER tipografia display gigante; regra 9 OK manter 3 fontes; regra 21 MANTER intro/entradas lentas, scroll respeita → empurrão passou a 250ms ease-out (feito + testado)
+- Migração de espaçamentos: seguir regra 28 (apresentar classes do bloco e aguardar confirmação) + regra 29 (uma secção de cada vez)
+
+## Migração às regras de design (2026-08-21)
+- Hero: EXCEÇÃO calibrada (cliente escolheu não migrar — junção faixa/pé/fotos ao pixel)
+- Solucion (03): MIGRADA → <Section>, <Container> max-w-6xl gap-8, linhas py-6, pl-12; verificado 375/768/1440 sem scroll horizontal
+- Metodo (04): MIGRADA → <Section>/<Container>, passos mt-12 lg:mt-16 gap-8, pl-6, imagem mt-12; EXCEÇÃO calibrada: lg:pr-[9vw] (proteção da faixa de fotos — escala da regra 4 não chega); verificado 375/768/1440
+- TROCA DE ORDEM (2026-08-23): Método passa a secção 03, Solución passa a 04 (SideNums trocados; faixa contínua aguentou sem quebras — realinhou a composição: os pés aparecem junto à Solución). NOTA: menu do header ficou com ordem invertida vs página (ENTRENAMIENTO→#solucion é agora a 4ª; CÓMO FUNCIONA→#metodo a 3ª) — oferecido trocar ordem do menu
+- Bloco preto (Cambios): migração proposta AGUARDA confirmação a/b/c (max-w-6xl, gap-4, palavra text-xl sm:text-3xl, transitions/expansão 250ms)
+
+
+
+- Problema (02): MIGRADA → <Section> py-16/md:py-24/lg:py-32, <Container> max-w-6xl gap-8, lista space-y-12, separador mt-6, pl-12; exceções mantidas: título display, watermark Anton, traço azul+mt-8 (regra 7 não aplicada a pedido); verificado 375/768/1440 sem scroll horizontal
+
+
 - Testado: livre aos 400px, push automático aos ~700px → enquadra Problema, subida livre sem snap
 
 - Pendente: Atletas 3 e 4 — o cliente ainda NÃO enviou fotos/nomes/ligas/citações (pedido em falta)

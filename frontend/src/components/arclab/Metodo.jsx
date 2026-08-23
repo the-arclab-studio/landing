@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { SideNum, Cross } from "./Bits";
 import { useLang } from "./LangContext";
 
@@ -6,14 +7,14 @@ const Metodo = () => {
     const { t } = useLang();
     const m = t.metodo;
     return (
-        <section
+        <Section
             id="metodo"
             data-testid="metodo-section"
-            className="relative scroll-mt-24 overflow-hidden px-6 py-24 sm:py-32 lg:py-40"
+            className="relative scroll-mt-24 overflow-hidden"
         >
-            <SideNum n="04" />
+            <SideNum n="03" />
             <Cross className="right-4 top-10" />
-            <div className="relative mx-auto max-w-7xl">
+            <Container className="relative">
                 <div className="lg:grid lg:grid-cols-12 lg:items-end">
                     <div className="lg:col-span-6">
                         <Reveal className="lg:pr-[9vw]">
@@ -32,12 +33,12 @@ const Metodo = () => {
                             </p>
                         </Reveal>
 
-                        <div className="relative z-20 mt-14 grid gap-10 sm:grid-cols-3 sm:gap-6 lg:mt-20 lg:pr-[9vw]">
+                        <div className="relative z-20 mt-12 grid gap-8 sm:grid-cols-3 sm:gap-6 lg:mt-16 lg:pr-[9vw]">
                             {m.steps.map((s, i) => (
                                 <Reveal key={s.n} delay={i * 0.12}>
                                     <div
                                         data-testid={`metodo-step-${s.n}`}
-                                        className="group border-l border-line pl-5 sm:first:border-l-0 sm:first:pl-0"
+                                        className="group border-l border-line pl-6 sm:first:border-l-0 sm:first:pl-0"
                                     >
                                         <span className="font-playfair text-4xl leading-none text-arcblue lg:text-6xl">
                                             {s.n}
@@ -56,7 +57,7 @@ const Metodo = () => {
 
                     <Reveal
                         delay={0.2}
-                        className="mt-14 lg:col-span-6 lg:mt-0"
+                        className="mt-12 lg:col-span-6 lg:mt-0"
                     >
                         <img
                             src="/images/metodo-cutout.png"
@@ -66,8 +67,8 @@ const Metodo = () => {
                         />
                     </Reveal>
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 

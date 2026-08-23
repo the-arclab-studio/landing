@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { SideNum, Cross } from "./Bits";
 import { useLang } from "./LangContext";
 
@@ -7,9 +8,9 @@ const Problema = () => {
     const { t } = useLang();
     const p = t.problema;
     return (
-        <section
+        <Section
             data-testid="problema-section"
-            className="relative overflow-hidden py-24 sm:py-32 lg:py-40"
+            className="relative overflow-hidden"
         >
             <SideNum n="02" />
             <Cross className="right-4 top-10" />
@@ -19,7 +20,7 @@ const Problema = () => {
             >
                 Esfuerzo
             </span>
-            <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12">
+            <Container className="relative grid items-center gap-8 lg:grid-cols-12">
                 <div className="lg:col-span-5">
                     <Reveal>
                         <h2 className="font-grotesk text-[11vw] font-bold uppercase leading-[0.92] tracking-tighter text-ink sm:text-6xl lg:text-[4.6rem] xl:text-[5.4rem]">
@@ -44,7 +45,7 @@ const Problema = () => {
                 </Reveal>
 
                 <div className="lg:col-span-4">
-                    <div className="space-y-10 lg:space-y-14">
+                    <div className="space-y-12">
                         {p.problems.map((pr, i) => (
                             <Reveal key={pr.n} delay={i * 0.12}>
                                 <div data-testid={`problema-item-${pr.n}`} className="group transition-transform duration-300 hover:translate-x-2">
@@ -63,17 +64,17 @@ const Problema = () => {
                                             strokeWidth={2.5}
                                         />
                                     </div>
-                                    <p className="mt-2 pl-11 text-sm leading-[1.75] text-ink2 lg:text-base">
+                                    <p className="mt-2 pl-12 text-sm leading-[1.75] text-ink2 lg:text-base">
                                         {pr.text}
                                     </p>
-                                    <span className="mt-5 block origin-left border-t border-line transition-colors duration-500 group-hover:border-arcblue lg:mt-7" />
+                                    <span className="mt-6 block origin-left border-t border-line transition-colors duration-500 group-hover:border-arcblue" />
                                 </div>
                             </Reveal>
                         ))}
                     </div>
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 
