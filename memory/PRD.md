@@ -337,6 +337,12 @@
 - CONSEQUÊNCIA ACEITE (spec proíbe mover elementos decorativos): o alinhamento título↔topo das letras ARC deixou de existir — o título começa agora acima das letras
 - ⚠️ ANOMALIA: durante esta sessão o ficheiro Hero.jsx REVERTEU sozinho duas vezes após as minhas edições (e apareceu um donut "ENFOQUE 360°" transitório no Metodo a 1024px que não existe no código) — sinais de edição/rollback em paralelo; reapliquei e confirmei o estado final no disco e no browser
 
+## Hero — crescimento proporcional + alinhamento (2026-08-24, parte 7)
+- PASSO 1: tudo ×1.12 — secção lg:h-[calc((100vh-4rem)*1.12)], título lg:text-[6.95rem], sub lg:text-xl lg:max-w-md, ritmos lg:mt-9/11/16, jogador lg:scale-[1.12] origin-bottom (wrapper próprio para não conflituar com Framer); azul cresceu com o conjunto; vértice da diagonal assenta no topo da faixa (verificado: secBottom = stripTop)
+- PASSO 2: letras ARC/LAB alinhadas ao pixel com o topo de "TU PRIMER" (ambas 117px, medido com métricas de fonte via canvas — glyph top, não caixa): top-[127px] xl:top-[129px]; jogador moveu com o lettering e depois +40px extra a pedido do cliente (lg:mt-[86px] xl:mt-14)
+- Verificado 1440×900 e 1280×800: cabeça livre do header (+11px), jogador dentro a 1440 (−57px) e pé sai 55px pelo fundo a 1280×800 (efeito pé aceite pelo cliente), legenda visível sem scroll nos DOIS tamanhos
+
+
 - Medido no browser: 1440px overlap 72px, 1024px overlap 72px, 375px pequena no topo direito sem tapar texto; sem scroll horizontal nas 3 larguras
 
 

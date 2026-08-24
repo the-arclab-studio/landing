@@ -23,7 +23,7 @@ const Hero = () => {
             ref={ref}
             id="top"
             data-testid="hero-section"
-            className="relative overflow-hidden px-6 pb-16 pt-24 sm:pt-28 lg:h-[calc(100vh-4rem)] lg:min-h-0 lg:overflow-x-clip lg:overflow-y-visible lg:pt-12 lg:pb-0"
+            className="relative overflow-hidden px-6 pb-16 pt-24 sm:pt-28 lg:h-[calc((100vh-4rem)*1.12)] lg:min-h-0 lg:overflow-x-clip lg:overflow-y-visible lg:pt-12 lg:pb-0"
         >
             <Cross className="left-4 top-24" />
             <SideNum n="01" />
@@ -47,7 +47,7 @@ const Hero = () => {
                 className="pointer-events-none absolute inset-0 z-[6] hidden select-none lg:block"
             >
                 <div
-                    className="absolute right-[1%] top-[161px] xl:top-[209px] font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
+                    className="absolute right-[1%] top-[127px] xl:top-[129px] font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
                     style={{
                         color: "transparent",
                         WebkitTextStroke: "2px rgba(27,51,220,0.28)",
@@ -64,7 +64,7 @@ const Hero = () => {
                     }}
                 >
                     <div
-                        className="absolute right-[1%] top-[161px] xl:top-[209px] font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
+                        className="absolute right-[1%] top-[127px] xl:top-[129px] font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
                         style={{
                             color: "transparent",
                             WebkitTextStroke: "2px rgba(255,255,255,0.55)",
@@ -104,7 +104,7 @@ const Hero = () => {
                         <Eyebrow>{t.hero.eyebrow}</Eyebrow>
                     </motion.div>
 
-                    <h1 className="mt-6 font-grotesk text-[15vw] font-bold uppercase leading-[0.9] tracking-tighter text-ink sm:text-8xl lg:mt-8 lg:text-[6.2rem]">
+                    <h1 className="mt-6 font-grotesk text-[15vw] font-bold uppercase leading-[0.9] tracking-tighter text-ink sm:text-8xl lg:mt-9 lg:text-[6.95rem]">
                         <MaskLine delay={B + 0.35}>{t.hero.titleL1}</MaskLine>
                         <MaskLine delay={B + 0.48}>{t.hero.titleL2}</MaskLine>
                         <MaskLine delay={B + 0.61}>
@@ -116,7 +116,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.9, delay: B + 0.9, ease: [0.22, 1, 0.36, 1] }}
-                        className="mt-8 max-w-sm text-base leading-[1.75] text-ink2 lg:mt-10 lg:text-lg"
+                        className="mt-8 max-w-sm text-base leading-[1.75] text-ink2 lg:mt-11 lg:max-w-md lg:text-xl"
                     >
                         {t.hero.sub}
                     </motion.p>
@@ -125,7 +125,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.9, delay: B + 1.1, ease: [0.22, 1, 0.36, 1] }}
-                        className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center lg:mt-14"
+                        className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center lg:mt-16"
                     >
                         <a
                             href={waLink("es", "generic")}
@@ -146,20 +146,21 @@ const Hero = () => {
                     </motion.div>
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 60 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, delay: B + 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    style={{ y: imgY }}
-                    className="relative z-30 mx-auto mt-10 max-w-sm sm:max-w-md lg:col-span-6 lg:mt-20 lg:-mb-20 lg:max-w-none xl:mt-24 xl:-mb-24"
-                >
-                    <img
-                        src="/images/hero-cutout.png"
-                        alt={t.hero.photoAlt}
-                        data-testid="hero-photo"
-                        className="w-full drop-shadow-[0_50px_70px_rgba(21,21,21,0.35)]"
-                    />
-                </motion.div>
+                <div className="relative z-30 mx-auto mt-10 max-w-sm sm:max-w-md lg:col-span-6 lg:mt-[86px] lg:-mb-20 lg:max-w-none lg:origin-bottom lg:scale-[1.12] xl:mt-14 xl:-mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 60 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.2, delay: B + 0.7, ease: [0.22, 1, 0.36, 1] }}
+                        style={{ y: imgY }}
+                    >
+                        <img
+                            src="/images/hero-cutout.png"
+                            alt={t.hero.photoAlt}
+                            data-testid="hero-photo"
+                            className="w-full drop-shadow-[0_50px_70px_rgba(21,21,21,0.35)]"
+                        />
+                    </motion.div>
+                </div>
             </Container>
 
             <motion.p
