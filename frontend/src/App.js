@@ -31,54 +31,34 @@ export default function App() {
         };
         raf = requestAnimationFrame(loop);
 
-        // Empurrão magnético (só desktop, só a descer): scroll livre e
-        // direto; quando a secção seguinte começa a aparecer (~250px antes
-        // da fronteira), a página agarra-a e enquadra-a suavemente.
+        // Empurrão magnético (só desktop, só a descer, sem reduced-motion):
+        // quando o topo da secção seguinte entra nos últimos 25% do
+        // viewport, a página enquadra-a. A roda NUNCA é bloqueada — se o
+        // utilizador faz scroll durante o empurrão, este cancela-se.
         const mql = window.matchMedia("(min-width: 1024px)");
+        const rmq = window.matchMedia("(prefers-reduced-motion: reduce)");
         let pushing = false;
+        let cooldownUntil = 0;
         let safety;
 
-        const getStops = () => {
-            const vh = window.innerHeight;
-            const stops = [];
-            document
-                .querySelectorAll("main section, footer")
-                .forEach((el) => {
-                    const top = el.getBoundingClientRect().top + window.scrollY;
-                    const h = el.offsetHeight;
-                    stops.push({ pos: top, h });
-                    const bottom = top + h - vh;
-                    if (bottom > top + 10) stops.push({ pos: bottom, h: null });
-                });
-            return stops.sort((a, b) => a.pos - b.pos);
-        };
+        const getStops = () =>
+            [...document.querySelectorAll("main section")]
+                .filter((el) => el.dataset.testid !== "cambios-section")
+                .map((el) => el.getBoundingClientRect().top + window.scrollY)
+                .sort((a, b) => a - b);
 
         const onScroll = (e) => {
-            if (!mql.matches || pushing) return;
+            if (!mql.matches || rmq.matches || pushing) return;
+            if (performance.now() < cooldownUntil) return;
             if (document.body.style.overflow === "hidden") return;
             if (e.direction !== 1) return;
             const y = window.scrollY;
-            const vh = window.innerHeight;
-            const stops = getStops();
-            const i = stops.findIndex((s) => s.pos > y + 2);
-            if (i === -1) return;
-            const { pos, h } = stops[i];
-            const prev = i > 0 ? stops[i - 1].pos : 0;
-            // dispara quando ~20% da secção de baixo já está visível
-            // (paragem de fundo de secção alta: janela fixa de 250px),
-            // mas nunca antes de percorrer ~45% da secção atual — protege
-            // secções curtas (ex.: bloco preto) de serem saltadas.
-            const zone =
-                h === null
-                    ? 250
-                    : Math.min(
-                          vh - 0.2 * Math.min(h, vh),
-                          Math.max(250, 0.55 * (pos - prev))
-                      );
-            if (pos - y > zone) return;
+            const zone = window.innerHeight * 0.75;
+            const next = getStops().find((s) => s > y + 2);
+            if (next === undefined || next - y > zone) return;
             pushing = true;
-            lenis.scrollTo(pos, {
-                duration: 0.25,
+            lenis.scrollTo(next, {
+                duration: 0.6,
                 easing: (t) => 1 - Math.pow(1 - t, 3),
                 onComplete: () => {
                     clearTimeout(safety);
@@ -88,26 +68,27 @@ export default function App() {
             clearTimeout(safety);
             safety = setTimeout(() => {
                 pushing = false;
-            }, 450);
+            }, 900);
         };
 
         const onWheel = (e) => {
-            if (mql.matches && pushing && !e.ctrlKey) {
-                e.preventDefault();
-                e.stopImmediatePropagation();
+            if (!mql.matches) return;
+            if (e.deltaY < 0) cooldownUntil = 0;
+            if (pushing) {
+                pushing = false;
+                clearTimeout(safety);
+                lenis.scrollTo(window.scrollY, { immediate: true, force: true });
+                cooldownUntil = performance.now() + 900;
             }
         };
 
         lenis.on("scroll", onScroll);
-        window.addEventListener("wheel", onWheel, {
-            passive: false,
-            capture: true,
-        });
+        window.addEventListener("wheel", onWheel, { passive: true });
 
         return () => {
             cancelAnimationFrame(raf);
             lenis.destroy();
-            window.removeEventListener("wheel", onWheel, { capture: true });
+            window.removeEventListener("wheel", onWheel);
             clearTimeout(safety);
         };
     }, []);

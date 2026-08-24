@@ -300,6 +300,14 @@
 - TROCA DE ORDEM (2026-08-23): Método passa a secção 03, Solución passa a 04 (SideNums trocados; faixa contínua aguentou sem quebras — realinhou a composição: os pés aparecem junto à Solución). NOTA: menu do header ficou com ordem invertida vs página (ENTRENAMIENTO→#solucion é agora a 4ª; CÓMO FUNCIONA→#metodo a 3ª) — oferecido trocar ordem do menu
 - Bloco preto (Cambios): migração proposta AGUARDA confirmação a/b/c (max-w-6xl, gap-4, palavra text-xl sm:text-3xl, transitions/expansão 250ms)
 
+## Refatoração de estrutura (2026-08-24) — spec do cliente
+- Layout.jsx FINAL: Container = max-w-6xl mx-auto px-6 md:px-8; Section = py-20 md:py-28 lg:py-36 (substitui a escala anterior das regras)
+- Convertidas para Section/Container: Club, Prueba, Planes, Sobre, Faq, Contacto (Problema/Solucion/Metodo já estavam); nenhuma secção tem padding vertical próprio; EXCEÇÕES aprovadas: Hero (pt-24/pb-0 calibrado) e Cambios (bloco preto intacto — padding vive nas células)
+- VERIFICADO computacionalmente a 1440px: todas as secções com Section têm paddingTop/Bottom 144px e container left=144px (mesma margem esquerda e ritmo vertical)
+- HERO: conteúdo subiu ~1/3 (lg:pt-[1.6rem]→lg:pt-4, xl:pt-[5.5rem]→xl:pt-16, valores da escala); conteúdo passou a <Container> (layout assimétrico mantido); letras ARC/LAB passaram de posição % a offsets fixos (top-[161px] xl:top-[209px]) → alinhamento título↔ARC EXATO (209px = 209px a 1440 e 1920)
+- SCROLL reescrito: paragens = APENAS topos de secção (sem fundos de secções altas, sem footer), Cambios excluído; dispara quando o topo da secção seguinte entra nos últimos 25% do viewport; 0.6s ease-out; roda NUNCA bloqueada — scroll durante o empurrão cancela-o (lenis.scrollTo atual, immediate) e devolve controlo; sem empurrão com prefers-reduced-motion; testado com trajetórias (300→349→871 push; 120→991 livre porque <25% visível)
+
+
 
 
 - Problema (02): MIGRADA → <Section> py-16/md:py-24/lg:py-32, <Container> max-w-6xl gap-8, lista space-y-12, separador mt-6, pl-12; exceções mantidas: título display, watermark Anton, traço azul+mt-8 (regra 7 não aplicada a pedido); verificado 375/768/1440 sem scroll horizontal

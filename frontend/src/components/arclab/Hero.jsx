@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MaskLine } from "./Reveal";
+import { Container } from "./Layout";
 import { Eyebrow, SideNum, Cross } from "./Bits";
 import { useLang } from "./LangContext";
 import { introSeen } from "./Intro";
@@ -46,7 +47,7 @@ const Hero = () => {
                 className="pointer-events-none absolute inset-0 z-[6] hidden select-none lg:block"
             >
                 <div
-                    className="absolute right-[1%] top-[46%] -translate-y-1/2 font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
+                    className="absolute right-[1%] top-[161px] xl:top-[209px] font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
                     style={{
                         color: "transparent",
                         WebkitTextStroke: "2px rgba(27,51,220,0.28)",
@@ -63,7 +64,7 @@ const Hero = () => {
                     }}
                 >
                     <div
-                        className="absolute right-[1%] top-[46%] -translate-y-1/2 font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
+                        className="absolute right-[1%] top-[161px] xl:top-[209px] font-anton text-[15rem] uppercase leading-[0.82] tracking-tight xl:text-[18rem]"
                         style={{
                             color: "transparent",
                             WebkitTextStroke: "2px rgba(255,255,255,0.55)",
@@ -93,8 +94,8 @@ const Hero = () => {
                 ))}
             </motion.ul>
 
-            <div className="relative z-20 mx-auto grid max-w-7xl lg:grid-cols-12">
-                <div className="lg:col-span-6 lg:pt-[1.6rem] xl:pt-[5.5rem]">
+            <Container className="relative z-20 grid lg:grid-cols-12">
+                <div className="lg:col-span-6 lg:pt-4 xl:pt-16">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -159,7 +160,7 @@ const Hero = () => {
                         className="w-full drop-shadow-[0_50px_70px_rgba(21,21,21,0.35)]"
                     />
                 </motion.div>
-            </div>
+            </Container>
 
             <motion.p
                 aria-hidden="true"

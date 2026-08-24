@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown, X } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { SideNum } from "./Bits";
 import { useLang } from "./LangContext";
 import { waLink } from "./data";
@@ -134,13 +135,13 @@ const Planes = () => {
     const cols = ["", "Basic", "Pro", "Elite"];
 
     return (
-        <section
+        <Section
             id="planes"
             data-testid="planes-section"
-            className="relative scroll-mt-24 px-6 py-28"
+            className="relative scroll-mt-24"
         >
             <SideNum n="05" />
-            <div className="mx-auto max-w-7xl">
+            <Container>
                 <Reveal>
                     <p className="flex items-center gap-3 font-grotesk text-[11px] font-medium uppercase tracking-[0.3em] text-ink2">
                         {p.eyebrow}
@@ -273,8 +274,8 @@ const Planes = () => {
                         </a>
                     </div>
                 </Reveal>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 

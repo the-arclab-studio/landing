@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { Eyebrow, Headline } from "./Bits";
 import { useLang } from "./LangContext";
 
@@ -84,12 +85,12 @@ const Prueba = () => {
     const next = p.athletes[(idx + 1) % n];
 
     return (
-        <section
+        <Section
             id="jugadores"
             data-testid="prueba-section"
-            className="scroll-mt-24 overflow-hidden bg-bone px-6 py-24 sm:py-32"
+            className="scroll-mt-24 overflow-hidden bg-bone"
         >
-            <div className="mx-auto max-w-6xl">
+            <Container>
                 <Reveal>
                     <Eyebrow>{p.eyebrow}</Eyebrow>
                     <Headline className="mt-6" pre={p.titlePre} em={p.titleEm} />
@@ -135,8 +136,8 @@ const Prueba = () => {
 
                     <Peek a={next} side="next" onClick={() => go(1)} label={p.photoLabel} />
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 

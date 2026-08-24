@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { Eyebrow } from "./Bits";
 import { useLang } from "./LangContext";
 
@@ -13,11 +14,11 @@ const Club = () => {
     const { t } = useLang();
     const c = t.club;
     return (
-        <section
+        <Section
             data-testid="club-section"
-            className="relative overflow-hidden bg-ink py-28 sm:py-36"
+            className="relative overflow-hidden bg-ink"
         >
-            <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2">
+            <Container className="relative grid items-center gap-14 lg:grid-cols-2">
                 <Reveal>
                     <Eyebrow dark>{c.eyebrow}</Eyebrow>
                     <h2 className="mt-6 font-grotesk text-[11vw] font-bold uppercase leading-[0.95] tracking-tighter text-white sm:text-6xl lg:text-6xl">
@@ -52,8 +53,8 @@ const Club = () => {
                         />
                     </figure>
                 </Reveal>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 

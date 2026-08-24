@@ -1,5 +1,6 @@
 import { Instagram } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { Eyebrow, Headline } from "./Bits";
 import { useLang } from "./LangContext";
 
@@ -23,12 +24,12 @@ const Sobre = () => {
     const { t } = useLang();
     const s = t.sobre;
     return (
-        <section
+        <Section
             id="nosotros"
             data-testid="sobre-section"
-            className="scroll-mt-24 px-6 py-24 sm:py-32"
+            className="scroll-mt-24"
         >
-            <div className="mx-auto max-w-6xl">
+            <Container>
                 <Reveal>
                     <Eyebrow>{s.eyebrow}</Eyebrow>
                     <Headline
@@ -89,8 +90,8 @@ const Sobre = () => {
                         </Reveal>
                     ))}
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 

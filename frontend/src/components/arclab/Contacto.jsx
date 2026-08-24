@@ -1,5 +1,6 @@
 import { Instagram, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { Eyebrow } from "./Bits";
 import Arc from "./Arc";
 import { useLang } from "./LangContext";
@@ -28,12 +29,12 @@ const Contacto = () => {
     ];
 
     return (
-        <section
+        <Section
             id="contacto"
             data-testid="contacto-section"
-            className="scroll-mt-24 bg-bone px-6 py-28"
+            className="scroll-mt-24 bg-bone"
         >
-            <div className="mx-auto max-w-6xl">
+            <Container>
                 <Reveal>
                     <Arc className="mx-auto mb-16 h-16 w-full max-w-md" />
                     <Eyebrow>{e.eyebrow}</Eyebrow>
@@ -103,8 +104,8 @@ const Contacto = () => {
                         {e.legal}
                     </p>
                 </Reveal>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 

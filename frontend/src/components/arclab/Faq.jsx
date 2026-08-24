@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Container, Section } from "./Layout";
 import { Eyebrow, Headline } from "./Bits";
 import { useLang } from "./LangContext";
 
@@ -11,12 +12,12 @@ const Faq = () => {
     const [open, setOpen] = useState(0);
 
     return (
-        <section
+        <Section
             id="dudas"
             data-testid="faq-section"
-            className="scroll-mt-24 px-6 py-28"
+            className="scroll-mt-24"
         >
-            <div className="mx-auto max-w-4xl">
+            <Container>
                 <Reveal>
                     <Eyebrow>{f.eyebrow}</Eyebrow>
                     <Headline className="mt-6" pre={f.titlePre} em={f.titleEm} />
@@ -63,8 +64,8 @@ const Faq = () => {
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     );
 };
 
