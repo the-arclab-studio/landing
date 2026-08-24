@@ -351,6 +351,13 @@
 - Divisórias: réguas full-width removidas de Problema/Solucion/Cambios (Cambios mantém só a divisória vertical md:border-r); novo traço azul 24×2px à esquerda no fundo de cada item; ao abrir cresce para 64px (400ms); espaçamento compensado (Problema space-y-16, Solucion py-8)
 - Verificado 1440px e 375px: exclusividade OK, troca de texto OK, traços OK, 0 réguas, sem scroll horizontal
 
+## Bug fixes (2026-08-24, parte 10) — pé da jogadora + texturas do bloco preto
+- METODO: pé cortado no limite inferior → âncora da jogadora e do círculo lg:bottom-[-3%] → lg:bottom-0 (escala e horizontal intactas; pé fica exatamente dentro, sobra 0px)
+- CAMBIOS: texturas fantasma reenquadradas — caixas fixas nos cantos (sem margens negativas): esq. h-96 w-72 object-cover object-top; dir. h-80 w-64 object-cover object-center (mantido flip); opacidade 0.07→0.05
+- Fix extra encontrado pelo testing_agent: aria-expanded do Cambios tinha ficado `!!open === i` (do replace_all) → corrigido para `open === i` e verificado
+- Verificado por testing_agent (iteration_2.json): 100% PASS, sem regressões, sem scroll horizontal nas 3 larguras
+
+
 - Verificado por testing_agent (iteration_1.json): 25/25 amostras elementFromPoint com jogador por cima durante scroll lento a 1280×800; sem regressões de empilhamento; sem scroll horizontal em 1440/1280/375
 
 - Verificado 1440×900 e 1280×800: cabeça livre do header (+11px), jogador dentro a 1440 (−57px) e pé sai 55px pelo fundo a 1280×800 (efeito pé aceite pelo cliente), legenda visível sem scroll nos DOIS tamanhos

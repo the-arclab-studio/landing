@@ -17,13 +17,13 @@ const Cambios = () => {
                     src="/images/hero-cutout.png"
                     alt=""
                     aria-hidden="true"
-                    className="pointer-events-none absolute -left-24 bottom-0 w-[420px] opacity-[0.07] grayscale"
+                    className="pointer-events-none absolute bottom-0 left-0 h-96 w-72 object-cover object-top opacity-[0.05] grayscale"
                 />
                 <img
                     src="/images/metodo-cutout.png"
                     alt=""
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-20 top-0 w-[380px] -scale-x-100 opacity-[0.07] grayscale"
+                    className="pointer-events-none absolute right-0 top-0 h-80 w-64 -scale-x-100 object-cover object-center opacity-[0.05] grayscale"
                 />
                 <div className="relative mx-auto grid max-w-7xl md:grid-cols-2">
                     {c.outcomes.map((o, i) => (
@@ -32,7 +32,7 @@ const Cambios = () => {
                                 data-testid={`cambios-item-${i + 1}`}
                                 role="button"
                                 tabIndex={0}
-                                aria-expanded={!!open === i}
+                                aria-expanded={open === i}
                                 onClick={() => toggle(i)}
                                 onKeyDown={(e) => {
                                     if (e.key === "Enter" || e.key === " ") {

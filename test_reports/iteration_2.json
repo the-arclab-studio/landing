@@ -1,0 +1,19 @@
+{
+  "summary": "Independent verification of both client-reported bug fixes on ARC.LAB landing page (frontend only). BUG 1 (Metodo player foot cut): PASS at 1440x900 and 1280x800 — metodo-player bottom equals metodo-section bottom exactly (overflow_below=0.0), width preserved at 480px, horizontal position preserved (left ≈ 760px @1440, ≈ 668px @1280). BUG 2 (Cambios background textures): PASS at 1440x900 — left texture (/images/hero-cutout.png) anchored at left=0/bottom=0 with object-fit:cover, object-position:50% 0%; right texture (/images/metodo-cutout.png) anchored at right=0/top=0 with object-fit:cover, object-position:50% 50%; both with opacity=0.05. No negative margins detected, subjects not cut in half. All 4 Cambios cells (cambios-item-1..4) remain clickable and behave exclusively (opening item 2 collapses item 1: item1 goes 226→334→226px, item2 goes 226→226→306px). No horizontal scroll at 1440x900, 1280x800, or 375x700.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/test_reports/metodo_1440.png", "/app/test_reports/cambios_1440.png", "/app/test_reports/cambios_open2.png"],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Both fixes independently confirmed via getBoundingClientRect + getComputedStyle. Metodo player overflow=0 (exact fit) at 1440 and 1280. Cambios images both opacity 0.05, cover, anchored corners. Exclusive-accordion behavior on cambios-item-1..4 works. Note: cell aria-expanded stays 'false' (not toggled) — behavior driven by height/state, not aria; consider improving a11y but not a blocker.",
+  "rca of the issue": "N/A — both fixes verified working."
+}

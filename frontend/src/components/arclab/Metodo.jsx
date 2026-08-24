@@ -61,7 +61,7 @@ const Metodo = () => {
 
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute right-4 top-24 z-10 w-28 select-none sm:w-36 lg:top-auto lg:right-[calc(42.2vw-21.5rem)] lg:bottom-[-3%] lg:w-[26rem] xl:right-[calc(42.2vw-25.5rem)] xl:w-[30rem]"
+                className="pointer-events-none absolute right-4 top-24 z-10 w-28 select-none sm:w-36 lg:top-auto lg:right-[calc(42.2vw-21.5rem)] lg:bottom-0 lg:w-[26rem] xl:right-[calc(42.2vw-25.5rem)] xl:w-[30rem]"
             >
                 <div className="flex aspect-[760/1117] items-center justify-center">
                     <span className="block aspect-square w-[135%] rounded-full bg-[#E7E7DF] blur-xl" />
@@ -70,7 +70,7 @@ const Metodo = () => {
 
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute right-4 top-24 z-30 w-28 select-none sm:w-36 lg:top-auto lg:right-[calc(42.2vw-21.5rem)] lg:bottom-[-3%] lg:w-[26rem] xl:right-[calc(42.2vw-25.5rem)] xl:w-[30rem]"
+                className="pointer-events-none absolute right-4 top-24 z-30 w-28 select-none sm:w-36 lg:top-auto lg:right-[calc(42.2vw-21.5rem)] lg:bottom-0 lg:w-[26rem] xl:right-[calc(42.2vw-25.5rem)] xl:w-[30rem]"
             >
                 <motion.div
                     initial={{ x: 90, opacity: 0 }}
