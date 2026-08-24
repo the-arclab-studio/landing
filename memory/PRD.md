@@ -340,6 +340,12 @@
 ## Hero — crescimento proporcional + alinhamento (2026-08-24, parte 7)
 - PASSO 1: tudo ×1.12 — secção lg:h-[calc((100vh-4rem)*1.12)], título lg:text-[6.95rem], sub lg:text-xl lg:max-w-md, ritmos lg:mt-9/11/16, jogador lg:scale-[1.12] origin-bottom (wrapper próprio para não conflituar com Framer); azul cresceu com o conjunto; vértice da diagonal assenta no topo da faixa (verificado: secBottom = stripTop)
 - PASSO 2: letras ARC/LAB alinhadas ao pixel com o topo de "TU PRIMER" (ambas 117px, medido com métricas de fonte via canvas — glyph top, não caixa): top-[127px] xl:top-[129px]; jogador moveu com o lettering e depois +40px extra a pedido do cliente (lg:mt-[86px] xl:mt-14)
+
+## Bug fix — jogador atrás da faixa no scroll (2026-08-24, parte 8)
+- RCA: o Container do Hero tinha `relative z-20` → contexto de empilhamento que prendia o z-30 do jogador; a faixa (z-20, depois no DOM) ganhava durante o scroll. (Também confirmados transform/scale no wrapper e filter na img, mas o culpado era o Container.)
+- Fix mínimo em Hero.jsx: Container sem position/z-index; coluna esquerda de texto ganhou `relative z-10` (fica acima da faixa azul z-0 e das letras z-[6]); jogador z-30 passa a competir no contexto raiz → SEMPRE acima da faixa z-20
+- Verificado por testing_agent (iteration_1.json): 25/25 amostras elementFromPoint com jogador por cima durante scroll lento a 1280×800; sem regressões de empilhamento; sem scroll horizontal em 1440/1280/375
+
 - Verificado 1440×900 e 1280×800: cabeça livre do header (+11px), jogador dentro a 1440 (−57px) e pé sai 55px pelo fundo a 1280×800 (efeito pé aceite pelo cliente), legenda visível sem scroll nos DOIS tamanhos
 
 

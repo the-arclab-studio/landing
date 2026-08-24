@@ -1,0 +1,21 @@
+{
+  "summary": "Verified Hero z-index fix at 1280x800 and 1440x900. During overlap between hero-photo and image-stream (Strip), elementFromPoint sampling of 25 points in the intersection rectangle at scrollY=550 and scrollY=579 (magnetic snap intercepted intermediate values) returned hero-photo (hero-cutout.png) in 25/25 samples in both cases. No sample returned any strip-image-0X. The player is unambiguously on top of the central strip during scroll. Text content (title/subtitle/buttons) is visible above the blue diagonal band and above the outline ARC/LAB letters. Hero renders correctly at 1440x900 (player, title, ARC/LAB outline, 'ARC.LAB TRAINING SYSTEM' caption visible without scroll). No horizontal scroll at 1440x900, 1280x800 or 375x700.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Fix is minimal and correct: removing 'relative z-20' from the Hero Container destroys the stacking context that was previously trapping the z-30 player under the z-20 Strip. Left column got 'relative z-10' so it stays above the z-0 blue band and z-[6] outline letters. All Hero contents keep positions/sizes/images/text intact."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "N/A", "frontend": "100%" },
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Magnetic scroll snap in desktop (>=1024px) frequently pulls window.scrollY away from the requested value after ~180ms; sample element positions within ~100-120ms of scrollTo. Only scrollY values that keep the viewport partly on Hero (~550-600 at 1280x800) will show hero-photo/image-stream overlap; other snap-positions land past Hero so overlap=false is expected. Verified overlap at scrollY 550 and 579 both showed hero-photo winning 25/25 elementFromPoint samples.",
+  "rca of the issue": "Container had 'relative z-20' which created a stacking context, causing the z-30 player inside to compete only within that context; the sibling Strip (z-20, later in DOM) beat the whole Container. Fix removed z-20 from Container and gave the left text column its own 'relative z-10' so player z-30 now competes at the root against Strip z-20 and wins."
+}
