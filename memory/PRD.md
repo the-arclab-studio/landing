@@ -304,6 +304,15 @@
 - Layout.jsx FINAL: Container = max-w-6xl mx-auto px-6 md:px-8; Section = py-20 md:py-28 lg:py-36 (substitui a escala anterior das regras)
 - Convertidas para Section/Container: Club, Prueba, Planes, Sobre, Faq, Contacto (Problema/Solucion/Metodo já estavam); nenhuma secção tem padding vertical próprio; EXCEÇÕES aprovadas: Hero (pt-24/pb-0 calibrado) e Cambios (bloco preto intacto — padding vive nas células)
 - VERIFICADO computacionalmente a 1440px: todas as secções com Section têm paddingTop/Bottom 144px e container left=144px (mesma margem esquerda e ritmo vertical)
+
+## Alterações de dados (2026-08-24) — só data.js/copy.js + remoção de órfãos
+- data.js: número único ARC.LAB = +34 711 233 350 (NUMS es/pt = "34711233350"); TODOS os links WhatsApp passam a este número
+- Plan Duo: priceSmall apagado (referência no Planes.jsx removida); novas features (mesmo equipo / mismo calendario-planes distintos / mismo seguimiento)
+- CTAs Basic/Pro/Duo: "Escríbenos" → "Empezar ahora"; Elite mantém "Pedir plaza"
+- Frase "Empieza en Basic y sube a Pro..." REMOVIDA (chaves after1/afterB1/after2/afterB2/after3 + bloco no Planes.jsx)
+- Problema: 4.º ponto "Sin seguimiento" adicionado (renderiza automaticamente — verificado 4 itens no browser); cada ponto tem novo campo "detail" (2-3 frases ES, placeholders a editar pelo cliente; NÃO usado ainda por nenhum componente)
+- copy.js: novo bloco `nutricion` (eyebrow/title/text/price 35€/unit "pago único") — preparado, componente vem noutro pedido
+
 - HERO: conteúdo subiu ~1/3 (lg:pt-[1.6rem]→lg:pt-4, xl:pt-[5.5rem]→xl:pt-16, valores da escala); conteúdo passou a <Container> (layout assimétrico mantido); letras ARC/LAB passaram de posição % a offsets fixos (top-[161px] xl:top-[209px]) → alinhamento título↔ARC EXATO (209px = 209px a 1440 e 1920)
 - SCROLL reescrito: paragens = APENAS topos de secção (sem fundos de secções altas, sem footer), Cambios excluído; dispara quando o topo da secção seguinte entra nos últimos 25% do viewport; 0.6s ease-out; roda NUNCA bloqueada — scroll durante o empurrão cancela-o (lenis.scrollTo atual, immediate) e devolve controlo; sem empurrão com prefers-reduced-motion; testado com trajetórias (300→349→871 push; 120→991 livre porque <25% visível)
 

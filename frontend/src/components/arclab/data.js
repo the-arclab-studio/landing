@@ -1,4 +1,4 @@
-const NUMS = { es: "34698136937", pt: "351969291245" };
+const NUMS = { es: "34711233350", pt: "34711233350" };
 
 const MSGS = {
     generic: "Hola, quiero información de ARC.LAB",

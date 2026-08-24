@@ -75,11 +75,6 @@ const PlanCard = ({ plan, wa }) => {
                     {plan.unit}
                 </span>
             </p>
-            {plan.priceSmall && (
-                <p className={`mt-1 text-xs ${dark ? "text-white/50" : "text-ink2"}`}>
-                    {plan.priceSmall}
-                </p>
-            )}
             <p
                 className={`mt-3 font-playfair text-base italic ${
                     dark ? "text-white/70" : "text-ink2"
@@ -170,16 +165,6 @@ const Planes = () => {
                         </Reveal>
                     ))}
                 </div>
-
-                <Reveal className="mt-12">
-                    <p className="text-center text-sm text-ink2">
-                        {p.after1}{" "}
-                        <strong className="font-semibold text-ink">{p.afterB1}</strong>{" "}
-                        {p.after2}{" "}
-                        <strong className="font-semibold text-ink">{p.afterB2}</strong>{" "}
-                        {p.after3}
-                    </p>
-                </Reveal>
 
                 <div className="mt-10 text-center">
                     <button
