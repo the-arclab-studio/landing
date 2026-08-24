@@ -7,8 +7,8 @@ import { useLang } from "./LangContext";
 const Cambios = () => {
     const { t } = useLang();
     const c = t.cambios;
-    const [open, setOpen] = useState({});
-    const toggle = (i) => setOpen((o) => ({ ...o, [i]: !o[i] }));
+    const [open, setOpen] = useState(null);
+    const toggle = (i) => setOpen((o) => (o === i ? null : i));
 
     return (
         <section data-testid="cambios-section" className="relative">
@@ -32,7 +32,7 @@ const Cambios = () => {
                                 data-testid={`cambios-item-${i + 1}`}
                                 role="button"
                                 tabIndex={0}
-                                aria-expanded={!!open[i]}
+                                aria-expanded={!!open === i}
                                 onClick={() => toggle(i)}
                                 onKeyDown={(e) => {
                                     if (e.key === "Enter" || e.key === " ") {
@@ -40,12 +40,8 @@ const Cambios = () => {
                                         toggle(i);
                                     }
                                 }}
-                                className={`group cursor-pointer border-white/10 px-6 py-12 transition-colors duration-300 hover:bg-white/[0.04] sm:px-12 sm:py-16 ${
-                                    i % 2 === 0 ? "md:border-r" : ""
-                                } ${i < 2 ? "border-b" : ""} ${
-                                    i >= 2 ? "max-md:border-t" : ""
-                                } ${i === 1 || i === 2 ? "max-md:border-b" : ""} ${
-                                    i === 3 ? "max-md:border-b-0" : ""
+                                className={`group cursor-pointer px-6 py-12 transition-colors duration-300 hover:bg-white/[0.04] sm:px-12 sm:py-16 ${
+                                    i % 2 === 0 ? "md:border-r md:border-white/10" : ""
                                 }`}
                             >
                                 <div className="flex items-baseline gap-5">
@@ -57,14 +53,14 @@ const Cambios = () => {
                                         <Plus
                                             aria-hidden="true"
                                             className={`ml-2 inline h-4 w-4 align-baseline text-arcblue transition-transform duration-300 ${
-                                                open[i] ? "rotate-45" : ""
+                                                open === i ? "rotate-45" : ""
                                             }`}
                                             strokeWidth={3}
                                         />
                                     </p>
                                 </div>
                                 <AnimatePresence initial={false}>
-                                    {open[i] && (
+                                    {open === i && (
                                         <motion.div
                                             initial={{ height: 0, opacity: 0, y: 12 }}
                                             animate={{
@@ -88,6 +84,11 @@ const Cambios = () => {
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
+                                <span
+                                    className={`mt-6 block h-0.5 bg-arcblue transition-all duration-[400ms] ${
+                                        open === i ? "w-16" : "w-6"
+                                    }`}
+                                />
                             </div>
                         </Reveal>
                     ))}

@@ -53,7 +53,7 @@ const Solucion = () => {
                         <Reveal key={i} delay={i * 0.08}>
                             <div
                                 data-testid={`solucion-item-${i + 1}`}
-                                className="group border-t border-line py-6 transition-colors duration-500 last:border-b hover:border-arcblue"
+                                className="group py-8"
                             >
                                 <div className="flex items-baseline justify-between gap-4">
                                     <p className="flex items-baseline gap-4">
@@ -73,6 +73,7 @@ const Solucion = () => {
                                 <p className="mt-2 pl-12 text-sm leading-[1.75] text-ink2 transition-transform duration-300 group-hover:translate-x-2 lg:max-w-xs lg:text-base">
                                     {item.text}
                                 </p>
+                                <span className="mt-6 block h-0.5 w-6 bg-arcblue" />
                             </div>
                         </Reveal>
                     ))}

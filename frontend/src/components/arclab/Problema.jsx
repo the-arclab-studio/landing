@@ -9,8 +9,8 @@ import { useLang } from "./LangContext";
 const Problema = () => {
     const { t } = useLang();
     const p = t.problema;
-    const [open, setOpen] = useState({});
-    const toggle = (i) => setOpen((o) => ({ ...o, [i]: !o[i] }));
+    const [open, setOpen] = useState(null);
+    const toggle = (i) => setOpen((o) => (o === i ? null : i));
     return (
         <Section
             data-testid="problema-section"
@@ -49,14 +49,14 @@ const Problema = () => {
                 </Reveal>
 
                 <div className="lg:col-span-4">
-                    <div className="space-y-12">
+                    <div className="space-y-16">
                         {p.problems.map((pr, i) => (
                             <Reveal key={pr.n} delay={i * 0.12}>
                                 <div
                                     data-testid={`problema-item-${pr.n}`}
                                     role="button"
                                     tabIndex={0}
-                                    aria-expanded={!!open[i]}
+                                    aria-expanded={open === i}
                                     onClick={() => toggle(i)}
                                     onKeyDown={(e) => {
                                         if (e.key === "Enter" || e.key === " ") {
@@ -78,33 +78,33 @@ const Problema = () => {
                                         <Plus
                                             aria-hidden="true"
                                             className={`h-4 w-4 shrink-0 text-arcblue transition-transform duration-300 lg:h-5 lg:w-5 ${
-                                                open[i] ? "rotate-45" : ""
+                                                open === i ? "rotate-45" : ""
                                             }`}
                                             strokeWidth={2.5}
                                         />
                                     </div>
-                                    <p className="mt-2 pl-12 text-sm leading-[1.75] text-ink2 lg:text-base">
-                                        {pr.text}
-                                    </p>
-                                    <AnimatePresence initial={false}>
-                                        {open[i] && (
-                                            <motion.div
-                                                initial={{ height: 0, opacity: 0, y: 12 }}
-                                                animate={{ height: "auto", opacity: 1, y: 0 }}
-                                                exit={{ height: 0, opacity: 0, y: 12 }}
-                                                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                                                className="overflow-hidden"
+                                    <AnimatePresence initial={false} mode="wait">
+                                        <motion.div
+                                            key={open === i ? "detail" : "short"}
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                                            className="overflow-hidden"
+                                        >
+                                            <p
+                                                data-testid={open === i ? `problema-detail-${pr.n}` : `problema-text-${pr.n}`}
+                                                className="mt-2 pl-12 text-sm leading-[1.75] text-ink2 lg:text-base"
                                             >
-                                                <p
-                                                    data-testid={`problema-detail-${pr.n}`}
-                                                    className="mt-4 pl-12 text-sm leading-[1.75] text-ink2 lg:text-base"
-                                                >
-                                                    {pr.detail}
-                                                </p>
-                                            </motion.div>
-                                        )}
+                                                {open === i ? pr.detail : pr.text}
+                                            </p>
+                                        </motion.div>
                                     </AnimatePresence>
-                                    <span className="mt-6 block origin-left border-t border-line transition-colors duration-500 group-hover:border-arcblue" />
+                                    <span
+                                        className={`mt-6 block h-0.5 bg-arcblue transition-all duration-[400ms] ${
+                                            open === i ? "w-16" : "w-6"
+                                        }`}
+                                    />
                                 </div>
                             </Reveal>
                         ))}

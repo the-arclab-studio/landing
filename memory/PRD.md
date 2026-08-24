@@ -344,6 +344,13 @@
 ## Bug fix — jogador atrás da faixa no scroll (2026-08-24, parte 8)
 - RCA: o Container do Hero tinha `relative z-20` → contexto de empilhamento que prendia o z-30 do jogador; a faixa (z-20, depois no DOM) ganhava durante o scroll. (Também confirmados transform/scale no wrapper e filter na img, mas o culpado era o Container.)
 - Fix mínimo em Hero.jsx: Container sem position/z-index; coluna esquerda de texto ganhou `relative z-10` (fica acima da faixa azul z-0 e das letras z-[6]); jogador z-30 passa a competir no contexto raiz → SEMPRE acima da faixa z-20
+
+## Acordeões exclusivos + traços azuis (2026-08-24, parte 9)
+- Problema e Cambios: estado passou a useState(null) — ABERTURA EXCLUSIVA (abrir um fecha o anterior); Faq JÁ era exclusivo (useState(0)/-1) — não tocado (fora dos 3 ficheiros permitidos)
+- Problema: texto curto ↔ detail agora SUBSTITUEM-SE (nunca acumulam) com transição height+opacity 0.35s mode="wait" (sem salto); testids: problema-text-XX / problema-detail-XX
+- Divisórias: réguas full-width removidas de Problema/Solucion/Cambios (Cambios mantém só a divisória vertical md:border-r); novo traço azul 24×2px à esquerda no fundo de cada item; ao abrir cresce para 64px (400ms); espaçamento compensado (Problema space-y-16, Solucion py-8)
+- Verificado 1440px e 375px: exclusividade OK, troca de texto OK, traços OK, 0 réguas, sem scroll horizontal
+
 - Verificado por testing_agent (iteration_1.json): 25/25 amostras elementFromPoint com jogador por cima durante scroll lento a 1280×800; sem regressões de empilhamento; sem scroll horizontal em 1440/1280/375
 
 - Verificado 1440×900 e 1280×800: cabeça livre do header (+11px), jogador dentro a 1440 (−57px) e pé sai 55px pelo fundo a 1280×800 (efeito pé aceite pelo cliente), legenda visível sem scroll nos DOIS tamanhos
