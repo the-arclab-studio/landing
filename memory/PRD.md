@@ -320,6 +320,11 @@
 - F) Prueba: desktop com setas fora das fotos alinhadas às margens do Container (novas setas lg, mobile inalterado com setas sobre as fotos), foto central lg:max-w-[34rem] (+21%)
 - Tudo verificado no browser a 1440px: BackToTop opacity 0→1 após hero e clique volta ao topo; detail 02 expande; fonte 220€ = Anton; elite-trace ativo 5s
 
+## Nutrición (2026-08-24, parte 3)
+- Novo Nutricion.jsx: faixa editorial logo após os cartões dos planos (dentro da secção Planes) — fundo bone, brackets azuis nos 4 cantos (padrão Corner das fotos), Eyebrow c/ linha azul, título grotesk minúsculas, 35€ Playfair itálico azul (5xl) + "pago único", CTA btn-outline "Empezar ahora" → WhatsApp com nova mensagem MSGS.nutricion ("Hola, me interesa la guía nutricional") em data.js; copy nutricion.cta adicionado
+- Verificado 1440 e 375: sem scroll horizontal, empilha bem no telemóvel, href correto (+34 711 233 350)
+
+
 - Problema: 4.º ponto "Sin seguimiento" adicionado (renderiza automaticamente — verificado 4 itens no browser); cada ponto tem novo campo "detail" (2-3 frases ES, placeholders a editar pelo cliente; NÃO usado ainda por nenhum componente)
 - copy.js: novo bloco `nutricion` (eyebrow/title/text/price 35€/unit "pago único") — preparado, componente vem noutro pedido
 

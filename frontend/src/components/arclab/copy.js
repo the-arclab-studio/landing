@@ -227,6 +227,7 @@ export const COPY = {
             text: "Guía nutricional por un pago único de 35 € en Basic, Pro y Duo: hábitos, estructura y timing para entrenar y competir mejor. En Elite va incluida, con seguimiento.",
             price: "35€",
             unit: "pago único",
+            cta: "Empezar ahora",
         },
         prueba: {
             eyebrow: "Prueba · Programa 01 → 02",

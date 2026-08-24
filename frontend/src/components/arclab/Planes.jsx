@@ -4,6 +4,7 @@ import { Check, ChevronDown, X } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Container, Section } from "./Layout";
 import { SideNum } from "./Bits";
+import Nutricion from "./Nutricion";
 import { useLang } from "./LangContext";
 import { waLink } from "./data";
 
@@ -187,6 +188,8 @@ const Planes = () => {
                         </Reveal>
                     ))}
                 </div>
+
+                <Nutricion />
 
                 <div className="mt-10 text-center">
                     <button
