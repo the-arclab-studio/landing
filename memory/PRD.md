@@ -330,6 +330,13 @@
 ## Ajuste Método (2026-08-24, parte 5) — jogadora única sobre a faixa
 - REMOVIDA a jogadora de trás (uso de metodo-cutout.png no Metodo — o ficheiro continua em uso nos cantos fantasma do Cambios); fica só a dorsal 8
 - Jogadora re-posicionada com offset viewport-relativo (lg:right-[calc(42.2vw-21.5rem)] xl:right-[calc(42.2vw-25.5rem)]) para a mão/bola pousarem ~72px sobre a faixa central em QUALQUER largura desktop; escala intacta (26/30rem); z-30 acima da faixa (z-20), sem sombra/contorno/efeitos; círculo suave passou para z-10 (por baixo da faixa → contacto limpo); wrapper absolute na Section (relative overflow-hidden), pointer-events-none + select-none
+
+## Hero altura exata (2026-08-24, parte 6)
+- Hero desktop: lg:min-h-[92vh] → lg:h-[calc(100vh-4rem)] lg:min-h-0; lg:pt-24 → lg:pt-12; removidos pt-4/xl:pt-16 da coluna de texto (spec do cliente)
+- Verificado: 1440×900 (secção 836px = 100vh−64, legenda visível em 796px) e 1280×800 (736px, legenda em 696px) — SEM scroll, sem cortes nem sobreposições; mobile/tablet intocados
+- CONSEQUÊNCIA ACEITE (spec proíbe mover elementos decorativos): o alinhamento título↔topo das letras ARC deixou de existir — o título começa agora acima das letras
+- ⚠️ ANOMALIA: durante esta sessão o ficheiro Hero.jsx REVERTEU sozinho duas vezes após as minhas edições (e apareceu um donut "ENFOQUE 360°" transitório no Metodo a 1024px que não existe no código) — sinais de edição/rollback em paralelo; reapliquei e confirmei o estado final no disco e no browser
+
 - Medido no browser: 1440px overlap 72px, 1024px overlap 72px, 375px pequena no topo direito sem tapar texto; sem scroll horizontal nas 3 larguras
 
 

@@ -23,7 +23,7 @@ const Hero = () => {
             ref={ref}
             id="top"
             data-testid="hero-section"
-            className="relative overflow-hidden px-6 pb-16 pt-24 sm:pt-28 lg:min-h-[92vh] lg:overflow-x-clip lg:overflow-y-visible lg:pt-24 lg:pb-0"
+            className="relative overflow-hidden px-6 pb-16 pt-24 sm:pt-28 lg:h-[calc(100vh-4rem)] lg:min-h-0 lg:overflow-x-clip lg:overflow-y-visible lg:pt-12 lg:pb-0"
         >
             <Cross className="left-4 top-24" />
             <SideNum n="01" />
@@ -95,7 +95,7 @@ const Hero = () => {
             </motion.ul>
 
             <Container className="relative z-20 grid lg:grid-cols-12">
-                <div className="lg:col-span-6 lg:pt-4 xl:pt-16">
+                <div className="lg:col-span-6">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
