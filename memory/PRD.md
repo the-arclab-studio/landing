@@ -358,6 +358,13 @@
 ## Reconstrução Sobre + Contacto (2026-08-24, parte 11)
 - SOBRE: nova estrutura — overline "QUIÉNES SOMOS" no canto superior direito, título 2 linhas minúsculas ("detrás de tu plan" ink / "hay dos atletas." azul); REMOVIDA team.jpg e cartões antigos; 2 cartões horizontais bone rounded-[18px]: placeholder foto à esquerda (~30%, altura total, aguarda fotos reais — estrutura pronta para img object-cover grayscale) + nome 22px / cargo azul 11px / credenciais com pontos azuis (copy real de Uxía e Gonçalo em copy.js); mobile empilha com foto por cima
 - CONTACTO: REMOVIDA a grelha de países com emojis; bloco único #151515 rounded-[24px] com arco SVG azul (Arc.jsx reutilizado, -scale-y-100, topo-direito atrás do título), título "¿hablamos de tu temporada?" branco+azul, sub cinzento; cartão interior #1F1F1F rounded-[16px]: WHATSAPP azul + número +34 711 233 350 (3xl branco, link wa.me) | badges ES/PT/US + nota de idiomas; mobile empilha; legal mantido por baixo
+
+## Planes/Nutricion/Prueba (2026-08-24, parte 12)
+- PLANES: badge "El más vendido" sem pílula (só texto azul tracking 0.25em); CTAs Basic/Pro/Duo = "Empezar" (copy.js, whitespace-nowrap, glifo ✆ removido dos cartões — mantido só na banda "Hablar por WhatsApp"); ELITE invertido: pílula branca + texto azul + anel animado REFEITO (bug: anel 1px com arco transparente 88% do tempo = impercetível) → wrapper p-[2px] + clipper overflow-hidden + camada de centragem estática + .elite-trace só com rotação (conic: anel constante rgba azul 25% + arco #1B33DC a varrer); reduced-motion desativa (verificado)
+- NUTRICION: faixa agora bloco escuro bg-ink p-6/md:p-12/lg:p-16, Eyebrow dark, título branco 4xl→5xl, preço 35€ font-anton branco 5xl/6xl, unit branco/50, CTA btn-blue
+- PRUEBA: cartão central max-w-lg lg:max-w-[42rem] + linha alargada lg:max-w-none (a max-w-3xl impedia o crescimento — achado do testing_agent); setas desktop top-[44%] nas margens do Container, mobile top-[38%] intacto; render real medido: 672px a 1440 ✓
+- testing_agent iteration_3.json: 100% PASS; sem scroll horizontal 1440/1024/375
+
 - copy.js: blocos sobre/empezar reescritos (chaves antigas removidas — handle/zone/bio/countries/responsePre etc. sem referências restantes)
 - Verificado 1440/1024/375: sem scroll horizontal, link WhatsApp correto
 - NOTA: /images/team.jpg ficou órfão em public/images (não apagado, pode ser reutilizado)

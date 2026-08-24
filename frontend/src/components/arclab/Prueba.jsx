@@ -58,7 +58,7 @@ const Arrow = ({ dir, onClick, className = "" }) => (
         onClick={onClick}
         data-testid={`carousel-${dir === -1 ? "prev" : "next"}`}
         aria-label={dir === -1 ? "Anterior" : "Siguiente"}
-        className={`absolute top-[38%] z-20 h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-ink shadow-[0_10px_30px_-10px_rgba(21,21,21,0.35)] transition-all duration-300 hover:scale-105 hover:text-arcblue sm:h-12 sm:w-12 ${className}`}
+        className={`absolute z-20 h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-ink shadow-[0_10px_30px_-10px_rgba(21,21,21,0.35)] transition-all duration-300 hover:scale-105 hover:text-arcblue sm:h-12 sm:w-12 ${className}`}
     >
         {dir === -1 ? (
             <ArrowLeft className="h-5 w-5" />
@@ -97,16 +97,16 @@ const Prueba = () => {
                 </Reveal>
 
                 <div className="relative mt-14">
-                    <Arrow dir={-1} onClick={() => go(-1)} className="left-0 hidden lg:flex" />
-                    <Arrow dir={1} onClick={() => go(1)} className="right-0 hidden lg:flex" />
+                    <Arrow dir={-1} onClick={() => go(-1)} className="left-0 top-[44%] hidden lg:flex" />
+                    <Arrow dir={1} onClick={() => go(1)} className="right-0 top-[44%] hidden lg:flex" />
 
-                    <div className="relative mx-auto flex max-w-3xl items-center justify-center">
-                        <Arrow dir={-1} onClick={() => go(-1)} className="-left-2 flex sm:left-6 lg:hidden" />
-                        <Arrow dir={1} onClick={() => go(1)} className="-right-2 flex sm:right-6 lg:hidden" />
+                    <div className="relative mx-auto flex max-w-3xl items-center justify-center lg:max-w-none">
+                        <Arrow dir={-1} onClick={() => go(-1)} className="-left-2 top-[38%] flex sm:left-6 lg:hidden" />
+                        <Arrow dir={1} onClick={() => go(1)} className="-right-2 top-[38%] flex sm:right-6 lg:hidden" />
 
                         <Peek a={prev} side="prev" onClick={() => go(-1)} label={p.photoLabel} />
 
-                        <div className="relative z-10 w-full min-w-0 max-w-md lg:max-w-[34rem]">
+                        <div className="relative z-10 w-full min-w-0 max-w-lg lg:max-w-[42rem]">
                         <AnimatePresence mode="popLayout">
                             <motion.figure
                                 key={idx}

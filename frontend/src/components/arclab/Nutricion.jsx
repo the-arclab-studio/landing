@@ -19,7 +19,7 @@ const Nutricion = () => {
         <Reveal className="mt-16">
             <div
                 data-testid="nutricion-band"
-                className="relative bg-bone px-6 py-12 md:px-12"
+                className="relative bg-ink p-6 md:p-12 lg:p-16"
             >
                 <Corner className="left-4 top-4 border-l-2 border-t-2" />
                 <Corner className="right-4 top-4 border-r-2 border-t-2" />
@@ -28,21 +28,21 @@ const Nutricion = () => {
 
                 <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
                     <div className="max-w-prose">
-                        <Eyebrow>{n.eyebrow}</Eyebrow>
-                        <h3 className="mt-6 font-grotesk text-3xl font-bold lowercase leading-tight tracking-tight text-ink sm:text-5xl">
+                        <Eyebrow dark>{n.eyebrow}</Eyebrow>
+                        <h3 className="mt-6 font-grotesk text-4xl font-bold lowercase leading-tight tracking-tight text-white sm:text-5xl">
                             {n.title}
                         </h3>
-                        <p className="mt-4 text-base leading-relaxed text-ink2">
+                        <p className="mt-4 text-base leading-relaxed text-white/60">
                             {n.text}
                         </p>
                     </div>
 
                     <div className="shrink-0 lg:text-right">
                         <p>
-                            <span className="font-playfair text-5xl italic leading-none text-arcblue">
+                            <span className="font-anton text-5xl leading-none text-white sm:text-6xl">
                                 {n.price}
                             </span>
-                            <span className="ml-3 font-grotesk text-xs font-medium uppercase tracking-[0.2em] text-ink2">
+                            <span className="ml-3 font-grotesk text-xs font-medium uppercase tracking-[0.2em] text-white/50">
                                 {n.unit}
                             </span>
                         </p>
@@ -51,7 +51,7 @@ const Nutricion = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="nutricion-cta"
-                            className="btn-outline mt-8 lg:inline-flex"
+                            className="btn-blue mt-8 lg:inline-flex"
                         >
                             {n.cta}
                             <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />

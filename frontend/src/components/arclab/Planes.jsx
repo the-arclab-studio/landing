@@ -36,7 +36,7 @@ const PlanCard = ({ plan, wa }) => {
             {featured && (
                 <span
                     data-testid="plan-featured-badge"
-                    className="absolute -top-3 left-8 rounded-full bg-arcblue px-4 py-1 font-grotesk text-[10px] font-medium uppercase tracking-[0.25em] text-white"
+                    className="absolute -top-3 left-8 font-grotesk text-[10px] font-medium uppercase tracking-[0.25em] text-arcblue"
                 >
                     {plan.badge}
                 </span>
@@ -106,23 +106,27 @@ const PlanCard = ({ plan, wa }) => {
                 ))}
             </ul>
             {dark ? (
-                <span
-                    data-testid={`plan-whatsapp-${plan.id}`}
-                    className="relative mt-8 block overflow-hidden rounded-full p-px transition-transform duration-300 hover:-translate-y-0.5"
-                >
+                <span className="relative mt-8 block rounded-full p-[2px]">
                     <span
                         aria-hidden="true"
-                        className="elite-trace absolute -inset-full"
-                        style={{
-                            background:
-                                "conic-gradient(from 0deg, transparent 0deg 300deg, #1B33DC 340deg, transparent 360deg)",
-                        }}
-                    />
+                        className="absolute inset-0 overflow-hidden rounded-full"
+                    >
+                        <span className="absolute left-1/2 top-1/2 block aspect-square w-[250%] -translate-x-1/2 -translate-y-1/2">
+                            <span
+                                className="elite-trace block h-full w-full"
+                                style={{
+                                    background:
+                                        "conic-gradient(from 0deg, rgba(27,51,220,0.25) 0deg 290deg, #1B33DC 345deg, rgba(27,51,220,0.25) 360deg)",
+                                }}
+                            />
+                        </span>
+                    </span>
                     <a
                         href={wa}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="relative flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-grotesk text-sm font-medium uppercase tracking-[0.15em] text-ink"
+                        data-testid={`plan-whatsapp-${plan.id}`}
+                        className="relative flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white px-7 py-3.5 font-grotesk text-sm font-medium uppercase tracking-[0.15em] text-arcblue transition-colors duration-200 hover:bg-bone"
                     >
                         {plan.cta}
                     </a>
@@ -135,11 +139,11 @@ const PlanCard = ({ plan, wa }) => {
                     data-testid={`plan-whatsapp-${plan.id}`}
                     className={
                         featured
-                          ? "btn-blue mt-8 justify-center"
-                          : "btn-outline mt-8 justify-center"
+                          ? "btn-blue mt-8 justify-center whitespace-nowrap"
+                          : "btn-outline mt-8 justify-center whitespace-nowrap"
                     }
                 >
-                    {featured && <span aria-hidden="true">✆</span>} {plan.cta}
+                    {plan.cta}
                 </a>
             )}
         </article>
