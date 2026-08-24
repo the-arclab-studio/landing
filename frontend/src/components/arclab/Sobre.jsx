@@ -1,23 +1,46 @@
-import { Instagram } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Container, Section } from "./Layout";
-import { Eyebrow, Headline } from "./Bits";
 import { useLang } from "./LangContext";
 
-const Corner = ({ className }) => (
-    <span
-        aria-hidden="true"
-        className={`pointer-events-none absolute z-10 h-6 w-6 border-arcblue ${className}`}
-    />
-);
-
-const Corners = () => (
-    <>
-        <Corner className="left-3 top-3 border-l-2 border-t-2" />
-        <Corner className="right-3 top-3 border-r-2 border-t-2" />
-        <Corner className="bottom-3 left-3 border-b-2 border-l-2" />
-        <Corner className="bottom-3 right-3 border-b-2 border-r-2" />
-    </>
+const Person = ({ p, i }) => (
+    <article
+        data-testid={`sobre-person-${i + 1}`}
+        className="flex flex-col overflow-hidden rounded-[18px] bg-bone sm:flex-row"
+    >
+        <div
+            data-testid={`sobre-photo-${i + 1}`}
+            className="relative h-52 w-full shrink-0 bg-line sm:h-auto sm:w-[30%] sm:self-stretch"
+        >
+            <div className="flex h-full w-full items-center justify-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
+                <span className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-ink2">
+                    Foto
+                </span>
+            </div>
+        </div>
+        <div className="flex-1 p-6 sm:p-8">
+            <h3 className="font-grotesk text-[22px] font-bold tracking-tight text-ink">
+                {p.name}
+            </h3>
+            <p className="mt-2 font-grotesk text-[11px] font-medium uppercase tracking-[0.2em] text-arcblue">
+                {p.role}
+            </p>
+            <ul className="mt-6 space-y-3">
+                {p.credentials.map((c) => (
+                    <li
+                        key={c}
+                        className="flex items-start gap-3 text-sm leading-relaxed text-ink2"
+                    >
+                        <span
+                            aria-hidden="true"
+                            className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-arcblue"
+                        />
+                        {c}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </article>
 );
 
 const Sobre = () => {
@@ -31,62 +54,23 @@ const Sobre = () => {
         >
             <Container>
                 <Reveal>
-                    <Eyebrow>{s.eyebrow}</Eyebrow>
-                    <Headline
-                        className="mt-6 max-w-4xl text-[11vw] sm:text-6xl lg:text-7xl"
-                        pre={s.titlePre}
-                        em={s.titleEm}
-                    />
-                </Reveal>
-
-                <Reveal className="mt-14">
-                    <figure
-                        data-testid="team-photo-slot"
-                        className="relative aspect-[16/9] w-full overflow-hidden rounded-[18px] bg-bone sm:aspect-[21/9]"
+                    <p
+                        data-testid="sobre-overline"
+                        className="text-right font-grotesk text-[11px] font-medium uppercase tracking-[0.3em] text-ink2"
                     >
-                        <Corners />
-                        <img
-                            src="/images/team.jpg"
-                            alt="Jugadores ARC.LAB entrenando en la pista"
-                            className="h-full w-full object-cover grayscale"
-                        />
-                    </figure>
+                        {s.eyebrow}
+                    </p>
+                    <h2 className="mt-6 font-grotesk text-4xl font-bold lowercase leading-tight tracking-tight text-ink sm:text-5xl">
+                        {s.titlePre}
+                        <br />
+                        <span className="text-arcblue">{s.titleEm}</span>
+                    </h2>
                 </Reveal>
 
-                <div className="mt-10 grid gap-5 sm:grid-cols-2">
+                <div className="mt-12 space-y-6">
                     {s.people.map((p, i) => (
-                        <Reveal key={i} delay={i * 0.12}>
-                            <article
-                                data-testid={`sobre-person-${i + 1}`}
-                                className="card-soft flex h-full items-center gap-6 p-7"
-                            >
-                                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-bone">
-                                    <div className="flex h-full items-center justify-center">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-arcblue" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 className="font-grotesk text-xl font-bold lowercase tracking-tight text-ink">
-                                        {p.handle}
-                                    </h3>
-                                    <p className="mt-1 font-grotesk text-[10px] font-medium uppercase tracking-[0.25em] text-ink2">
-                                        {p.zone}
-                                    </p>
-                                    <p className="mt-2 text-sm leading-relaxed text-ink2">
-                                        {p.bio}
-                                    </p>
-                                    <a
-                                        href={`https://instagram.com/${p.handle.slice(1)}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        data-testid={`sobre-instagram-${i + 1}`}
-                                        className="mt-3 inline-flex items-center gap-2 font-grotesk text-xs font-medium uppercase tracking-[0.15em] text-ink transition-colors duration-300 hover:text-arcblue"
-                                    >
-                                        <Instagram className="h-3.5 w-3.5 text-arcblue" />
-                                        {p.handle}
-                                    </a>
-                                </div>
-                            </article>
+                        <Reveal key={p.name} delay={i * 0.12}>
+                            <Person p={p} i={i} />
                         </Reveal>
                     ))}
                 </div>

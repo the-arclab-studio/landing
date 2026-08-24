@@ -354,6 +354,14 @@
 ## Bug fixes (2026-08-24, parte 10) — pé da jogadora + texturas do bloco preto
 - METODO: pé cortado no limite inferior → âncora da jogadora e do círculo lg:bottom-[-3%] → lg:bottom-0 (escala e horizontal intactas; pé fica exatamente dentro, sobra 0px)
 - CAMBIOS: texturas fantasma reenquadradas — caixas fixas nos cantos (sem margens negativas): esq. h-96 w-72 object-cover object-top; dir. h-80 w-64 object-cover object-center (mantido flip); opacidade 0.07→0.05
+
+## Reconstrução Sobre + Contacto (2026-08-24, parte 11)
+- SOBRE: nova estrutura — overline "QUIÉNES SOMOS" no canto superior direito, título 2 linhas minúsculas ("detrás de tu plan" ink / "hay dos atletas." azul); REMOVIDA team.jpg e cartões antigos; 2 cartões horizontais bone rounded-[18px]: placeholder foto à esquerda (~30%, altura total, aguarda fotos reais — estrutura pronta para img object-cover grayscale) + nome 22px / cargo azul 11px / credenciais com pontos azuis (copy real de Uxía e Gonçalo em copy.js); mobile empilha com foto por cima
+- CONTACTO: REMOVIDA a grelha de países com emojis; bloco único #151515 rounded-[24px] com arco SVG azul (Arc.jsx reutilizado, -scale-y-100, topo-direito atrás do título), título "¿hablamos de tu temporada?" branco+azul, sub cinzento; cartão interior #1F1F1F rounded-[16px]: WHATSAPP azul + número +34 711 233 350 (3xl branco, link wa.me) | badges ES/PT/US + nota de idiomas; mobile empilha; legal mantido por baixo
+- copy.js: blocos sobre/empezar reescritos (chaves antigas removidas — handle/zone/bio/countries/responsePre etc. sem referências restantes)
+- Verificado 1440/1024/375: sem scroll horizontal, link WhatsApp correto
+- NOTA: /images/team.jpg ficou órfão em public/images (não apagado, pode ser reutilizado)
+
 - Fix extra encontrado pelo testing_agent: aria-expanded do Cambios tinha ficado `!!open === i` (do replace_all) → corrigido para `open === i` e verificado
 - Verificado por testing_agent (iteration_2.json): 100% PASS, sem regressões, sem scroll horizontal nas 3 larguras
 

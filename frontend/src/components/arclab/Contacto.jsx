@@ -1,32 +1,12 @@
-import { Instagram, MessageCircle } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Container, Section } from "./Layout";
-import { Eyebrow } from "./Bits";
 import Arc from "./Arc";
 import { useLang } from "./LangContext";
 import { waLink } from "./data";
 
 const Contacto = () => {
-    const { t } = useLang();
+    const { lang, t } = useLang();
     const e = t.empezar;
-    const countries = [
-        {
-            id: "espana",
-            flag: "🇪🇸",
-            name: e.countries.es,
-            wa: waLink("es", "generic"),
-            phone: "+34 698 136 937",
-            ig: "@uxisureda",
-        },
-        {
-            id: "portugal",
-            flag: "🇵🇹",
-            name: e.countries.pt,
-            wa: waLink("pt", "generic"),
-            phone: "+351 969 291 245",
-            ig: "@gmorais.24",
-        },
-    ];
 
     return (
         <Section
@@ -36,67 +16,62 @@ const Contacto = () => {
         >
             <Container>
                 <Reveal>
-                    <Arc className="mx-auto mb-16 h-16 w-full max-w-md" />
-                    <Eyebrow>{e.eyebrow}</Eyebrow>
-                    <h2 className="mt-6 font-grotesk text-4xl font-bold lowercase leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
-                        {e.titlePre}{" "}
-                        <em className="font-playfair italic text-arcblue">
-                            {e.titleEm}
-                        </em>{" "}
-                        {e.titlePost}
-                    </h2>
-                    <p className="mt-6 max-w-lg text-base text-ink2 sm:text-lg">
-                        {e.subPre}{" "}
-                        <strong className="font-semibold text-ink">
-                            {e.subStrong}
-                        </strong>
-                    </p>
-                </Reveal>
+                    <div
+                        data-testid="contacto-block"
+                        className="relative overflow-hidden rounded-[24px] bg-[#151515] p-6 md:p-12 lg:p-16"
+                    >
+                        <Arc
+                            className="absolute -right-16 -top-10 h-64 w-[26rem] -scale-y-100"
+                            delay={0.3}
+                        />
+                        <div className="relative z-10">
+                            <h2 className="font-grotesk text-4xl font-bold lowercase leading-tight tracking-tight text-white sm:text-5xl">
+                                {e.titlePre}{" "}
+                                <span className="text-arcblue">{e.titleEm}</span>
+                            </h2>
+                            <p className="mt-4 max-w-prose text-base leading-relaxed text-white/60">
+                                {e.sub}
+                            </p>
 
-                <div className="mt-14 grid gap-5 sm:grid-cols-2">
-                    {countries.map((c, i) => (
-                        <Reveal key={c.id} delay={i * 0.12}>
-                            <article
-                                data-testid={`contact-card-${c.id}`}
-                                className="card-soft bg-white p-10"
+                            <div
+                                data-testid="contacto-card"
+                                className="mt-12 flex flex-col gap-8 rounded-[16px] bg-[#1F1F1F] p-6 md:p-8 lg:flex-row lg:items-center lg:justify-between"
                             >
-                                <p className="font-grotesk text-sm font-bold uppercase tracking-[0.3em] text-ink">
-                                    {c.flag} {c.name}
-                                </p>
-                                <div className="mt-7 space-y-4">
+                                <div>
+                                    <p className="font-grotesk text-[10px] font-medium uppercase tracking-[0.3em] text-arcblue">
+                                        {e.whatsapp}
+                                    </p>
                                     <a
-                                        href={c.wa}
+                                        href={waLink(lang, "generic")}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        data-testid={`contact-whatsapp-${c.id}`}
-                                        className="btn-blue w-full justify-center"
+                                        data-testid="contact-whatsapp"
+                                        className="mt-3 inline-block font-grotesk text-3xl font-bold tracking-tight text-white transition-colors duration-200 hover:text-arcblue"
                                     >
-                                        <MessageCircle className="h-4 w-4" />
-                                        WhatsApp {c.phone}
+                                        {e.phone}
                                     </a>
-                                    <a
-                                        href={`https://instagram.com/${c.ig.slice(1)}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        data-testid={`contact-instagram-${c.id}`}
-                                        className="flex items-center justify-center gap-2 font-grotesk text-sm font-medium uppercase tracking-[0.15em] text-ink transition-colors duration-300 hover:text-arcblue"
-                                    >
-                                        <Instagram className="h-4 w-4 text-arcblue" />
-                                        {c.ig}
-                                    </a>
-                                    <p className="pt-2 text-center text-sm text-ink2">
-                                        {e.responsePre}{" "}
-                                        <strong className="font-semibold text-ink">
-                                            {e.responseStrong}
-                                        </strong>
+                                </div>
+                                <div className="lg:text-right">
+                                    <div className="flex gap-2 lg:justify-end">
+                                        {["ES", "PT", "US"].map((f) => (
+                                            <span
+                                                key={f}
+                                                className="rounded-full px-3 py-1 font-grotesk text-xs font-medium tracking-[0.15em] text-white/80 ring-1 ring-white/20"
+                                            >
+                                                {f}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <p className="mt-4 text-xs text-white/50">
+                                        {e.langsNote}
                                     </p>
                                 </div>
-                            </article>
-                        </Reveal>
-                    ))}
-                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Reveal>
 
-                <Reveal className="mt-14">
+                <Reveal className="mt-12">
                     <p
                         data-testid="legal-text"
                         className="max-w-2xl text-xs leading-relaxed text-ink2"
