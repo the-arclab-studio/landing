@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X } from "lucide-react";
+import { Plus } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { useLang } from "./LangContext";
@@ -54,7 +54,7 @@ const Cambios = () => {
                                     </h3>
                                     <p className="font-grotesk text-2xl font-bold uppercase tracking-tight text-[#9AA2EE] sm:text-3xl">
                                         {o.word}
-                                        <X
+                                        <Plus
                                             aria-hidden="true"
                                             className={`ml-2 inline h-4 w-4 align-baseline text-arcblue transition-transform duration-300 ${
                                                 open[i] ? "rotate-45" : ""
@@ -66,14 +66,15 @@ const Cambios = () => {
                                 <AnimatePresence initial={false}>
                                     {open[i] && (
                                         <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
+                                            initial={{ height: 0, opacity: 0, y: 12 }}
                                             animate={{
                                                 height: "auto",
                                                 opacity: 1,
+                                                y: 0,
                                             }}
-                                            exit={{ height: 0, opacity: 0 }}
+                                            exit={{ height: 0, opacity: 0, y: 12 }}
                                             transition={{
-                                                duration: 0.45,
+                                                duration: 0.5,
                                                 ease: [0.22, 1, 0.36, 1],
                                             }}
                                             className="overflow-hidden"

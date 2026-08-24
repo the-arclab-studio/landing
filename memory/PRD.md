@@ -310,6 +310,16 @@
 - Plan Duo: priceSmall apagado (referência no Planes.jsx removida); novas features (mesmo equipo / mismo calendario-planes distintos / mismo seguimiento)
 - CTAs Basic/Pro/Duo: "Escríbenos" → "Empezar ahora"; Elite mantém "Pedir plaza"
 - Frase "Empieza en Basic y sube a Pro..." REMOVIDA (chaves after1/afterB1/after2/afterB2/after3 + bloco no Planes.jsx)
+
+## Interações & micro-design (2026-08-24, parte 2) — spec A–F do cliente
+- A) FloatingWhatsApp APAGADO → novo BackToTop.jsx (fixo bottom-6 right-6, h-10 w-10 com zona de toque invisível 44px via after:-inset-1, bg-white ring-line, ArrowUp fino, hover azul, fade 200ms após passar o Hero, sobe via lenisStore.current.scrollTo — nova ponte lenisStore.js porque o Lenis vive no App.js)
+- B) Cambios: X→Plus (aberto roda 45°→×); expansão ganhou deslocamento y 12px, duração 0.5s, mesmo easing
+- C) Problema: cada linha agora expande o campo "detail" do copy (role=button, aria-expanded, Enter/Espaço, + → ×, mesma dinâmica do Cambios: height+opacity+y, 0.5s); texto curto sempre visível
+- D) Planes: preços em font-anton (era Playfair itálico), /mes inalterado
+- E) Elite "Pedir plaza": borda com traço azul #1B33DC a percorrer o contorno em loop (conic-gradient rodando, 5s, keyframes elite-trace no index.css, desativado com prefers-reduced-motion)
+- F) Prueba: desktop com setas fora das fotos alinhadas às margens do Container (novas setas lg, mobile inalterado com setas sobre as fotos), foto central lg:max-w-[34rem] (+21%)
+- Tudo verificado no browser a 1440px: BackToTop opacity 0→1 após hero e clique volta ao topo; detail 02 expande; fonte 220€ = Anton; elite-trace ativo 5s
+
 - Problema: 4.º ponto "Sin seguimiento" adicionado (renderiza automaticamente — verificado 4 itens no browser); cada ponto tem novo campo "detail" (2-3 frases ES, placeholders a editar pelo cliente; NÃO usado ainda por nenhum componente)
 - copy.js: novo bloco `nutricion` (eyebrow/title/text/price 35€/unit "pago único") — preparado, componente vem noutro pedido
 

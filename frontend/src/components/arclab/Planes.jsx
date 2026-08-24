@@ -61,7 +61,7 @@ const PlanCard = ({ plan, wa }) => {
             )}
             <p className="mt-6">
                 <span
-                    className={`font-playfair text-5xl italic ${
+                    className={`font-anton text-5xl ${
                         dark ? "text-white" : "text-arcblue"
                     }`}
                 >
@@ -104,21 +104,43 @@ const PlanCard = ({ plan, wa }) => {
                     </li>
                 ))}
             </ul>
-            <a
-                href={wa}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid={`plan-whatsapp-${plan.id}`}
-                className={
-                    dark
-                        ? "mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-grotesk text-sm font-medium uppercase tracking-[0.15em] text-ink transition-transform duration-300 hover:-translate-y-0.5"
-                        : featured
+            {dark ? (
+                <span
+                    data-testid={`plan-whatsapp-${plan.id}`}
+                    className="relative mt-8 block overflow-hidden rounded-full p-px transition-transform duration-300 hover:-translate-y-0.5"
+                >
+                    <span
+                        aria-hidden="true"
+                        className="elite-trace absolute -inset-full"
+                        style={{
+                            background:
+                                "conic-gradient(from 0deg, transparent 0deg 300deg, #1B33DC 340deg, transparent 360deg)",
+                        }}
+                    />
+                    <a
+                        href={wa}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-grotesk text-sm font-medium uppercase tracking-[0.15em] text-ink"
+                    >
+                        {plan.cta}
+                    </a>
+                </span>
+            ) : (
+                <a
+                    href={wa}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid={`plan-whatsapp-${plan.id}`}
+                    className={
+                        featured
                           ? "btn-blue mt-8 justify-center"
                           : "btn-outline mt-8 justify-center"
-                }
-            >
-                {featured && <span aria-hidden="true">✆</span>} {plan.cta}
-            </a>
+                    }
+                >
+                    {featured && <span aria-hidden="true">✆</span>} {plan.cta}
+                </a>
+            )}
         </article>
     );
 };

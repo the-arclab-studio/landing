@@ -270,3 +270,19 @@ html.lenis body {
 .lenis.lenis-smooth {
     scroll-behavior: auto !important;
 }
+
+
+/* Traço azul animado no contorno do CTA Elite (Pedir plaza) */
+@keyframes elite-trace {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.elite-trace {
+    animation: elite-trace 5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+    .elite-trace {
+        animation: none;
+    }
+}

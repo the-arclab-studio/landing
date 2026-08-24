@@ -17,13 +17,15 @@ import Sobre from "@/components/arclab/Sobre";
 import Faq from "@/components/arclab/Faq";
 import Contacto from "@/components/arclab/Contacto";
 import Footer from "@/components/arclab/Footer";
-import FloatingWhatsApp from "@/components/arclab/FloatingWhatsApp";
+import BackToTop from "@/components/arclab/BackToTop";
+import { lenisStore } from "@/components/arclab/lenisStore";
 
 export default function App() {
     const [showIntro, setShowIntro] = useState(() => !introSeen());
 
     useEffect(() => {
         const lenis = new Lenis({ lerp: 0.14 });
+        lenisStore.current = lenis;
         let raf;
         const loop = (time) => {
             lenis.raf(time);
@@ -88,6 +90,7 @@ export default function App() {
         return () => {
             cancelAnimationFrame(raf);
             lenis.destroy();
+            lenisStore.current = null;
             window.removeEventListener("wheel", onWheel);
             clearTimeout(safety);
         };
@@ -118,7 +121,7 @@ export default function App() {
                     <Contacto />
                 </main>
                 <Footer />
-                <FloatingWhatsApp />
+                <BackToTop />
             </div>
         </LangContext.Provider>
     );

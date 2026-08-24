@@ -1,4 +1,6 @@
-import { X } from "lucide-react";
+import { useState } from "react";
+import { Plus } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { Container, Section } from "./Layout";
 import { SideNum, Cross } from "./Bits";
@@ -7,6 +9,8 @@ import { useLang } from "./LangContext";
 const Problema = () => {
     const { t } = useLang();
     const p = t.problema;
+    const [open, setOpen] = useState({});
+    const toggle = (i) => setOpen((o) => ({ ...o, [i]: !o[i] }));
     return (
         <Section
             data-testid="problema-section"
@@ -48,7 +52,20 @@ const Problema = () => {
                     <div className="space-y-12">
                         {p.problems.map((pr, i) => (
                             <Reveal key={pr.n} delay={i * 0.12}>
-                                <div data-testid={`problema-item-${pr.n}`} className="group transition-transform duration-300 hover:translate-x-2">
+                                <div
+                                    data-testid={`problema-item-${pr.n}`}
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-expanded={!!open[i]}
+                                    onClick={() => toggle(i)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" || e.key === " ") {
+                                            e.preventDefault();
+                                            toggle(i);
+                                        }
+                                    }}
+                                    className="group cursor-pointer transition-transform duration-300 hover:translate-x-2"
+                                >
                                     <div className="flex items-baseline justify-between gap-4">
                                         <p className="flex items-baseline gap-4">
                                             <span className="font-playfair text-2xl text-arcblue lg:text-3xl">
@@ -58,15 +75,35 @@ const Problema = () => {
                                                 {pr.title}
                                             </span>
                                         </p>
-                                        <X
+                                        <Plus
                                             aria-hidden="true"
-                                            className="h-4 w-4 shrink-0 text-arcblue transition-transform duration-300 group-hover:rotate-90 lg:h-5 lg:w-5"
+                                            className={`h-4 w-4 shrink-0 text-arcblue transition-transform duration-300 lg:h-5 lg:w-5 ${
+                                                open[i] ? "rotate-45" : ""
+                                            }`}
                                             strokeWidth={2.5}
                                         />
                                     </div>
                                     <p className="mt-2 pl-12 text-sm leading-[1.75] text-ink2 lg:text-base">
                                         {pr.text}
                                     </p>
+                                    <AnimatePresence initial={false}>
+                                        {open[i] && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0, y: 12 }}
+                                                animate={{ height: "auto", opacity: 1, y: 0 }}
+                                                exit={{ height: 0, opacity: 0, y: 12 }}
+                                                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                                                className="overflow-hidden"
+                                            >
+                                                <p
+                                                    data-testid={`problema-detail-${pr.n}`}
+                                                    className="mt-4 pl-12 text-sm leading-[1.75] text-ink2 lg:text-base"
+                                                >
+                                                    {pr.detail}
+                                                </p>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                     <span className="mt-6 block origin-left border-t border-line transition-colors duration-500 group-hover:border-arcblue" />
                                 </div>
                             </Reveal>
