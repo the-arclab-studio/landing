@@ -327,6 +327,12 @@
 - Nova imagem /images/metodo-player.png (PNG recortado do cliente, 760×1117 otimizado) na coluna direita do Metodo: grande escala (lg 26rem / xl 30rem), entra pela direita com animação x, sobreposta ao painel existente (metodo-cutout INTACTO), ligeiramente fora da margem (xl:-right-32) e a quebrar o fundo do painel (bottom -4%); círculo suave claro atrás (#E7E7DF, blur-xl, 135%)
 - Mobile: reduz para w-36/44 no canto superior direito da imagem, sem tapar texto; verificado 375px sem scroll horizontal; cartões/dados da esquerda intocados
 
+## Ajuste Método (2026-08-24, parte 5) — jogadora única sobre a faixa
+- REMOVIDA a jogadora de trás (uso de metodo-cutout.png no Metodo — o ficheiro continua em uso nos cantos fantasma do Cambios); fica só a dorsal 8
+- Jogadora re-posicionada com offset viewport-relativo (lg:right-[calc(42.2vw-21.5rem)] xl:right-[calc(42.2vw-25.5rem)]) para a mão/bola pousarem ~72px sobre a faixa central em QUALQUER largura desktop; escala intacta (26/30rem); z-30 acima da faixa (z-20), sem sombra/contorno/efeitos; círculo suave passou para z-10 (por baixo da faixa → contacto limpo); wrapper absolute na Section (relative overflow-hidden), pointer-events-none + select-none
+- Medido no browser: 1440px overlap 72px, 1024px overlap 72px, 375px pequena no topo direito sem tapar texto; sem scroll horizontal nas 3 larguras
+
+
 - Verificado 1440 e 375: sem scroll horizontal, empilha bem no telemóvel, href correto (+34 711 233 350)
 
 

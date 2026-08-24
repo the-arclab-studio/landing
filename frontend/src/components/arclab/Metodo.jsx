@@ -56,39 +56,36 @@ const Metodo = () => {
                         </div>
                     </div>
 
-                    <Reveal
-                        delay={0.2}
-                        className="relative mt-12 lg:col-span-6 lg:mt-0"
-                    >
-                        <img
-                            src="/images/metodo-cutout.png"
-                            alt="Jugadora de baloncesto en acción con el balón"
-                            data-testid="metodo-photo"
-                            className="mx-auto w-full max-w-md drop-shadow-[0_50px_70px_rgba(21,21,21,0.3)] lg:ml-auto lg:mr-0 lg:max-w-lg"
-                        />
-                        <div
-                            aria-hidden="true"
-                            className="pointer-events-none absolute -right-4 top-4 w-36 sm:w-44 lg:-right-24 lg:top-auto lg:bottom-[-4%] lg:w-[26rem] xl:-right-32 xl:w-[30rem]"
-                        >
-                            <motion.div
-                                initial={{ x: 90, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true, margin: "-60px" }}
-                                transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                                className="relative"
-                            >
-                                <span className="absolute left-1/2 top-1/2 -z-10 block aspect-square w-[135%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E7E7DF] blur-xl" />
-                                <img
-                                    src="/images/metodo-player.png"
-                                    alt=""
-                                    data-testid="metodo-player"
-                                    className="w-full drop-shadow-[0_40px_60px_rgba(21,21,21,0.28)]"
-                                />
-                            </motion.div>
-                        </div>
-                    </Reveal>
                 </div>
             </Container>
+
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute right-4 top-24 z-10 w-28 select-none sm:w-36 lg:top-auto lg:right-[calc(42.2vw-21.5rem)] lg:bottom-[-3%] lg:w-[26rem] xl:right-[calc(42.2vw-25.5rem)] xl:w-[30rem]"
+            >
+                <div className="flex aspect-[760/1117] items-center justify-center">
+                    <span className="block aspect-square w-[135%] rounded-full bg-[#E7E7DF] blur-xl" />
+                </div>
+            </div>
+
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute right-4 top-24 z-30 w-28 select-none sm:w-36 lg:top-auto lg:right-[calc(42.2vw-21.5rem)] lg:bottom-[-3%] lg:w-[26rem] xl:right-[calc(42.2vw-25.5rem)] xl:w-[30rem]"
+            >
+                <motion.div
+                    initial={{ x: 90, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    <img
+                        src="/images/metodo-player.png"
+                        alt=""
+                        data-testid="metodo-player"
+                        className="w-full"
+                    />
+                </motion.div>
+            </div>
         </Section>
     );
 };
