@@ -322,6 +322,11 @@
 
 ## Nutrición (2026-08-24, parte 3)
 - Novo Nutricion.jsx: faixa editorial logo após os cartões dos planos (dentro da secção Planes) — fundo bone, brackets azuis nos 4 cantos (padrão Corner das fotos), Eyebrow c/ linha azul, título grotesk minúsculas, 35€ Playfair itálico azul (5xl) + "pago único", CTA btn-outline "Empezar ahora" → WhatsApp com nova mensagem MSGS.nutricion ("Hola, me interesa la guía nutricional") em data.js; copy nutricion.cta adicionado
+
+## Jogadora sobreposta no Método (2026-08-24, parte 4)
+- Nova imagem /images/metodo-player.png (PNG recortado do cliente, 760×1117 otimizado) na coluna direita do Metodo: grande escala (lg 26rem / xl 30rem), entra pela direita com animação x, sobreposta ao painel existente (metodo-cutout INTACTO), ligeiramente fora da margem (xl:-right-32) e a quebrar o fundo do painel (bottom -4%); círculo suave claro atrás (#E7E7DF, blur-xl, 135%)
+- Mobile: reduz para w-36/44 no canto superior direito da imagem, sem tapar texto; verificado 375px sem scroll horizontal; cartões/dados da esquerda intocados
+
 - Verificado 1440 e 375: sem scroll horizontal, empilha bem no telemóvel, href correto (+34 711 233 350)
 
 
