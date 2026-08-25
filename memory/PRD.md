@@ -434,3 +434,9 @@
 - copy.js: bloco solucion reescrito — eyebrow, titleLines[4], lines[4] (substituem sub1/sub2), items com "Partido"→"Juego" e novos textos; photoLabel removido (sem uso)
 - REMOVIDO nesta secção (spec "só estrutura, sem ornamentos"): watermark "SISTEMA", Cross, números Playfair, ícones Plus e efeitos hover dos itens — flagged ao cliente, restaurável se quiser
 - Strip INTOCÁVEL e intacto; medições: 1440px folga 32px/lado, 1280px 28px, 1024px 23px (≥2vw); 375px coluna única limpa dentro do Container, sem scroll horizontal
+
+## Solucion — tratamentos tipográficos (2026-08-25, parte 3)
+- ZONA DIREITA diferenciada: CUERPO Anton preto sólido (legenda por baixo); CARGA só contorno azul (fill transparente + WebkitTextStroke 1.5px #1B33DC, legenda À DIREITA com traço azul 2px, centrada verticalmente — layout side-caption só lg+, mobile empilha); CALENDARIO metade do tamanho (clamp 1.25rem/2.25vw/2.75rem) + tracking-[0.15em] + linha cinzenta fina (bg-line flex-1) à direita da legenda; JUEGO azul sólido, tamanho do CUERPO, legenda à direita com traço
+- Distribuição vertical: zona direita lg:self-stretch + flex-col justify-between → JUEGO termina EXATAMENTE ao nível das 4 linhas da esquerda (medido: 683px=683px a 1440, 617=617 a 1280, 528=528 a 1024)
+- ZONA ESQUERDA: palavra "SISTEMA" gigante (font-anton clamp(6rem,9vw,10rem), só contorno 1px #1B33DC, opacity-25, absolute top-full -left-[7vw] → sangra ~1vw para fora da margem esquerda, clipping via overflow-hidden da secção; hidden abaixo de lg); secção ganhou lg:pb-56 para a palavra caber no padding inferior
+- Folgas à faixa mantidas: 32/28/23px; 375px limpo sem scroll horizontal
