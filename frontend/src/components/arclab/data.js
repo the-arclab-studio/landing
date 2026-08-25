@@ -7,6 +7,7 @@ const MSGS = {
     duo: "Hola, nos interesa el plan Duo",
     elite: "Hola, quiero pedir plaza Elite",
     nutricion: "Hola, me interesa la guía nutricional",
+    valoracion: "Hola, quiero una valoración inicial gratuita.",
 };
 
 export const waLink = (country = "es", msg = "generic") =>

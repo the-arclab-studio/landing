@@ -12,6 +12,7 @@ import Solucion from "@/components/arclab/Solucion";
 import Metodo from "@/components/arclab/Metodo";
 import Cambios from "@/components/arclab/Cambios";
 import Planes from "@/components/arclab/Planes";
+import Valoracion from "@/components/arclab/Valoracion";
 import Prueba from "@/components/arclab/Prueba";
 import Sobre from "@/components/arclab/Sobre";
 import Faq from "@/components/arclab/Faq";
@@ -52,6 +53,7 @@ export default function App() {
         const onScroll = (e) => {
             if (!mql.matches || rmq.matches || pushing) return;
             if (performance.now() < cooldownUntil) return;
+            if (performance.now() < (lenisStore.suppressPush || 0)) return;
             if (document.body.style.overflow === "hidden") return;
             if (e.direction !== 1) return;
             const y = window.scrollY;
@@ -115,6 +117,7 @@ export default function App() {
                     </div>
                     <Cambios />
                     <Planes />
+                    <Valoracion />
                     <Prueba />
                     <Sobre />
                     <Faq />

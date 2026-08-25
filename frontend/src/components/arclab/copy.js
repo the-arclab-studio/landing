@@ -19,6 +19,11 @@ export const COPY = {
             photoAlt: "Jugador de baloncesto en pleno mate, en el pico del salto",
             cta1: "Empezar ahora",
             cta2: "Ver planes",
+            ctaNote: {
+                pre: "Empieza con una valoración inicial ",
+                em: "gratuita",
+                post: ".",
+            },
         },
         problema: {
             titleL1: "entrenar mucho",
@@ -228,6 +233,14 @@ export const COPY = {
             price: "35€",
             unit: "pago único",
             cta: "Empezar ahora",
+        },
+        valoracion: {
+            eyebrow: "Primer paso",
+            titlePre: "antes de elegir plan,",
+            titleEm: "hablamos.",
+            text: "Una valoración inicial gratuita, sin compromiso. Vemos en qué punto de la temporada estás, qué te está limitando y te decimos qué plan encaja contigo — o si ninguno encaja.",
+            formats: ["Videollamada", "Llamada", "WhatsApp"],
+            cta: "Pedir valoración",
         },
         prueba: {
             eyebrow: "Prueba · Programa 01 → 02",

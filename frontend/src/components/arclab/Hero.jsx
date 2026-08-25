@@ -6,6 +6,7 @@ import { Eyebrow, SideNum, Cross } from "./Bits";
 import { useLang } from "./LangContext";
 import { introSeen } from "./Intro";
 import { waLink } from "./data";
+import { lenisStore } from "./lenisStore";
 
 const B = introSeen() ? 0 : 8.2;
 
@@ -144,6 +145,33 @@ const Hero = () => {
                             {t.hero.cta2} <span aria-hidden="true">↓</span>
                         </a>
                     </motion.div>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.9, delay: B + 1.25, ease: [0.22, 1, 0.36, 1] }}
+                        className="mt-6"
+                    >
+                        <a
+                            href="#valoracion"
+                            data-testid="hero-valoracion-link"
+                            onClick={(e) => {
+                                if (lenisStore.current) {
+                                    e.preventDefault();
+                                    lenisStore.suppressPush = performance.now() + 1200;
+                                    lenisStore.current.scrollTo("#valoracion", {
+                                        duration: 0.7,
+                                        easing: (t) => 1 - Math.pow(1 - t, 3),
+                                    });
+                                }
+                            }}
+                            className="inline-block rounded-sm py-2 font-inter text-sm text-ink2 transition-colors duration-200 ease-out hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-arcblue focus-visible:ring-offset-2"
+                        >
+                            {t.hero.ctaNote.pre}
+                            <span className="text-arcblue">{t.hero.ctaNote.em}</span>
+                            {t.hero.ctaNote.post}
+                        </a>
+                    </motion.p>
                 </div>
 
                 <div className="relative z-30 mx-auto mt-10 max-w-sm sm:max-w-md lg:col-span-6 lg:mt-[86px] lg:-mb-20 lg:max-w-none lg:origin-bottom lg:scale-[1.12] xl:mt-14 xl:-mb-24">
