@@ -428,3 +428,9 @@
 - data.js: nova mensagem MSGS.valoracion = "Hola, quiero una valoración inicial gratuita."
 - FIX DE CONFLITO: o empurrão magnético do App.js intercetava o scroll programático do link do Hero (parava em Problema); adicionada bandeira lenisStore.suppressPush (1200ms) definida no clique e verificada no onScroll — sem alteração visual a nenhuma secção
 - Verificado 1440/1024/375: sem scroll horizontal, formatos em linha/empilhados corretos; clique no link do Hero aterra em #valoracion (topo ≈96px = scroll-mt-24); empurrão magnético continua funcional após a supressão expirar (wheel 700 → 936)
+
+## Solucion — rebuild estrutural em duas zonas viewport (2026-08-25, parte 2)
+- Desktop (lg+): conteúdo SEM Container (Container com lg:max-w-none lg:mx-0 lg:px-0); ZONA ESQUERDA 6vw→40vw (ml-[6vw] w-[34vw]): eyebrow com PONTO azul (não traço) "NUESTRO SISTEMA", título font-anton uppercase leading-[0.85] em 4 linhas (UN PLAN/QUE SE/MUEVE/CONTIGO) com clamp(3rem,5vw,6.5rem), traço azul 2px, 4 linhas Inter ink2; ZONA DIREITA 60vw→94vw (mr-[6vw] w-[34vw]): 4 itens CUERPO/CARGA/CALENDARIO/JUEGO em font-anton clamp(2.5rem,4.5vw,5.5rem) + legenda Inter ink2, mais densa que a esquerda
+- copy.js: bloco solucion reescrito — eyebrow, titleLines[4], lines[4] (substituem sub1/sub2), items com "Partido"→"Juego" e novos textos; photoLabel removido (sem uso)
+- REMOVIDO nesta secção (spec "só estrutura, sem ornamentos"): watermark "SISTEMA", Cross, números Playfair, ícones Plus e efeitos hover dos itens — flagged ao cliente, restaurável se quiser
+- Strip INTOCÁVEL e intacto; medições: 1440px folga 32px/lado, 1280px 28px, 1024px 23px (≥2vw); 375px coluna única limpa dentro do Container, sem scroll horizontal
