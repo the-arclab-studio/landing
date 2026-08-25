@@ -407,3 +407,10 @@
 
 - Conteúdos Atletas 3 e 4 do carrossel (foto, nome, liga, equipa, citação) + posição/citação do Alex
 - Bios de Uxue e Gonçalo (Sobre) + revisão mobile da primeira metade (utilizador tinha dito "esquece o mobile" — revisitar quando quiser)
+
+## Planes — botões em contorno + badge reposto (2026-08-24, parte 13)
+- Badge "EL MÁS VENDIDO" (Pro): REPOSTA a pílula azul sólida (rounded-full bg-arcblue, texto branco, -top-3 left-8) — tinha sido removida na parte 12 a pedido, cliente voltou atrás
+- Botões Basic/Pro/Duo: fundo azul sólido → estilo CONTORNO (bg-transparent, border-[1.5px] border-arcblue, text-arcblue, rounded-full) com hover a encher (hover:bg-arcblue hover:text-white), transição 250ms; sem qualquer ícone/emoji antes de "EMPEZAR"
+- Cartão Pro mantém fundo azul claro #EEF0FC + ring-arcblue; Elite INTACTO (pílula branca + anel animado)
+- Verificado por screenshot a 1440px: contorno correto em Basic/Duo, hover a encher confirmado no Pro
+- DECISÕES DO CLIENTE (2026-08-24): revisão mobile 375px ADIADA ("ainda não"); fotos Uxía/Gonçalo e textos detail do acordeão Problema FICAM EM ESPERA ("depois")

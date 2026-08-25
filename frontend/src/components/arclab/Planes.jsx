@@ -36,7 +36,7 @@ const PlanCard = ({ plan, wa }) => {
             {featured && (
                 <span
                     data-testid="plan-featured-badge"
-                    className="absolute -top-3 left-8 font-grotesk text-[10px] font-medium uppercase tracking-[0.25em] text-arcblue"
+                    className="absolute -top-3 left-8 rounded-full bg-arcblue px-4 py-1 font-grotesk text-[10px] font-medium uppercase tracking-[0.25em] text-white"
                 >
                     {plan.badge}
                 </span>
@@ -137,11 +137,7 @@ const PlanCard = ({ plan, wa }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid={`plan-whatsapp-${plan.id}`}
-                    className={
-                        featured
-                          ? "btn-blue mt-8 justify-center whitespace-nowrap"
-                          : "btn-outline mt-8 justify-center whitespace-nowrap"
-                    }
+                    className="mt-8 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border-[1.5px] border-arcblue bg-transparent px-7 py-3.5 font-grotesk text-sm font-medium uppercase tracking-[0.15em] text-arcblue transition-colors duration-[250ms] hover:bg-arcblue hover:text-white"
                 >
                     {plan.cta}
                 </a>
