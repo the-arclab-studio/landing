@@ -445,3 +445,8 @@
 - SVG inline único (testid solucion-court-svg): marcação parcial de campo vista de topo — arco grande (path A 300), círculo (r95), retângulo (cortado pelo viewBox à direita) + UMA linha tracejada; stroke 1px #1B33DC, grupo com opacity 0.2
 - Posição: absolute -right-[6vw] top-1/2 -translate-y-1/2, 32vw×32vw (terço direito), parcialmente cortado pela margem direita (overflow-hidden da secção), z-0 como 1.º filho da Section; wrapper do conteúdo ganhou relative z-10 (sem ele, o SVG posicionado pintaria POR CIMA do texto não-posicionado da zona direita — regra de pintura CSS)
 - aria-hidden + pointer-events-none + hidden lg:block; verificado 1440px: texto legível por cima, sem scroll horizontal
+
+## Solucion — afinações CARGA + SVG (2026-08-25, parte 5)
+- CARGA: contorno engrossado para WebkitTextStroke 2.5px (presença comparável ao CUERPO sólido); legenda reestruturada: traço azul 2px COLADO ao texto (wrapper flex gap-3, dash hidden no mobile), alinhado ao meio da palavra — mesmo tratamento do JUEGO
+- SVG de fundo: arco afastado da legenda do CUERPO (path M 200 60 A 290 290 — topo do arco ~55px à direita e abaixo da legenda); retângulo agora COMPLETO dentro da secção em todas as larguras desktop (x=340 w=130, termina a 470 do viewBox — o corte da secção cai sempre em 487); círculo recentrado cx=340 (na linha da área); tracejada ligada ao círculo (x2=245)
+- Verificado 1440 e 1280: stroke 2.5px confirmado, retângulo completo visível, arco afastado, sem scroll horizontal

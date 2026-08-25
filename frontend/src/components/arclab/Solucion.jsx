@@ -27,13 +27,13 @@ const Solucion = () => {
                 className="pointer-events-none absolute -right-[6vw] top-1/2 z-0 hidden h-[32vw] w-[32vw] -translate-y-1/2 lg:block"
             >
                 <g stroke="#1B33DC" strokeWidth="1" opacity="0.2">
-                    <path d="M 120 40 A 300 300 0 0 0 120 560" />
-                    <circle cx="380" cy="300" r="95" />
-                    <rect x="380" y="185" width="260" height="230" />
+                    <path d="M 200 60 A 290 290 0 0 0 200 560" />
+                    <circle cx="340" cy="300" r="95" />
+                    <rect x="340" y="185" width="130" height="230" />
                     <line
                         x1="60"
                         y1="300"
-                        x2="285"
+                        x2="245"
                         y2="300"
                         strokeDasharray="6 6"
                     />
@@ -106,18 +106,18 @@ const Solucion = () => {
                                         className={`${WORD_BASE} text-3xl`}
                                         style={{
                                             color: "transparent",
-                                            WebkitTextStroke: "1.5px #1B33DC",
+                                            WebkitTextStroke: "2.5px #1B33DC",
                                         }}
                                     >
                                         {carga.title}
                                     </h3>
-                                    <span
-                                        aria-hidden="true"
-                                        className="hidden h-0.5 w-8 shrink-0 bg-arcblue lg:block"
-                                    />
-                                    <p className={`mt-2 lg:mt-0 ${CAPTION}`}>
-                                        {carga.text}
-                                    </p>
+                                    <span className="mt-2 flex items-center gap-3 lg:mt-0">
+                                        <span
+                                            aria-hidden="true"
+                                            className="hidden h-0.5 w-8 shrink-0 bg-arcblue lg:block"
+                                        />
+                                        <p className={CAPTION}>{carga.text}</p>
+                                    </span>
                                 </div>
                             </div>
                         </Reveal>
