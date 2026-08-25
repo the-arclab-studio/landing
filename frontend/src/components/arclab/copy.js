@@ -19,6 +19,11 @@ export const COPY = {
             photoAlt: "Jugador de baloncesto en pleno mate, en el pico del salto",
             cta1: "Empezar ahora",
             cta2: "Ver planes",
+            ctaNote: {
+                pre: "Empieza con una valoración inicial ",
+                em: "gratuita",
+                post: ".",
+            },
         },
         problema: {
             titleL1: "entrenar mucho",

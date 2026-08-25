@@ -414,3 +414,10 @@
 - Cartão Pro mantém fundo azul claro #EEF0FC + ring-arcblue; Elite INTACTO (pílula branca + anel animado)
 - Verificado por screenshot a 1440px: contorno correto em Basic/Duo, hover a encher confirmado no Pro
 - DECISÕES DO CLIENTE (2026-08-24): revisão mobile 375px ADIADA ("ainda não"); fotos Uxía/Gonçalo e textos detail do acordeão Problema FICAM EM ESPERA ("depois")
+
+## Hero — nota de apoio aos CTAs (2026-08-25)
+- Nova linha por baixo dos botões: "Empieza con una valoración inicial gratuita." — Inter 14px (text-sm), ink2, palavra "gratuita" em #1B33DC; sem caixa/ícone/botão
+- copy.js: nova chave hero.ctaNote {pre/em/post}
+- Clicável → scroll suave Lenis (0.7s, ease-out cubic, mesmo do BackToTop) para a âncora #valoracion; hover escurece para ink (200ms), focus-visible com anel azul; testid hero-valoracion-link
+- ⚠️ A SECÇÃO #valoracion AINDA NÃO EXISTE — o clique não leva a lado nenhum até a secção ser criada (cliente proibiu tocar fora do Hero neste pedido)
+- Verificado 1440×900 e 1280×800: nada empurrado, legenda "— Arc.Lab Training System" continua no primeiro ecrã (fundo em 784px a 1280×800), sem scroll horizontal
