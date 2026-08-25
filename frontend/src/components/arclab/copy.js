@@ -234,6 +234,14 @@ export const COPY = {
             unit: "pago único",
             cta: "Empezar ahora",
         },
+        valoracion: {
+            eyebrow: "Primer paso",
+            titlePre: "antes de elegir plan,",
+            titleEm: "hablamos.",
+            text: "Una valoración inicial gratuita, sin compromiso. Vemos en qué punto de la temporada estás, qué te está limitando y te decimos qué plan encaja contigo — o si ninguno encaja.",
+            formats: ["Videollamada", "Llamada", "WhatsApp"],
+            cta: "Pedir valoración",
+        },
         prueba: {
             eyebrow: "Prueba · Programa 01 → 02",
             titlePre: "palabra de",

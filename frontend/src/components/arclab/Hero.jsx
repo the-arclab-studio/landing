@@ -158,6 +158,7 @@ const Hero = () => {
                             onClick={(e) => {
                                 if (lenisStore.current) {
                                     e.preventDefault();
+                                    lenisStore.suppressPush = performance.now() + 1200;
                                     lenisStore.current.scrollTo("#valoracion", {
                                         duration: 0.7,
                                         easing: (t) => 1 - Math.pow(1 - t, 3),

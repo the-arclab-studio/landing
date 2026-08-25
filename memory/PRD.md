@@ -421,3 +421,10 @@
 - Clicável → scroll suave Lenis (0.7s, ease-out cubic, mesmo do BackToTop) para a âncora #valoracion; hover escurece para ink (200ms), focus-visible com anel azul; testid hero-valoracion-link
 - ⚠️ A SECÇÃO #valoracion AINDA NÃO EXISTE — o clique não leva a lado nenhum até a secção ser criada (cliente proibiu tocar fora do Hero neste pedido)
 - Verificado 1440×900 e 1280×800: nada empurrado, legenda "— Arc.Lab Training System" continua no primeiro ecrã (fundo em 784px a 1280×800), sem scroll horizontal
+
+## Nova secção Valoración (2026-08-25)
+- Novo Valoracion.jsx entre Planes e Prueba (id="valoracion", SideNum "06", bg-bone, <Section>/<Container>, Eyebrow + Headline existentes, cantos azuis com o padrão Corner do Nutricion — <Brackets /> partilhado NÃO existia)
+- Conteúdo em copy.js (bloco valoracion): overline "Primer paso", título "antes de elegir plan," + "hablamos." azul (Headline em Playfair itálico azul), texto da valoración, 3 formatos (Videollamada/Llamada/WhatsApp com ícones Video/Phone/MessageCircle, em linha sm+, empilhados no mobile — indicadores, NÃO botões), CTA único btn-blue "Pedir valoración" (rótulo escolhido por mim — não estava na spec, cliente pode trocar)
+- data.js: nova mensagem MSGS.valoracion = "Hola, quiero una valoración inicial gratuita."
+- FIX DE CONFLITO: o empurrão magnético do App.js intercetava o scroll programático do link do Hero (parava em Problema); adicionada bandeira lenisStore.suppressPush (1200ms) definida no clique e verificada no onScroll — sem alteração visual a nenhuma secção
+- Verificado 1440/1024/375: sem scroll horizontal, formatos em linha/empilhados corretos; clique no link do Hero aterra em #valoracion (topo ≈96px = scroll-mt-24); empurrão magnético continua funcional após a supressão expirar (wheel 700 → 936)
