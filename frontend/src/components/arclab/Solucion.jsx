@@ -19,8 +19,28 @@ const Solucion = () => {
             className="relative scroll-mt-24 overflow-hidden lg:pb-56"
         >
             <SideNum n="04" />
+            <svg
+                aria-hidden="true"
+                data-testid="solucion-court-svg"
+                viewBox="0 0 600 600"
+                fill="none"
+                className="pointer-events-none absolute -right-[6vw] top-1/2 z-0 hidden h-[32vw] w-[32vw] -translate-y-1/2 lg:block"
+            >
+                <g stroke="#1B33DC" strokeWidth="1" opacity="0.2">
+                    <path d="M 120 40 A 300 300 0 0 0 120 560" />
+                    <circle cx="380" cy="300" r="95" />
+                    <rect x="380" y="185" width="260" height="230" />
+                    <line
+                        x1="60"
+                        y1="300"
+                        x2="285"
+                        y2="300"
+                        strokeDasharray="6 6"
+                    />
+                </g>
+            </svg>
             <Container className="lg:mx-0 lg:max-w-none lg:px-0">
-                <div className="lg:flex lg:items-start lg:justify-between">
+                <div className="relative z-10 lg:flex lg:items-start lg:justify-between">
                     {/* ZONA ESQUERDA — 6vw a 40vw (folga de 2vw ate a faixa) */}
                     <div className="lg:relative lg:ml-[6vw] lg:w-[34vw]">
                         <Reveal>

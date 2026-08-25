@@ -440,3 +440,8 @@
 - Distribuição vertical: zona direita lg:self-stretch + flex-col justify-between → JUEGO termina EXATAMENTE ao nível das 4 linhas da esquerda (medido: 683px=683px a 1440, 617=617 a 1280, 528=528 a 1024)
 - ZONA ESQUERDA: palavra "SISTEMA" gigante (font-anton clamp(6rem,9vw,10rem), só contorno 1px #1B33DC, opacity-25, absolute top-full -left-[7vw] → sangra ~1vw para fora da margem esquerda, clipping via overflow-hidden da secção; hidden abaixo de lg); secção ganhou lg:pb-56 para a palavra caber no padding inferior
 - Folgas à faixa mantidas: 32/28/23px; 375px limpo sem scroll horizontal
+
+## Solucion — desenho técnico de fundo (2026-08-25, parte 4)
+- SVG inline único (testid solucion-court-svg): marcação parcial de campo vista de topo — arco grande (path A 300), círculo (r95), retângulo (cortado pelo viewBox à direita) + UMA linha tracejada; stroke 1px #1B33DC, grupo com opacity 0.2
+- Posição: absolute -right-[6vw] top-1/2 -translate-y-1/2, 32vw×32vw (terço direito), parcialmente cortado pela margem direita (overflow-hidden da secção), z-0 como 1.º filho da Section; wrapper do conteúdo ganhou relative z-10 (sem ele, o SVG posicionado pintaria POR CIMA do texto não-posicionado da zona direita — regra de pintura CSS)
+- aria-hidden + pointer-events-none + hidden lg:block; verificado 1440px: texto legível por cima, sem scroll horizontal
