@@ -428,3 +428,25 @@
 - data.js: nova mensagem MSGS.valoracion = "Hola, quiero una valoración inicial gratuita."
 - FIX DE CONFLITO: o empurrão magnético do App.js intercetava o scroll programático do link do Hero (parava em Problema); adicionada bandeira lenisStore.suppressPush (1200ms) definida no clique e verificada no onScroll — sem alteração visual a nenhuma secção
 - Verificado 1440/1024/375: sem scroll horizontal, formatos em linha/empilhados corretos; clique no link do Hero aterra em #valoracion (topo ≈96px = scroll-mt-24); empurrão magnético continua funcional após a supressão expirar (wheel 700 → 936)
+
+## Solucion — rebuild estrutural em duas zonas viewport (2026-08-25, parte 2)
+- Desktop (lg+): conteúdo SEM Container (Container com lg:max-w-none lg:mx-0 lg:px-0); ZONA ESQUERDA 6vw→40vw (ml-[6vw] w-[34vw]): eyebrow com PONTO azul (não traço) "NUESTRO SISTEMA", título font-anton uppercase leading-[0.85] em 4 linhas (UN PLAN/QUE SE/MUEVE/CONTIGO) com clamp(3rem,5vw,6.5rem), traço azul 2px, 4 linhas Inter ink2; ZONA DIREITA 60vw→94vw (mr-[6vw] w-[34vw]): 4 itens CUERPO/CARGA/CALENDARIO/JUEGO em font-anton clamp(2.5rem,4.5vw,5.5rem) + legenda Inter ink2, mais densa que a esquerda
+- copy.js: bloco solucion reescrito — eyebrow, titleLines[4], lines[4] (substituem sub1/sub2), items com "Partido"→"Juego" e novos textos; photoLabel removido (sem uso)
+- REMOVIDO nesta secção (spec "só estrutura, sem ornamentos"): watermark "SISTEMA", Cross, números Playfair, ícones Plus e efeitos hover dos itens — flagged ao cliente, restaurável se quiser
+- Strip INTOCÁVEL e intacto; medições: 1440px folga 32px/lado, 1280px 28px, 1024px 23px (≥2vw); 375px coluna única limpa dentro do Container, sem scroll horizontal
+
+## Solucion — tratamentos tipográficos (2026-08-25, parte 3)
+- ZONA DIREITA diferenciada: CUERPO Anton preto sólido (legenda por baixo); CARGA só contorno azul (fill transparente + WebkitTextStroke 1.5px #1B33DC, legenda À DIREITA com traço azul 2px, centrada verticalmente — layout side-caption só lg+, mobile empilha); CALENDARIO metade do tamanho (clamp 1.25rem/2.25vw/2.75rem) + tracking-[0.15em] + linha cinzenta fina (bg-line flex-1) à direita da legenda; JUEGO azul sólido, tamanho do CUERPO, legenda à direita com traço
+- Distribuição vertical: zona direita lg:self-stretch + flex-col justify-between → JUEGO termina EXATAMENTE ao nível das 4 linhas da esquerda (medido: 683px=683px a 1440, 617=617 a 1280, 528=528 a 1024)
+- ZONA ESQUERDA: palavra "SISTEMA" gigante (font-anton clamp(6rem,9vw,10rem), só contorno 1px #1B33DC, opacity-25, absolute top-full -left-[7vw] → sangra ~1vw para fora da margem esquerda, clipping via overflow-hidden da secção; hidden abaixo de lg); secção ganhou lg:pb-56 para a palavra caber no padding inferior
+- Folgas à faixa mantidas: 32/28/23px; 375px limpo sem scroll horizontal
+
+## Solucion — desenho técnico de fundo (2026-08-25, parte 4)
+- SVG inline único (testid solucion-court-svg): marcação parcial de campo vista de topo — arco grande (path A 300), círculo (r95), retângulo (cortado pelo viewBox à direita) + UMA linha tracejada; stroke 1px #1B33DC, grupo com opacity 0.2
+- Posição: absolute -right-[6vw] top-1/2 -translate-y-1/2, 32vw×32vw (terço direito), parcialmente cortado pela margem direita (overflow-hidden da secção), z-0 como 1.º filho da Section; wrapper do conteúdo ganhou relative z-10 (sem ele, o SVG posicionado pintaria POR CIMA do texto não-posicionado da zona direita — regra de pintura CSS)
+- aria-hidden + pointer-events-none + hidden lg:block; verificado 1440px: texto legível por cima, sem scroll horizontal
+
+## Solucion — afinações CARGA + SVG (2026-08-25, parte 5)
+- CARGA: contorno engrossado para WebkitTextStroke 2.5px (presença comparável ao CUERPO sólido); legenda reestruturada: traço azul 2px COLADO ao texto (wrapper flex gap-3, dash hidden no mobile), alinhado ao meio da palavra — mesmo tratamento do JUEGO
+- SVG de fundo: arco afastado da legenda do CUERPO (path M 200 60 A 290 290 — topo do arco ~55px à direita e abaixo da legenda); retângulo agora COMPLETO dentro da secção em todas as larguras desktop (x=340 w=130, termina a 470 do viewBox — o corte da secção cai sempre em 487); círculo recentrado cx=340 (na linha da área); tracejada ligada ao círculo (x2=245)
+- Verificado 1440 e 1280: stroke 2.5px confirmado, retângulo completo visível, arco afastado, sem scroll horizontal
